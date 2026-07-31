@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import modelsData from './data/models.json';
 import newsData from './data/news.json';
 import testimonialsData from './data/testimonials.json';
-import videosData from './data/videos.json';
+import runwayHighlightsData from './data/runway-highlights.json';
 import './App.css';
 
 const LANGUAGES = [
@@ -683,8 +683,6 @@ function App() {
   const [galleryFilter, setGalleryFilter] = useState('All');
   const [currentVideo, setCurrentVideo] = useState(0);
   const [topCarouselIndex, setTopCarouselIndex] = useState(0);
-  const [videoPlaying, setVideoPlaying] = useState(true);
-  const [videoProgress, setVideoProgress] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [saveDataMode, setSaveDataMode] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -698,10 +696,7 @@ function App() {
   const [masterclassesParallax, setMasterclassesParallax] = useState(0);
   const [masterclassImageIndex, setMasterclassImageIndex] = useState(0);
 
-  const videoRef = useRef(null);
   const statsRef = useRef(null);
-  const watchedSecondsRef = useRef(0);
-  const lastVideoTimeRef = useRef(0);
 
   const imageFallbacks = useMemo(
     () => ({
@@ -723,7 +718,7 @@ function App() {
   };
 
   const localizedVideos = useMemo(
-    () => videosData.map((item) => ({ ...item, title: copy.videos.titles[item.id] || item.title })),
+    () => runwayHighlightsData.map((item) => ({ ...item, title: copy.videos.titles[item.id] || item.title })),
     [copy],
   );
 
@@ -805,7 +800,6 @@ function App() {
       setSaveDataMode(saveData);
 
       if (reduced || saveData) {
-        setVideoPlaying(false);
         setHeroVideoHidden(true);
       }
     };
@@ -946,63 +940,14 @@ function App() {
   }, [pauseTestimonials, prefersReducedMotion, localizedTestimonials.length]);
 
   useEffect(() => {
-    const player = videoRef.current;
-    if (!player) return undefined;
+    if (prefersReducedMotion) return undefined;
 
-    watchedSecondsRef.current = 0;
-    lastVideoTimeRef.current = 0;
-    setVideoProgress(0);
+    const interval = window.setInterval(() => {
+      setCurrentVideo((previous) => (previous + 1) % localizedVideos.length);
+    }, 5000);
 
-    const handleLoadedMetadata = () => {
-      watchedSecondsRef.current = 0;
-      lastVideoTimeRef.current = player.currentTime || 0;
-      setVideoProgress(0);
-    };
-
-    const handleTimeUpdate = () => {
-      const current = player.currentTime || 0;
-      const last = lastVideoTimeRef.current;
-      const duration = player.duration || 0;
-
-      if (duration > 0) {
-        if (current >= last) {
-          watchedSecondsRef.current += current - last;
-        } else {
-          watchedSecondsRef.current += Math.max(duration - last, 0) + current;
-        }
-      }
-
-      lastVideoTimeRef.current = current;
-
-      const normalizedProgress = Math.min((watchedSecondsRef.current / 60) * 100, 100);
-      setVideoProgress(normalizedProgress);
-
-      if (watchedSecondsRef.current >= 60) {
-        setCurrentVideo((previous) => (previous + 1) % localizedVideos.length);
-      }
-    };
-
-    player.addEventListener('loadedmetadata', handleLoadedMetadata);
-    player.addEventListener('timeupdate', handleTimeUpdate);
-
-    return () => {
-      player.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      player.removeEventListener('timeupdate', handleTimeUpdate);
-    };
-  }, [currentVideo, localizedVideos.length]);
-
-  useEffect(() => {
-    const player = videoRef.current;
-    if (!player) return;
-
-    if (videoPlaying) {
-      player.play().catch(() => {
-        setVideoPlaying(false);
-      });
-    } else {
-      player.pause();
-    }
-  }, [videoPlaying, currentVideo]);
+    return () => window.clearInterval(interval);
+  }, [prefersReducedMotion, localizedVideos.length]);
 
   const filteredModels = useMemo(() => {
     if (galleryFilter === 'All') return localizedModels;
@@ -1229,34 +1174,21 @@ function App() {
           </div>
 
           <div className="video-player reveal">
-            <video
+            <img
               key={currentVideoItem.id}
-              ref={videoRef}
-              src={currentVideoItem.src}
-              poster={currentVideoItem.poster}
-              controls={false}
-              loop
-              playsInline
-              muted
-              preload="metadata"
-              autoPlay={!saveDataMode && !prefersReducedMotion}
-              onError={() => {
-                setVideoPlaying(false);
-              }}
+              src={currentVideoItem.poster}
+              srcSet={getSrcSet(currentVideoItem.poster)}
+              alt={currentVideoItem.title}
+              loading="lazy"
+              decoding="async"
+              onError={(event) => handleImageFallback(event, 'video')}
             />
             <div className="video-controls">
-              <button
-                type="button"
-                aria-label={videoPlaying ? copy.videos.pauseAria : copy.videos.playAria}
-                onClick={() => setVideoPlaying((previous) => !previous)}
-              >
-                {videoPlaying ? copy.videos.pause : copy.videos.play}
-              </button>
               <button type="button" onClick={() => setCurrentVideo((previous) => (previous + 1) % localizedVideos.length)}>
                 {copy.videos.next}
               </button>
               <div className="progress-track" aria-label={copy.videos.progressAria}>
-                <span style={{ width: `${videoProgress}%` }} />
+                <span style={{ width: `${((currentVideo + 1) / localizedVideos.length) * 100}%` }} />
               </div>
             </div>
           </div>

@@ -527,7 +527,8 @@
 .testimonial-card img,
 .modal-card.profile img,
 .video-thumbs img,
-.video-player video {
+.video-player video,
+.video-player img {
   width: 100%;
   display: block;
   object-fit: cover;
@@ -548,7 +549,8 @@
   background: #111;
 }
 
-.video-player video {
+.video-player video,
+.video-player img {
   aspect-ratio: 16 / 9;
 }
 
