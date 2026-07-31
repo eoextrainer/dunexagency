@@ -488,6 +488,16 @@
   z-index: 1;
 }
 
+.masterclasses-section .section-heading .eyebrow {
+  color: #f2c94c;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.masterclasses-section .section-heading h2 {
+  color: #ffffff;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55);
+}
+
 .city-card h3 {
   font-size: 1.4rem;
 }

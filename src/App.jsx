@@ -249,33 +249,33 @@ const DICTIONARY = {
       title: "L'\u00e9l\u00e9gance de l'excellence.",
       cards: [
         {
-          title: 'Education Avant Tout',
+          title: '\u00c9ducation Avant Tout',
           description:
-            'Chaque talent commence par une vraie culture mode: contrats, droits, limites et economie du secteur.',
+            'Chaque talent commence par une vraie culture mode: contrats, droits, limites et \u00e9conomie du secteur.',
         },
         {
-          title: 'Remuneration Equitable',
+          title: 'R\u00e9mun\u00e9ration \u00c9quitable',
           description:
-            'DUNEX garantit une remuneration transparente pour le podium, l editorial, le commercial et le digital.',
+            'DUNEX garantit une r\u00e9mun\u00e9ration transparente pour le podium, l\'\u00e9ditorial, le commercial et le digital.',
         },
         {
           title: 'Sans Castings',
           description:
-            'Nous preselectionnons les talents pour des opportunites alignees, avec moins d incertitude et plus de protection.',
+            'Nous pr\u00e9s\u00e9lectionnons les talents pour des opportunit\u00e9s align\u00e9es, avec moins d\'incertitude et plus de protection.',
         },
         {
-          title: 'Modele Mother Agency',
-          description: 'Les modeles peuvent collaborer avec d autres agences, DUNEX restant leur protection strategique et legale.',
+          title: 'Mod\u00e8le Mother Agency',
+          description: 'Les mod\u00e8les peuvent collaborer avec d\'autres agences, DUNEX restant leur protection strat\u00e9gique et l\u00e9gale.',
         },
         {
           title: 'Recrutement Masterclass',
           description:
-            'L entree se merite via des ateliers intensifs qui evaluent esthetique, coachabilite et discipline.',
+            'L\'entr\u00e9e se m\u00e9rite via des ateliers intensifs qui \u00e9valuent esth\u00e9tique, coachabilit\u00e9 et discipline.',
         },
         {
-          title: 'Code Ethique',
+          title: 'Code \u00c9thique',
           description:
-            'Un cadre ethique strict garantit dignite, securite et responsabilite professionnelle pour toutes les parties.',
+            'Un cadre \u00e9thique strict garantit dignit\u00e9, s\u00e9curit\u00e9 et responsabilit\u00e9 professionnelle pour toutes les parties.',
         },
       ],
       stats: ['Villes', 'D\u00e9fil\u00e9s', '100+ Opportunit\u00e9s commerciales et \u00e9ditoriales'],
@@ -333,7 +333,7 @@ const DICTIONARY = {
     },
     testimonials: {
       eyebrow: 'Voix',
-      title: 'Modeles et marques partenaires.',
+      title: 'Mod\u00e8les et marques partenaires.',
       portraitSuffix: 'portrait',
       roles: { 1: 'Modele Podium', 2: 'Directeur Creatif, Maison Verre', 3: 'Modele Editoriale' },
       quotes: {
@@ -344,7 +344,7 @@ const DICTIONARY = {
     },
     news: {
       eyebrow: 'Magazine',
-      title: 'Actualites agence, modeles mis en lumiere et intelligence sectorielle.',
+      title: 'Actualit\u00e9s agence, mod\u00e8les mis en lumi\u00e8re et intelligence sectorielle.',
       readMore: 'Lire Plus',
       loadMore: 'Voir Plus',
       items: {
@@ -385,11 +385,11 @@ const DICTIONARY = {
         modelling: 'Candidature Mannequin',
         booking: 'Booking Client',
         press: 'Presse',
-        general: 'General',
+        general: 'G\u00e9n\u00e9ral',
       },
       message: 'Message',
       send: 'Envoyer le Message',
-      hq: 'Siege DUNEX',
+      hq: 'Si\u00e8ge DUNEX',
       address: '44 Rue du Faubourg Saint-Honore, Paris',
       mapTitle: 'Carte DUNEX',
     },
@@ -423,7 +423,7 @@ const DICTIONARY = {
         { title: 'Compensaci\u00f3n Justa', description: 'DUNEX asegura pago transparente para pasarela, editorial, comercial y digital.' },
         { title: 'Sin Castings', description: 'Preseleccionamos talento para oportunidades alineadas, reduciendo incertidumbre.' },
         { title: 'Modelo Mother Agency', description: 'Las modelos colaboran con otras agencias mientras DUNEX protege estrategia y legalidad.' },
-        { title: 'Reclutamiento Masterclass', description: 'La entrada se gana en talleres intensivos que evalan estetica y disciplina.' },
+        { title: 'Reclutamiento Masterclass', description: 'La entrada se gana en talleres intensivos que eval\u00faan est\u00e9tica y disciplina.' },
         { title: 'C\u00f3digo \u00c9tico', description: 'Un marco \u00e9tico estricto mantiene dignidad, seguridad y responsabilidad.' },
       ],
       stats: ['Ciudades', 'Desfiles', '100+ Oportunidades comerciales y editoriales'],
@@ -456,13 +456,13 @@ const DICTIONARY = {
     testimonials: {
       eyebrow: 'Voces', title: 'De modelos y marcas asociadas.', portraitSuffix: 'retrato', roles: { 1: 'Modelo de Pasarela', 2: 'Director Creativo, Maison Verre', 3: 'Modelo Editorial' },
       quotes: {
-        1: 'DUNEX me enseno claridad contractual antes de mi primer desfile internacional. Esa formacion lo cambio todo.',
+        1: 'DUNEX me ense\u00f1\u00f3 claridad contractual antes de mi primer desfile internacional. Esa formaci\u00f3n lo cambi\u00f3 todo.',
         2: 'La calidad del talento es excepcional, pero destaca su profesionalismo y estructura etica.',
-        3: 'Entre por una masterclass y me senti protegida desde el primer dia, con pago transparente y guia.',
+        3: 'Entr\u00e9 por una masterclass y me sent\u00ed protegida desde el primer d\u00eda, con pago transparente y gu\u00eda.',
       },
     },
     news: {
-      eyebrow: 'Magazine', title: 'Actualizaciones de agencia, foco en modelos e inteligencia del sector.', readMore: 'Leer Mas', loadMore: 'Cargar Mas',
+      eyebrow: 'Magazine', title: 'Actualizaciones de agencia, foco en modelos e inteligencia del sector.', readMore: 'Leer M\u00e1s', loadMore: 'Cargar M\u00e1s',
       items: {
         1: { title: 'DUNEX anuncia su circuito invernal de masterclasses', excerpt: 'La serie de reclutamiento en siete ciudades abre con mentoria ampliada y formacion legal.' },
         2: { title: 'Modelo destacada: ascenso editorial de Yara Sol', excerpt: 'Del primer taller a campanas internacionales en menos de seis meses.' },
@@ -490,12 +490,12 @@ const DICTIONARY = {
     about: {
       eyebrow: 'Il Valore DUNEX', title: "L'eleganza dell'eccellenza.",
       cards: [
-        { title: 'Prima l Educazione', description: 'Ogni talento inizia con vera cultura moda: contratti, diritti, limiti e business.' },
+        { title: 'Prima l\'Educazione', description: 'Ogni talento inizia con vera cultura moda: contratti, diritti, limiti e business.' },
         { title: 'Compenso Equo', description: 'DUNEX garantisce compensi trasparenti per passerella, editoriale, commerciale e digitale.' },
-        { title: 'Niente Casting', description: 'Preselezioniamo talenti per opportunita coerenti, riducendo incertezza.' },
+        { title: 'Niente Casting', description: 'Preselezioniamo talenti per opportunit\u00e0 coerenti, riducendo incertezza.' },
         { title: 'Modello Mother Agency', description: 'Le modelle collaborano con agenzie esterne mentre DUNEX resta protezione strategica e legale.' },
-        { title: 'Reclutamento Masterclass', description: 'L ingresso si conquista con workshop intensivi su estetica e disciplina.' },
-        { title: 'Codice Etico', description: 'Un quadro etico rigoroso tutela dignita, sicurezza e responsabilita professionale.' },
+        { title: 'Reclutamento Masterclass', description: 'L\'ingresso si conquista con workshop intensivi su estetica e disciplina.' },
+        { title: 'Codice Etico', description: 'Un quadro etico rigoroso tutela dignit\u00e0, sicurezza e responsabilit\u00e0 professionale.' },
       ],
       stats: ['Citt\u00e0', 'Sfilate', '100+ Opportunit\u00e0 commerciali ed editoriali'],
     },
@@ -523,7 +523,7 @@ const DICTIONARY = {
       eyebrow: 'Voci', title: 'Da modelle e brand partner.', portraitSuffix: 'ritratto', roles: { 1: 'Modella Passerella', 2: 'Direttore Creativo, Maison Verre', 3: 'Modella Editoriale' },
       quotes: {
         1: 'DUNEX mi ha insegnato chiarezza contrattuale prima del mio primo show internazionale. Ha cambiato tutto.',
-        2: 'La qualita dei talenti e eccezionale, ma spiccano professionalita e struttura etica.',
+        2: 'La qualit\u00e0 dei talenti \u00e8 eccezionale, ma spiccano professionalit\u00e0 e struttura etica.',
         3: 'Sono entrata tramite masterclass e mi sono sentita protetta dal primo giorno, con compensi trasparenti.',
       },
     },
@@ -550,20 +550,20 @@ const DICTIONARY = {
     toggleMenu: 'Abrir menu',
     nav: { hero: 'Inicio', about: 'Sobre', masterclasses: 'Masterclasses', gallery: 'Galeria', videos: 'Videos', testimonials: 'Testemunhos', news: 'Noticias', contact: 'Contacto' },
     brandTagline: 'G\u00e9nesis de Passarela',
-    hero: { aria: 'Carrossel de moda em destaque', iframeTitle: 'Carrossel de passarela DUNEX', kicker: 'A passarela espera por ti', heading: 'DUNEX', subheading: 'G\u00e9nesis de Passarela', copy: 'Representa\u00e7\u00e3o \u00e9tica para a nova gera\u00e7\u00e3o de talento global de moda.', cta: 'Descobrir a Passarela' },
+    hero: { aria: 'Carrossel de moda em destaque', iframeTitle: 'Carrossel de passarela DUNEX', kicker: 'A passarela espera por ti', heading: 'DUNEX', subheading: 'G\u00e9nese de Passarela', copy: 'Representa\u00e7\u00e3o \u00e9tica para a nova gera\u00e7\u00e3o de talento global de moda.', cta: 'Descobrir a Passarela' },
     about: {
       eyebrow: 'O Valor DUNEX', title: 'A eleg\u00e2ncia da excel\u00eancia.',
       cards: [
         { title: 'Educa\u00e7\u00e3o Primeiro', description: 'Todo talento come\u00e7a com literacia real de moda: contratos, direitos, limites e neg\u00f3cio.' },
         { title: 'Compensa\u00e7\u00e3o Justa', description: 'A DUNEX garante pagamento transparente em passarela, editorial, comercial e digital.' },
-        { title: 'Sem Castings', description: 'Pre-selecionamos talento para oportunidades alinhadas, reduzindo incerteza.' },
+        { title: 'Sem Castings', description: 'Pr\u00e9-selecionamos talento para oportunidades alinhadas, reduzindo incerteza.' },
         { title: 'Modelo Mother Agency', description: 'Modelos podem colaborar com outras agencias; a DUNEX protege estrategia e legalidade.' },
         { title: 'Recrutamento Masterclass', description: 'A entrada e conquistada em workshops intensivos de estetica e disciplina.' },
         { title: 'C\u00f3digo de \u00c9tica', description: 'Um quadro \u00e9tico rigoroso preserva dignidade, seguran\u00e7a e responsabilidade profissional.' },
       ],
       stats: ['Cidades', 'Desfiles', '100+ Oportunidades comerciais e editoriais'],
     },
-    masterclasses: { eyebrow: 'Recrutamento Masterclass', title: 'Workshops em varias cidades para entrar no ecossistema DUNEX.', register: 'Registar', modalTitle: 'Registar em', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefone', modalCity: 'Cidade', modalMessage: 'Mensagem', modalPlaceholder: 'Conta-nos os teus objetivos de modelagem', modalSubmit: 'Enviar', modalClose: 'Fechar', schedule: [
+    masterclasses: { eyebrow: 'Recrutamento Masterclass', title: 'Workshops em v\u00e1rias cidades para entrar no ecossistema DUNEX.', register: 'Registar', modalTitle: 'Registar em', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefone', modalCity: 'Cidade', modalMessage: 'Mensagem', modalPlaceholder: 'Conta-nos os teus objetivos de modelagem', modalSubmit: 'Enviar', modalClose: 'Fechar', schedule: [
       { city: 'Grenoble', date: '14 e 15 de agosto', venue: 'local a confirmar' },
       { city: 'Paris', date: '21 e 22 de agosto', venue: 'local a confirmar' },
       { city: 'Lyon', date: '28 e 29 de agosto', venue: 'local a confirmar' },
@@ -592,7 +592,7 @@ const DICTIONARY = {
       },
     },
     news: {
-      eyebrow: 'Magazine', title: 'Atualizacoes da agencia, destaque de modelos e inteligencia do setor.', readMore: 'Ler Mais', loadMore: 'Carregar Mais',
+      eyebrow: 'Magazine', title: 'Atualiza\u00e7\u00f5es da ag\u00eancia, destaque de modelos e intelig\u00eancia do setor.', readMore: 'Ler Mais', loadMore: 'Carregar Mais',
       items: {
         1: { title: 'DUNEX anuncia circuito de masterclasses de inverno', excerpt: 'Serie de recrutamento em sete cidades abre com mentoria ampliada e literacia legal.' },
         2: { title: 'Destaque: a ascensao editorial de Yara Sol', excerpt: 'Do primeiro workshop a campanhas internacionais em menos de seis meses.' },
@@ -1031,7 +1031,7 @@ function App() {
 
     const interval = window.setInterval(() => {
       setTopCarouselIndex((previous) => (previous + 1) % topCarouselTotal);
-    }, 60000);
+    }, 20000);
 
     return () => window.clearInterval(interval);
   }, [prefersReducedMotion, topCarouselTotal]);
