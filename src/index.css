@@ -1,0 +1,59 @@
+:root {
+  --dunex-charcoal: #1a1a1a;
+  --dunex-cream: #f8f5f0;
+  --dunex-gold: #d4af37;
+  --dunex-champagne: #c9a96e;
+  --dunex-blush: #e8d5d0;
+  --dunex-burgundy: #6b2e3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  color: var(--dunex-charcoal);
+  line-height: 1.55;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+p {
+  margin: 0;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
