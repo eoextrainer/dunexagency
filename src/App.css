@@ -63,9 +63,10 @@
 
 .hero-carousel {
   width: 92vw;
-  height: 62vh;
+  height: 88vh;
   max-width: 1500px;
-  max-height: 80vh;
+  max-height: 96vh;
+  min-height: 680px;
   margin: 0 auto 1.2rem;
 }
 
@@ -542,6 +543,150 @@
   padding: 1rem;
 }
 
+.archive-section {
+  border-radius: 1.2rem;
+  background:
+    linear-gradient(140deg, rgba(26, 26, 26, 0.95), rgba(49, 25, 30, 0.88) 58%, rgba(107, 46, 58, 0.78)),
+    radial-gradient(circle at 18% 22%, rgba(212, 175, 55, 0.2), transparent 42%);
+  color: #f8f5f0;
+}
+
+.archive-section .eyebrow {
+  color: #f2c94c;
+}
+
+.archive-section .section-heading h2 {
+  white-space: normal;
+  text-overflow: clip;
+}
+
+.archive-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.archive-media,
+.archive-ledger-card {
+  border-radius: 1rem;
+  border: 1px solid rgba(248, 245, 240, 0.18);
+  background: rgba(248, 245, 240, 0.06);
+  backdrop-filter: blur(4px);
+}
+
+.archive-media {
+  padding: 0.9rem;
+}
+
+.archive-video-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.archive-video-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(248, 245, 240, 0.22);
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.archive-video-card video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.archive-video-card figcaption,
+.archive-image-card figcaption {
+  padding: 0.45rem 0.6rem 0.55rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.84);
+}
+
+.archive-image-wall {
+  column-count: 2;
+  column-gap: 0.7rem;
+}
+
+.archive-image-card {
+  margin: 0 0 0.7rem;
+  break-inside: avoid;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid rgba(248, 245, 240, 0.22);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.archive-image-card img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.archive-ledger {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.archive-ledger-card {
+  padding: 0.9rem;
+}
+
+.archive-ledger-page {
+  margin: 0 0 0.7rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 201, 76, 0.95);
+}
+
+.archive-ledger-lines {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.archive-line {
+  margin: 0;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.archive-line.is-bold {
+  font-family: 'Cormorant Garamond', serif;
+  letter-spacing: 0.08em;
+}
+
+.archive-grid-description {
+  margin: 0 0 0.7rem;
+  font-size: 0.88rem;
+  color: rgba(248, 245, 240, 0.88);
+}
+
+.archive-grid-values {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
+  max-height: 240px;
+  overflow: auto;
+  padding-right: 0.2rem;
+}
+
+.archive-grid-values span {
+  display: grid;
+  place-items: center;
+  min-height: 1.65rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(248, 245, 240, 0.2);
+  background: rgba(248, 245, 240, 0.08);
+  font-size: 0.72rem;
+}
+
 .video-player {
   border-radius: 1rem;
   overflow: hidden;
@@ -606,6 +751,36 @@
   display: block;
   padding: 0.5rem;
   font-size: 0.85rem;
+}
+
+.runway-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.runway-gallery button {
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  background: #fff;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  text-align: left;
+  padding: 0;
+  min-height: unset;
+  box-shadow: none;
+}
+
+.runway-gallery button.active {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.22);
+}
+
+.runway-gallery img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
 
 .testimonial-card {
@@ -820,6 +995,22 @@
   .stats-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .runway-gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .archive-video-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .archive-image-wall {
+    column-count: 3;
+  }
+
+  .archive-grid-values {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 821px) {
@@ -865,6 +1056,14 @@
     gap: 1.2rem;
     padding: 0;
   }
+
+  .archive-layout {
+    grid-template-columns: 1.5fr 0.9fr;
+  }
+
+  .archive-video-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 1025px) {
@@ -877,6 +1076,18 @@
   .models-grid,
   .news-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .runway-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .archive-image-wall {
+    column-count: 4;
+  }
+
+  .archive-grid-values {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .contact-grid {

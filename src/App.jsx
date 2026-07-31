@@ -24,7 +24,6 @@ const DICTIONARY = {
       about: 'About',
       masterclasses: 'Masterclasses',
       gallery: 'Gallery',
-      videos: 'Videos',
       testimonials: 'Testimonials',
       news: 'News',
       contact: 'Contact',
@@ -125,21 +124,6 @@ const DICTIONARY = {
         4: 'Emerging face selected via DUNEX masterclass track, praised for expressive visual range.',
         5: 'Athletic runway profile with striking symmetry and disciplined rehearsal ethic.',
         6: 'New generation campaign model delivering clean posing language and approachable impact.',
-      },
-    },
-    videos: {
-      eyebrow: 'Runway Highlights',
-      title: 'Cinematic moments from shows, backstage, and testimonials.',
-      pauseAria: 'Pause runway video',
-      playAria: 'Play runway video',
-      pause: 'Pause',
-      play: 'Play',
-      next: 'Next Clip',
-      progressAria: 'Video progress',
-      titles: {
-        v1: 'Paris Runway Opening',
-        v2: 'Backstage Atelier',
-        v3: 'Editorial Motion Test',
       },
     },
     testimonials: {
@@ -611,6 +595,44 @@ const DICTIONARY = {
 
 const GALLERY_FILTER_KEYS = ['All', 'Runway', 'Editorial', 'Commercial', 'New Faces'];
 
+const ARCHIVE_DOCUMENT = {
+  pages: [
+    {
+      pageNumber: 1,
+      elements: [
+        { content: 'Ember Field OIL AND VELOCANE DUST ON BOARD, 120 x 240 CM', fontSize: 14, bold: false },
+        { content: '001 Horizon Collapse II Mixed media on canvas, 2023', fontSize: 12, bold: false },
+        { content: '002 Gesture #14 Charcoal and gesso, 2024', fontSize: 12, bold: false },
+      ],
+    },
+    {
+      pageNumber: 2,
+      elements: [
+        { content: 'Sediment Studies Pigment and wax, 2022', fontSize: 12, bold: false },
+        { content: 'Monolith in Mist Acrylic on board, 2024', fontSize: 12, bold: false },
+        { content: 'Bone Register Marble dust and oil on linen, 2023', fontSize: 12, bold: false },
+        { content: 'Red Ground, Interrupted Oil on canvas, 2019', fontSize: 12, bold: false },
+        { content: 'GROUP EXHIBITION', fontSize: 16, bold: true },
+        { content: 'FOLK GRAIN The Weight of Light The Roundhouse, London - Jan 2024', fontSize: 12, bold: false },
+        { content: 'FOLK PRESENTATION', fontSize: 16, bold: true },
+        { content: 'STUDIO FIEL', fontSize: 16, bold: true },
+        { content: 'Art Basel Paris Grand Palais, Paris - Oct 2023', fontSize: 12, bold: false },
+        { content: 'Grinding the Ground Process documentary', fontSize: 12, bold: false },
+      ],
+    },
+  ],
+  grid: {
+    description: 'Numeric grid from 0 to 153 with sequential numbering',
+    values: Array.from({ length: 154 }, (_, index) => index),
+  },
+};
+
+const ARCHIVE_VIDEO_PATHS = [
+  'ALBINA mariage 2.mp4',
+  'CATIA mariage 3.mp4',
+  'FLORINE ROBE 1.mp4',
+];
+
 const assetPath = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
 
 function App() {
@@ -634,7 +656,7 @@ function App() {
   };
 
   const sectionIds = useMemo(
-    () => ['hero', 'about', 'masterclasses', 'gallery', 'videos', 'testimonials', 'news', 'contact'],
+    () => ['hero', 'about', 'masterclasses', 'gallery', 'testimonials', 'news', 'contact'],
     [],
   );
 
@@ -681,7 +703,6 @@ function App() {
   const [registrationModal, setRegistrationModal] = useState(null);
   const [selectedModel, setSelectedModel] = useState(null);
   const [galleryFilter, setGalleryFilter] = useState('All');
-  const [currentVideo, setCurrentVideo] = useState(0);
   const [topCarouselIndex, setTopCarouselIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [saveDataMode, setSaveDataMode] = useState(false);
@@ -716,11 +737,6 @@ function App() {
       day: 'numeric',
     }).format(parsed);
   };
-
-  const localizedVideos = useMemo(
-    () => runwayHighlightsData.map((item) => ({ ...item, title: copy.videos.titles[item.id] || item.title })),
-    [copy],
-  );
 
   const localizedTestimonials = useMemo(
     () =>
@@ -776,6 +792,28 @@ function App() {
     if (!source) return undefined;
     return `${source} 1x, ${source}${source.includes('?') ? '&' : '?'}dpr=2 2x`;
   };
+
+  const toAssetUrl = (source) => encodeURI(assetPath(source));
+
+  const archiveVideos = useMemo(
+    () =>
+      ARCHIVE_VIDEO_PATHS.map((fileName, index) => ({
+        id: `archive-video-${index + 1}`,
+        title: fileName.replace('.mp4', ''),
+        src: toAssetUrl(`/res/videos/gallery/${fileName}`),
+      })),
+    [],
+  );
+
+  const archiveImages = useMemo(
+    () =>
+      runwayHighlightsData.map((item) => ({
+        id: item.id,
+        title: item.title,
+        src: toAssetUrl(item.poster),
+      })),
+    [],
+  );
 
   const handleImageFallback = (event, type = 'editorial') => {
     const fallback = imageFallbacks[type] || imageFallbacks.editorial;
@@ -939,16 +977,6 @@ function App() {
     return () => window.clearInterval(interval);
   }, [pauseTestimonials, prefersReducedMotion, localizedTestimonials.length]);
 
-  useEffect(() => {
-    if (prefersReducedMotion) return undefined;
-
-    const interval = window.setInterval(() => {
-      setCurrentVideo((previous) => (previous + 1) % localizedVideos.length);
-    }, 5000);
-
-    return () => window.clearInterval(interval);
-  }, [prefersReducedMotion, localizedVideos.length]);
-
   const filteredModels = useMemo(() => {
     if (galleryFilter === 'All') return localizedModels;
     return localizedModels.filter((model) => model.categories.includes(galleryFilter));
@@ -963,7 +991,6 @@ function App() {
     setMobileMenuOpen(false);
   };
 
-  const currentVideoItem = localizedVideos[currentVideo];
   const currentTestimonial = localizedTestimonials[testimonialIndex];
   const topCarouselTotal = topCarouselVideos.length;
   const topCarouselCurrentConfig = topCarouselVideos[topCarouselIndex];
@@ -1167,46 +1194,76 @@ function App() {
           </div>
         </section>
 
-        <section id="videos" className="section videos-section">
+        <section id="archive" className="section archive-section">
           <div className="section-heading reveal">
-            <p className="eyebrow">{copy.videos.eyebrow}</p>
-            <h2>{copy.videos.title}</h2>
+            <p className="eyebrow">Field Archive</p>
+            <h2>Image and moving-image catalog assembled from the full gallery collection.</h2>
           </div>
 
-          <div className="video-player reveal">
-            <img
-              key={currentVideoItem.id}
-              src={currentVideoItem.poster}
-              srcSet={getSrcSet(currentVideoItem.poster)}
-              alt={currentVideoItem.title}
-              loading="lazy"
-              decoding="async"
-              onError={(event) => handleImageFallback(event, 'video')}
-            />
-            <div className="video-controls">
-              <button type="button" onClick={() => setCurrentVideo((previous) => (previous + 1) % localizedVideos.length)}>
-                {copy.videos.next}
-              </button>
-              <div className="progress-track" aria-label={copy.videos.progressAria}>
-                <span style={{ width: `${((currentVideo + 1) / localizedVideos.length) * 100}%` }} />
+          <div className="archive-layout">
+            <div className="archive-media reveal">
+              <div className="archive-video-strip">
+                {archiveVideos.map((video) => (
+                  <figure key={video.id} className="archive-video-card">
+                    <video
+                      controls
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      poster={imageFallbacks.video}
+                      src={video.src}
+                    />
+                    <figcaption>{video.title}</figcaption>
+                  </figure>
+                ))}
+              </div>
+
+              <div className="archive-image-wall">
+                {archiveImages.map((image) => (
+                  <figure key={image.id} className="archive-image-card">
+                    <img
+                      loading="lazy"
+                      decoding="async"
+                      src={image.src}
+                      srcSet={getSrcSet(image.src)}
+                      alt={image.title}
+                      onError={(event) => handleImageFallback(event, 'video')}
+                    />
+                    <figcaption>{image.title}</figcaption>
+                  </figure>
+                ))}
               </div>
             </div>
-          </div>
 
-          <div className="video-thumbs reveal">
-            {localizedVideos.map((video, index) => (
-              <button key={video.id} className={index === currentVideo ? 'active' : ''} type="button" onClick={() => setCurrentVideo(index)}>
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={video.poster}
-                  srcSet={getSrcSet(video.poster)}
-                  alt={video.title}
-                  onError={(event) => handleImageFallback(event, 'video')}
-                />
-                <span>{video.title}</span>
-              </button>
-            ))}
+            <aside className="archive-ledger reveal" aria-label="Archive document index">
+              {ARCHIVE_DOCUMENT.pages.map((page) => (
+                <article key={page.pageNumber} className="archive-ledger-card">
+                  <p className="archive-ledger-page">Page {page.pageNumber}</p>
+                  <div className="archive-ledger-lines">
+                    {page.elements.map((line, index) => (
+                      <p
+                        key={`${page.pageNumber}-${index}`}
+                        className={line.bold ? 'archive-line is-bold' : 'archive-line'}
+                        style={{ fontSize: `${line.fontSize}px` }}
+                      >
+                        {line.content}
+                      </p>
+                    ))}
+                  </div>
+                </article>
+              ))}
+
+              <article className="archive-ledger-card archive-grid-card">
+                <p className="archive-ledger-page">Page 3</p>
+                <p className="archive-grid-description">{ARCHIVE_DOCUMENT.grid.description}</p>
+                <div className="archive-grid-values" aria-label="0 to 153 numeric grid">
+                  {ARCHIVE_DOCUMENT.grid.values.map((value) => (
+                    <span key={`grid-${value}`}>{value}</span>
+                  ))}
+                </div>
+              </article>
+            </aside>
           </div>
         </section>
 
