@@ -1370,14 +1370,6 @@ function App() {
                   <source src={toAssetUrl('/res/videos/gallery/DUNEX-INTRO.mp4')} type="video/mp4" />
                 </video>
               </div>
-              <div className="map-wrap">
-                <iframe
-                  title={copy.contact.mapTitle}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=Rue+du+Faubourg+Saint-Honore,+Paris&output=embed"
-                />
-              </div>
               <div className="social-links">
                 <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
                 <a href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
