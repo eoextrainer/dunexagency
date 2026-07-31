@@ -930,7 +930,7 @@
   display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  min-height: 420px;
+  min-height: clamp(460px, 58vh, 700px);
 }
 
 .map-wrap iframe {
