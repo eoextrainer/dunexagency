@@ -7,11 +7,10 @@ import './App.css';
 
 const LANGUAGES = [
   { code: 'en', short: 'EN', name: 'English' },
-  { code: 'fr', short: 'FR', name: 'Francais' },
-  { code: 'es', short: 'ES', name: 'Espanol' },
+  { code: 'fr', short: 'FR', name: 'Fran\u00e7ais' },
+  { code: 'es', short: 'ES', name: 'Espa\u00f1ol' },
   { code: 'it', short: 'IT', name: 'Italiano' },
-  { code: 'pt', short: 'PT', name: 'Portugues' },
-  { code: 'ru', short: 'RU', name: 'Russkiy' },
+  { code: 'pt', short: 'PT', name: 'Portugu\u00eas' },
 ];
 
 const DICTIONARY = {
@@ -227,27 +226,27 @@ const DICTIONARY = {
     toggleMenu: 'Basculer le menu',
     nav: {
       hero: 'Accueil',
-      about: 'A propos',
+      about: '\u00c0 propos',
       masterclasses: 'Masterclasses',
       gallery: 'Galerie',
-      videos: 'Videos',
-      testimonials: 'Temoignages',
-      news: 'Actualites',
+      videos: 'Vid\u00e9os',
+      testimonials: 'T\u00e9moignages',
+      news: 'Actualit\u00e9s',
       contact: 'Contact',
     },
-    brandTagline: 'Genese du Podium',
+    brandTagline: 'Gen\u00e8se du Podium',
     hero: {
       aria: 'Carrousel mode en vedette',
       iframeTitle: 'Carrousel podium DUNEX',
       kicker: 'Le podium vous attend',
       heading: 'DUNEX',
-      subheading: 'Genese du Podium',
-      copy: 'Representation ethique pour la nouvelle generation de talents de la mode mondiale.',
-      cta: 'Decouvrir le Podium',
+      subheading: 'Gen\u00e8se du Podium',
+      copy: 'Repr\u00e9sentation \u00e9thique pour la nouvelle g\u00e9n\u00e9ration de talents de la mode mondiale.',
+      cta: 'D\u00e9couvrir le Podium',
     },
     about: {
       eyebrow: 'La Valeur DUNEX',
-      title: "L'elegance de l'excellence.",
+      title: "L'\u00e9l\u00e9gance de l'excellence.",
       cards: [
         {
           title: 'Education Avant Tout',
@@ -279,23 +278,23 @@ const DICTIONARY = {
             'Un cadre ethique strict garantit dignite, securite et responsabilite professionnelle pour toutes les parties.',
         },
       ],
-      stats: ['Villes', 'Defiles', 'Opportunites commerciales et editoriales'],
+      stats: ['Villes', 'D\u00e9fil\u00e9s', 'Opportunit\u00e9s commerciales et \u00e9ditoriales'],
     },
     masterclasses: {
       eyebrow: 'Recrutement Masterclass',
-      title: 'Ateliers multi-villes pour integrer l ecosysteme DUNEX.',
-      register: 'S inscrire',
-      modalTitle: 'S inscrire a',
+      title: 'Ateliers multi-villes pour int\u00e9grer l\'\u00e9cosyst\u00e8me DUNEX.',
+      register: 'S\'inscrire',
+      modalTitle: 'S\'inscrire \u00e0',
       modalName: 'Nom',
       modalEmail: 'E-mail',
-      modalPhone: 'Telephone',
+      modalPhone: 'T\u00e9l\u00e9phone',
       modalCity: 'Ville',
       modalMessage: 'Message',
       modalPlaceholder: 'Parlez-nous de vos objectifs de mannequinat',
       modalSubmit: 'Envoyer',
       modalClose: 'Fermer',
       schedule: [
-        { city: 'Grenoble', date: '14 et 15 aout', venue: 'Maison des Arts, Grenoble' },
+        { city: 'Grenoble', date: '14 et 15 ao\u00fbt', venue: 'Maison des Arts, Grenoble' },
         { city: 'Paris', date: 'Le week-end suivant', venue: 'Atelier Lumiere, Paris' },
         { city: 'Lyon', date: 'Le week-end suivant', venue: 'Maison de la Mode, Lyon' },
         { city: 'Madrid', date: 'Le week-end suivant', venue: 'Galeria Cero, Madrid' },
@@ -305,8 +304,8 @@ const DICTIONARY = {
     },
     gallery: {
       eyebrow: 'Portfolio Modeles',
-      title: 'Talents selectionnes pour podium, editorial et commercial.',
-      categoriesAria: 'Categories de modeles',
+      title: 'Talents s\u00e9lectionn\u00e9s pour podium, \u00e9ditorial et commercial.',
+      categoriesAria: 'Cat\u00e9gories de mod\u00e8les',
       filters: { All: 'Tout', Runway: 'Podium', Editorial: 'Editorial', Commercial: 'Commercial', 'New Faces': 'Nouveaux Visages' },
       viewProfile: 'Voir le Profil',
       closeProfile: 'Fermer le Profil',
@@ -323,9 +322,9 @@ const DICTIONARY = {
     },
     videos: {
       eyebrow: 'Moments de Podium',
-      title: 'Moments cinematographiques des defiles, coulisses et temoignages.',
-      pauseAria: 'Mettre en pause la video',
-      playAria: 'Lire la video',
+      title: 'Moments cin\u00e9matographiques des d\u00e9fil\u00e9s, coulisses et t\u00e9moignages.',
+      pauseAria: 'Mettre en pause la vid\u00e9o',
+      playAria: 'Lire la vid\u00e9o',
       pause: 'Pause',
       play: 'Lire',
       next: 'Clip Suivant',
@@ -395,11 +394,11 @@ const DICTIONARY = {
       mapTitle: 'Carte DUNEX',
     },
     footer: {
-      about: 'A propos',
+      about: '\u00c0 propos',
       masterclasses: 'Masterclasses',
       contact: 'Contact',
       newsletter: 'Newsletter',
-      subscribe: 'S abonner',
+      subscribe: 'S\'abonner',
       privacy: 'Politique de Confidentialite',
       terms: 'Conditions d Utilisation',
       emailPlaceholder: 'vous@exemple.com',
@@ -409,28 +408,28 @@ const DICTIONARY = {
     locale: 'es-ES',
     languageBanner: 'Idioma',
     skipToMain: 'Ir al contenido principal',
-    toggleMenu: 'Mostrar menu',
+    toggleMenu: 'Mostrar men\u00fa',
     nav: {
-      hero: 'Inicio', about: 'Nosotros', masterclasses: 'Masterclasses', gallery: 'Galeria', videos: 'Videos', testimonials: 'Testimonios', news: 'Noticias', contact: 'Contacto',
+      hero: 'Inicio', about: 'Nosotros', masterclasses: 'Masterclasses', gallery: 'Galer\u00eda', videos: 'V\u00eddeos', testimonials: 'Testimonios', news: 'Noticias', contact: 'Contacto',
     },
-    brandTagline: 'Genesis de Pasarela',
+    brandTagline: 'G\u00e9nesis de Pasarela',
     hero: {
-      aria: 'Carrusel de moda destacado', iframeTitle: 'Carrusel de pasarela DUNEX', kicker: 'La pasarela te espera', heading: 'DUNEX', subheading: 'Genesis de Pasarela', copy: 'Representacion etica para la nueva generacion de talento global de moda.', cta: 'Descubrir la Pasarela',
+      aria: 'Carrusel de moda destacado', iframeTitle: 'Carrusel de pasarela DUNEX', kicker: 'La pasarela te espera', heading: 'DUNEX', subheading: 'G\u00e9nesis de Pasarela', copy: 'Representaci\u00f3n \u00e9tica para la nueva generaci\u00f3n de talento global de moda.', cta: 'Descubrir la Pasarela',
     },
     about: {
       eyebrow: 'El Valor DUNEX', title: 'La elegancia de la excelencia.',
       cards: [
-        { title: 'Educacion Primero', description: 'Cada talento comienza con alfabetizacion real de moda: contratos, derechos, limites y negocio.' },
-        { title: 'Compensacion Justa', description: 'DUNEX asegura pago transparente para pasarela, editorial, comercial y digital.' },
+        { title: 'Educaci\u00f3n Primero', description: 'Cada talento comienza con alfabetizaci\u00f3n real de moda: contratos, derechos, l\u00edmites y negocio.' },
+        { title: 'Compensaci\u00f3n Justa', description: 'DUNEX asegura pago transparente para pasarela, editorial, comercial y digital.' },
         { title: 'Sin Castings', description: 'Preseleccionamos talento para oportunidades alineadas, reduciendo incertidumbre.' },
         { title: 'Modelo Mother Agency', description: 'Las modelos colaboran con otras agencias mientras DUNEX protege estrategia y legalidad.' },
         { title: 'Reclutamiento Masterclass', description: 'La entrada se gana en talleres intensivos que evalan estetica y disciplina.' },
-        { title: 'Codigo Etico', description: 'Un marco etico estricto mantiene dignidad, seguridad y responsabilidad.' },
+        { title: 'C\u00f3digo \u00c9tico', description: 'Un marco \u00e9tico estricto mantiene dignidad, seguridad y responsabilidad.' },
       ],
       stats: ['Ciudades', 'Desfiles', 'Oportunidades comerciales y editoriales'],
     },
     masterclasses: {
-      eyebrow: 'Reclutamiento Masterclass', title: 'Talleres en varias ciudades para entrar al ecosistema DUNEX.', register: 'Registrar', modalTitle: 'Registrar en', modalName: 'Nombre', modalEmail: 'Correo', modalPhone: 'Telefono', modalCity: 'Ciudad', modalMessage: 'Mensaje', modalPlaceholder: 'Cuentanos tus metas de modelaje', modalSubmit: 'Enviar', modalClose: 'Cerrar',
+      eyebrow: 'Reclutamiento Masterclass', title: 'Talleres en varias ciudades para entrar al ecosistema DUNEX.', register: 'Registrar', modalTitle: 'Registrar en', modalName: 'Nombre', modalEmail: 'Correo', modalPhone: 'Tel\u00e9fono', modalCity: 'Ciudad', modalMessage: 'Mensaje', modalPlaceholder: 'Cu\u00e9ntanos tus metas de modelaje', modalSubmit: 'Enviar', modalClose: 'Cerrar',
       schedule: [
         { city: 'Grenoble', date: '14 y 15 de agosto', venue: 'Maison des Arts, Grenoble' },
         { city: 'Paris', date: 'El fin de semana siguiente', venue: 'Atelier Lumiere, Paris' },
@@ -477,7 +476,7 @@ const DICTIONARY = {
       eyebrow: 'Contacto DUNEX', title: 'Postulaciones, reservas y prensa.', name: 'Nombre', email: 'Correo', subject: 'Asunto', inquiryType: 'Tipo de Consulta', inquiryOptions: { modelling: 'Postulacion de Modelaje', booking: 'Reserva de Cliente', press: 'Prensa', general: 'General' }, message: 'Mensaje', send: 'Enviar Mensaje', hq: 'Sede DUNEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mapa DUNEX',
     },
     footer: {
-      about: 'Nosotros', masterclasses: 'Masterclasses', contact: 'Contacto', newsletter: 'Newsletter', subscribe: 'Suscribirse', privacy: 'Politica de Privacidad', terms: 'Terminos del Servicio', emailPlaceholder: 'tu@ejemplo.com',
+      about: 'Nosotros', masterclasses: 'Masterclasses', contact: 'Contacto', newsletter: 'Newsletter', subscribe: 'Suscribirse', privacy: 'Pol\u00edtica de Privacidad', terms: 'T\u00e9rminos del Servicio', emailPlaceholder: 'tu@ejemplo.com',
     },
   },
   it: {
@@ -498,9 +497,9 @@ const DICTIONARY = {
         { title: 'Reclutamento Masterclass', description: 'L ingresso si conquista con workshop intensivi su estetica e disciplina.' },
         { title: 'Codice Etico', description: 'Un quadro etico rigoroso tutela dignita, sicurezza e responsabilita professionale.' },
       ],
-      stats: ['Citta', 'Sfilate', 'Opportunita commerciali ed editoriali'],
+      stats: ['Citt\u00e0', 'Sfilate', 'Opportunit\u00e0 commerciali ed editoriali'],
     },
-    masterclasses: { eyebrow: 'Reclutamento Masterclass', title: 'Workshop in piu citta per entrare nell ecosistema DUNEX.', register: 'Iscriviti', modalTitle: 'Iscriviti a', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefono', modalCity: 'Citta', modalMessage: 'Messaggio', modalPlaceholder: 'Parlaci dei tuoi obiettivi nel modeling', modalSubmit: 'Invia', modalClose: 'Chiudi', schedule: [
+    masterclasses: { eyebrow: 'Reclutamento Masterclass', title: 'Workshop in pi\u00f9 citt\u00e0 per entrare nell\'ecosistema DUNEX.', register: 'Iscriviti', modalTitle: 'Iscriviti a', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefono', modalCity: 'Citt\u00e0', modalMessage: 'Messaggio', modalPlaceholder: 'Parlaci dei tuoi obiettivi nel modeling', modalSubmit: 'Invia', modalClose: 'Chiudi', schedule: [
       { city: 'Grenoble', date: '14 e 15 agosto', venue: 'Maison des Arts, Grenoble' },
       { city: 'Paris', date: 'Il fine settimana successivo', venue: 'Atelier Lumiere, Paris' },
       { city: 'Lyon', date: 'Il fine settimana successivo', venue: 'Maison de la Mode, Lyon' },
@@ -529,7 +528,7 @@ const DICTIONARY = {
       },
     },
     news: {
-      eyebrow: 'Magazine', title: 'Aggiornamenti agenzia, spotlight modelle e analisi del settore.', readMore: 'Leggi di Piu', loadMore: 'Carica Altro',
+      eyebrow: 'Magazine', title: 'Aggiornamenti agenzia, spotlight modelle e analisi del settore.', readMore: 'Leggi di Pi\u00f9', loadMore: 'Carica Altro',
       items: {
         1: { title: 'DUNEX annuncia il circuito invernale delle masterclass', excerpt: 'La serie di reclutamento in sette citta apre con mentoring esteso e alfabetizzazione legale.' },
         2: { title: 'Model Spotlight: la crescita editoriale di Yara Sol', excerpt: 'Dal primo workshop alle campagne internazionali in meno di sei mesi.' },
@@ -550,17 +549,17 @@ const DICTIONARY = {
     skipToMain: 'Ir para o conteudo principal',
     toggleMenu: 'Abrir menu',
     nav: { hero: 'Inicio', about: 'Sobre', masterclasses: 'Masterclasses', gallery: 'Galeria', videos: 'Videos', testimonials: 'Testemunhos', news: 'Noticias', contact: 'Contacto' },
-    brandTagline: 'Genesis de Passarela',
-    hero: { aria: 'Carrossel de moda em destaque', iframeTitle: 'Carrossel de passarela DUNEX', kicker: 'A passarela espera por ti', heading: 'DUNEX', subheading: 'Genesis de Passarela', copy: 'Representacao etica para a nova geracao de talento global de moda.', cta: 'Descobrir a Passarela' },
+    brandTagline: 'G\u00e9nesis de Passarela',
+    hero: { aria: 'Carrossel de moda em destaque', iframeTitle: 'Carrossel de passarela DUNEX', kicker: 'A passarela espera por ti', heading: 'DUNEX', subheading: 'G\u00e9nesis de Passarela', copy: 'Representa\u00e7\u00e3o \u00e9tica para a nova gera\u00e7\u00e3o de talento global de moda.', cta: 'Descobrir a Passarela' },
     about: {
-      eyebrow: 'O Valor DUNEX', title: 'A elegancia da excelencia.',
+      eyebrow: 'O Valor DUNEX', title: 'A eleg\u00e2ncia da excel\u00eancia.',
       cards: [
-        { title: 'Educacao Primeiro', description: 'Todo talento comeca com literacia real de moda: contratos, direitos, limites e negocio.' },
-        { title: 'Compensacao Justa', description: 'A DUNEX garante pagamento transparente em passarela, editorial, comercial e digital.' },
+        { title: 'Educa\u00e7\u00e3o Primeiro', description: 'Todo talento come\u00e7a com literacia real de moda: contratos, direitos, limites e neg\u00f3cio.' },
+        { title: 'Compensa\u00e7\u00e3o Justa', description: 'A DUNEX garante pagamento transparente em passarela, editorial, comercial e digital.' },
         { title: 'Sem Castings', description: 'Pre-selecionamos talento para oportunidades alinhadas, reduzindo incerteza.' },
         { title: 'Modelo Mother Agency', description: 'Modelos podem colaborar com outras agencias; a DUNEX protege estrategia e legalidade.' },
         { title: 'Recrutamento Masterclass', description: 'A entrada e conquistada em workshops intensivos de estetica e disciplina.' },
-        { title: 'Codigo de Etica', description: 'Um quadro etico rigoroso preserva dignidade, seguranca e responsabilidade profissional.' },
+        { title: 'C\u00f3digo de \u00c9tica', description: 'Um quadro \u00e9tico rigoroso preserva dignidade, seguran\u00e7a e responsabilidade profissional.' },
       ],
       stats: ['Cidades', 'Desfiles', 'Oportunidades comerciais e editoriais'],
     },
@@ -583,7 +582,7 @@ const DICTIONARY = {
         6: 'Modelo de nova geracao para campanhas com linguagem de pose limpa e impacto proximo.',
       },
     },
-    videos: { eyebrow: 'Destaques de Passarela', title: 'Momentos cinematograficos de desfiles, bastidores e testemunhos.', pauseAria: 'Pausar video da passarela', playAria: 'Reproduzir video da passarela', pause: 'Pausar', play: 'Reproduzir', next: 'Proximo Clip', progressAria: 'Progresso do video', titles: { v1: 'Abertura da Passarela em Paris', v2: 'Atelier de Bastidores', v3: 'Teste de Movimento Editorial' } },
+    videos: { eyebrow: 'Destaques de Passarela', title: 'Momentos cinematogr\u00e1ficos de desfiles, bastidores e testemunhos.', pauseAria: 'Pausar v\u00eddeo da passarela', playAria: 'Reproduzir v\u00eddeo da passarela', pause: 'Pausar', play: 'Reproduzir', next: 'Pr\u00f3ximo Clip', progressAria: 'Progresso do v\u00eddeo', titles: { v1: 'Abertura da Passarela em Paris', v2: 'Atelier de Bastidores', v3: 'Teste de Movimento Editorial' } },
     testimonials: {
       eyebrow: 'Vozes', title: 'De modelos e marcas parceiras.', portraitSuffix: 'retrato', roles: { 1: 'Modelo de Passarela', 2: 'Diretor Criativo, Maison Verre', 3: 'Modelo Editorial' },
       quotes: {
@@ -606,71 +605,7 @@ const DICTIONARY = {
     contact: {
       eyebrow: 'Contacto DUNEX', title: 'Candidaturas, bookings e pedidos de imprensa.', name: 'Nome', email: 'Email', subject: 'Assunto', inquiryType: 'Tipo de Pedido', inquiryOptions: { modelling: 'Candidatura de Modelo', booking: 'Booking de Cliente', press: 'Imprensa', general: 'Geral' }, message: 'Mensagem', send: 'Enviar Mensagem', hq: 'Sede DUNEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mapa DUNEX',
     },
-    footer: { about: 'Sobre', masterclasses: 'Masterclasses', contact: 'Contacto', newsletter: 'Newsletter', subscribe: 'Subscrever', privacy: 'Politica de Privacidade', terms: 'Termos de Servico', emailPlaceholder: 'tu@exemplo.com' },
-  },
-  ru: {
-    locale: 'ru-RU',
-    languageBanner: 'Yazyk',
-    skipToMain: 'Pereyti k osnovnomu kontentu',
-    toggleMenu: 'Otkryt menu',
-    nav: { hero: 'Glavnaya', about: 'O Nas', masterclasses: 'Masterklassy', gallery: 'Galereya', videos: 'Video', testimonials: 'Otzvyvy', news: 'Novosti', contact: 'Kontakt' },
-    brandTagline: 'Runway Genesis',
-    hero: { aria: 'Klyuchevoy modnyy karusel', iframeTitle: 'Karusel podiumnogo video DUNEX', kicker: 'Podiym zhdet vas', heading: 'DUNEX', subheading: 'Runway Genesis', copy: 'Etichnoe predstavitelstvo dlya novogo pokoleniya globalnykh modnykh talantov.', cta: 'Otkryt Podiym' },
-    about: {
-      eyebrow: 'Tsennost DUNEX', title: 'Elegance sovershenstva.',
-      cards: [
-        { title: 'Snachala Obuchenie', description: 'Kazhdyy talant nachinaet s prakticheskoy modnoy gramotnosti: kontrakty, prava, granitsy i biznes.' },
-        { title: 'Spravedlivaya Oplata', description: 'DUNEX obespechivaet prozrachnuyu oplatu za podiym, editorial, commercial i digital.' },
-        { title: 'Bez Kastingov', description: 'My predvaritelno otbiraem talanty dlya podkhodyashchikh vozmozhnostey, snizhaya neopredelennost.' },
-        { title: 'Model Mother Agency', description: 'Modeli mogut rabotat s drugimi agentstvami, a DUNEX ostayetsya strategicheskoy i yuridicheskoy zashchitoy.' },
-        { title: 'Nabor cherez Masterklass', description: 'Vkhod dostigaetsya cherez intensivnye gorodskie workshopy po estetike i distsipline.' },
-        { title: 'Eticheskiy Kodeks', description: 'Strogaya eticheskaya sistema podderzhivaet dostoinstvo, bezopasnost i professionalnuyu otvetstvennost.' },
-      ],
-      stats: ['Goroda', 'Pokazy', 'Kommercheskie i redaktsionnye vozmozhnosti'],
-    },
-    masterclasses: { eyebrow: 'Nabor na Masterklass', title: 'Workshopy v neskolkikh gorodakh dlya vkhoda v ekosistemu DUNEX.', register: 'Registratsiya', modalTitle: 'Registratsiya v', modalName: 'Imya', modalEmail: 'Email', modalPhone: 'Telefon', modalCity: 'Gorod', modalMessage: 'Soobshchenie', modalPlaceholder: 'Rasskazhite o svoikh tselyakh v modelinge', modalSubmit: 'Otpravit', modalClose: 'Zakryt', schedule: [
-      { city: 'Grenoble', date: '14 i 15 avgusta', venue: 'Maison des Arts, Grenoble' },
-      { city: 'Paris', date: 'Na sleduyushchiy vykhodnoy', venue: 'Atelier Lumiere, Paris' },
-      { city: 'Lyon', date: 'Na sleduyushchiy vykhodnoy', venue: 'Maison de la Mode, Lyon' },
-      { city: 'Madrid', date: 'Na sleduyushchiy vykhodnoy', venue: 'Galeria Cero, Madrid' },
-      { city: 'Bruxelles', date: 'Na sleduyushchiy vykhodnoy', venue: 'Galerie Royale, Bruxelles' },
-      { city: 'Milan', date: 'Na sleduyushchiy vykhodnoy', venue: 'Via Montenapoleone Studio, Milan' },
-    ] },
-    gallery: {
-      eyebrow: 'Portfolio Modeley', title: 'Kurirovannyy talant v runway, editorial i commercial.', categoriesAria: 'Kategorii modeley', filters: { All: 'Vse', Runway: 'Runway', Editorial: 'Editorial', Commercial: 'Commercial', 'New Faces': 'Novye Litsa' }, viewProfile: 'Otkryt Profil', closeProfile: 'Zakryt Profil', portfolioSuffix: 'portfolio', categories: { Runway: 'Runway', Editorial: 'Editorial', Commercial: 'Commercial', 'New Faces': 'Novye Litsa' },
-      bios: {
-        1: 'Parizhskaya spetsialistka po runway, izvestnaya tochnostyu couture i universalnostyu v editorial.',
-        2: 'Model kampaniynogo formata s estestvennoy kharizmoy i kontseptualnoy beauty-podachey.',
-        3: 'Talant, podgotovlennyy v Milane, balansiruyushchiy runway-dvizhenie i storytelling brenda.',
-        4: 'Novoe litso, otobrannoe cherez masterklass DUNEX, s silnym vizualnym diapazonom.',
-        5: 'Atleticheskiy runway-profil s yarkoy simmetriey i vysokoy distsiplinoy repetitsiy.',
-        6: 'Model novogo pokoleniya dlya kampaniy s chistoy plastikoy pozy i prirodnym vliyaniem.',
-      },
-    },
-    videos: { eyebrow: 'Klyuchevye Momenty Podiya', title: 'Kinematografichnye fragmenty pokazov, backstage i otzyvov.', pauseAria: 'Pauza video podiumnogo klipa', playAria: 'Vospolnit video podiumnogo klipa', pause: 'Pauza', play: 'Vospolnit', next: 'Sleduyushchiy Klip', progressAria: 'Progress video', titles: { v1: 'Otkrytie Podiya v Parizhe', v2: 'Backstage Atelier', v3: 'Test Editorial Motion' } },
-    testimonials: {
-      eyebrow: 'Golosa', title: 'Ot modeley i partnerskikh brendov.', portraitSuffix: 'portret', roles: { 1: 'Runway Model', 2: 'Creative Director, Maison Verre', 3: 'Editorial Model' },
-      quotes: {
-        1: 'DUNEX obuchila menya kontraktnoy yassnosti do moego pervogo mezhdunarodnogo pokaza. Eto izmenilo vse.',
-        2: 'Kachestvo talanta isklyuchitelnoe, no osobenno vydelyayutsya professionalizm i eticheskaya struktura.',
-        3: 'Ya prisoyedinilas cherez masterklass i s pervogo dnya chuvstvovala zashchitu, prozrachnuyu oplatu i podderzhku.',
-      },
-    },
-    news: {
-      eyebrow: 'Magazine', title: 'Novosti agentstva, spotlight modeley i analitika industrii.', readMore: 'Chitat Dalee', loadMore: 'Pokazat Eshe',
-      items: {
-        1: { title: 'DUNEX obyavila zimniy tsikl masterklassov', excerpt: 'Seriya nabora v semi gorodakh startuet s rasshirennym mentorstvom i yuridicheskoy gramotnostyu.' },
-        2: { title: 'Model Spotlight: editorialnyy rost Yara Sol', excerpt: 'Ot pervogo workshopa do mezhdunarodnykh kampaniy menshe chem za shest mesyatsev.' },
-        3: { title: 'Za kulisami: podgotovka couture v Milane', excerpt: 'Den vnutri movement coaching, fittingov i komandnoy khoreografii pered pokazom.' },
-        4: { title: 'Klientskiy briefing: eticheskiy booking framework', excerpt: 'Kak DUNEX sovmeshchaet kreativnyy rezultat s bezopasnostyu i prozrachnostyu.' },
-        5: { title: 'Parizhskaya komanda rasshiryaet yuridicheskiy support', excerpt: 'Dobavlen novyy kanal yuridicheskogo vmeshatelstva v modeli mother agency.' },
-        6: { title: 'Tokyo runway diary ot alumni DUNEX', excerpt: 'Lichnyy otchet o ritme, discipline backstage i vozmozhnostyakh posle pokaza.' },
-      },
-    },
-    contact: {
-      eyebrow: 'Kontakt DUNEX', title: 'Zayavki, bookingi i press-zaprosy.', name: 'Imya', email: 'Email', subject: 'Tema', inquiryType: 'Tip Zaprosa', inquiryOptions: { modelling: 'Modeling Application', booking: 'Client Booking', press: 'Press', general: 'General' }, message: 'Soobshchenie', send: 'Otpravit Soobshchenie', hq: 'DUNEX Headquarters', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Karta DUNEX',
-    },
-    footer: { about: 'O Nas', masterclasses: 'Masterklassy', contact: 'Kontakt', newsletter: 'Newsletter', subscribe: 'Podpisatsya', privacy: 'Privacy Policy', terms: 'Terms of Service', emailPlaceholder: 'you@example.com' },
+    footer: { about: 'Sobre', masterclasses: 'Masterclasses', contact: 'Contacto', newsletter: 'Newsletter', subscribe: 'Subscrever', privacy: 'Pol\u00edtica de Privacidade', terms: 'Termos de Servi\u00e7o', emailPlaceholder: 'tu@exemplo.com' },
   },
 };
 
@@ -722,17 +657,11 @@ function App() {
   );
 
   const masterclassImages = useMemo(
-    () => [
-      assetPath('/res/images/Louis-Vuittons-spring-2020-show.-vogue.jpg'),
-      assetPath('/res/images/6F3A4916-scaled.jpg'),
-      assetPath('/res/images/Max Mara SS26 14.jpg'),
-      assetPath('/res/images/male-and-female-dancers-in-mid-air.jpg'),
-      assetPath('/res/images/b3f077b4e7cad49870b9.webp'),
-      assetPath('/res/images/e72390d2-1060-4b1a-8f88-5b813ccee22a_750x422.jpg'),
-      assetPath('/res/images/dribbling-drills-to-practice-before-you-play-basketball.avif'),
-      assetPath('/res/images/13382955_web1_All-Star-Saturday-Basketball-2-1-4.webp'),
-      assetPath('/res/images/11062b_05c36194c6bb4038a4d02a2dae529e28~mv2.avif'),
-    ],
+    () =>
+      Array.from({ length: 21 }, (_, index) => {
+        const number = String(index + 1).padStart(2, '0');
+        return assetPath(`/res/images/masterclasses/mc-${number}.jpg`);
+      }),
     [],
   );
 
