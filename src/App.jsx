@@ -1357,11 +1357,19 @@ function App() {
             </form>
 
             <div className="contact-details reveal">
-              <p>
-                {copy.contact.hq}
-                <br />
-                {copy.contact.address}
-              </p>
+              <div className="contact-intro-video-frame">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                  preload="metadata"
+                  poster={imageFallbacks.video}
+                >
+                  <source src={toAssetUrl('/res/videos/gallery/DUNEX-INTRO.mp4')} type="video/mp4" />
+                </video>
+              </div>
               <div className="map-wrap">
                 <iframe
                   title={copy.contact.mapTitle}
