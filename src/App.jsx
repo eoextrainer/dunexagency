@@ -595,38 +595,6 @@ const DICTIONARY = {
 
 const GALLERY_FILTER_KEYS = ['All', 'Runway', 'Editorial', 'Commercial', 'New Faces'];
 
-const ARCHIVE_DOCUMENT = {
-  pages: [
-    {
-      pageNumber: 1,
-      elements: [
-        { content: 'Ember Field OIL AND VELOCANE DUST ON BOARD, 120 x 240 CM', fontSize: 14, bold: false },
-        { content: '001 Horizon Collapse II Mixed media on canvas, 2023', fontSize: 12, bold: false },
-        { content: '002 Gesture #14 Charcoal and gesso, 2024', fontSize: 12, bold: false },
-      ],
-    },
-    {
-      pageNumber: 2,
-      elements: [
-        { content: 'Sediment Studies Pigment and wax, 2022', fontSize: 12, bold: false },
-        { content: 'Monolith in Mist Acrylic on board, 2024', fontSize: 12, bold: false },
-        { content: 'Bone Register Marble dust and oil on linen, 2023', fontSize: 12, bold: false },
-        { content: 'Red Ground, Interrupted Oil on canvas, 2019', fontSize: 12, bold: false },
-        { content: 'GROUP EXHIBITION', fontSize: 16, bold: true },
-        { content: 'FOLK GRAIN The Weight of Light The Roundhouse, London - Jan 2024', fontSize: 12, bold: false },
-        { content: 'FOLK PRESENTATION', fontSize: 16, bold: true },
-        { content: 'STUDIO FIEL', fontSize: 16, bold: true },
-        { content: 'Art Basel Paris Grand Palais, Paris - Oct 2023', fontSize: 12, bold: false },
-        { content: 'Grinding the Ground Process documentary', fontSize: 12, bold: false },
-      ],
-    },
-  ],
-  grid: {
-    description: 'Numeric grid from 0 to 153 with sequential numbering',
-    values: Array.from({ length: 154 }, (_, index) => index),
-  },
-};
-
 const ARCHIVE_VIDEO_PATHS = [
   'ALBINA mariage 2.mp4',
   'CATIA mariage 3.mp4',
@@ -716,6 +684,10 @@ function App() {
   const [heroContentParallax, setHeroContentParallax] = useState(0);
   const [masterclassesParallax, setMasterclassesParallax] = useState(0);
   const [masterclassImageIndex, setMasterclassImageIndex] = useState(0);
+  const [archiveVideoIndex, setArchiveVideoIndex] = useState(0);
+  const [activeArchiveVideoIndex, setActiveArchiveVideoIndex] = useState(null);
+  const [visibleArchiveImagesCount, setVisibleArchiveImagesCount] = useState(30);
+  const [activeArchiveImage, setActiveArchiveImage] = useState(null);
 
   const statsRef = useRef(null);
 
@@ -811,9 +783,26 @@ function App() {
         id: item.id,
         title: item.title,
         src: toAssetUrl(item.poster),
+        caption: `Archive reference ${item.id.toUpperCase()} · DUNEX field collection`,
       })),
     [],
   );
+
+  const orderedArchiveVideos = useMemo(
+    () =>
+      archiveVideos.map((_, offset) => {
+        const originalIndex = (archiveVideoIndex + offset) % archiveVideos.length;
+        return { ...archiveVideos[originalIndex], originalIndex };
+      }),
+    [archiveVideoIndex, archiveVideos],
+  );
+
+  const visibleArchiveImages = useMemo(
+    () => archiveImages.slice(0, visibleArchiveImagesCount),
+    [archiveImages, visibleArchiveImagesCount],
+  );
+
+  const hasMoreArchiveImages = visibleArchiveImagesCount < archiveImages.length;
 
   const handleImageFallback = (event, type = 'editorial') => {
     const fallback = imageFallbacks[type] || imageFallbacks.editorial;
@@ -891,6 +880,8 @@ function App() {
       if (event.key !== 'Escape') return;
       setRegistrationModal(null);
       setSelectedModel(null);
+      setActiveArchiveVideoIndex(null);
+      setActiveArchiveImage(null);
       setMobileMenuOpen(false);
     };
 
@@ -1200,70 +1191,74 @@ function App() {
             <h2>Image and moving-image catalog assembled from the full gallery collection.</h2>
           </div>
 
-          <div className="archive-layout">
-            <div className="archive-media reveal">
-              <div className="archive-video-strip">
-                {archiveVideos.map((video) => (
-                  <figure key={video.id} className="archive-video-card">
-                    <video
-                      controls
-                      muted
-                      loop
-                      playsInline
-                      preload="metadata"
-                      poster={imageFallbacks.video}
-                      src={video.src}
-                    />
-                    <figcaption>{video.title}</figcaption>
-                  </figure>
-                ))}
-              </div>
-
-              <div className="archive-image-wall">
-                {archiveImages.map((image) => (
-                  <figure key={image.id} className="archive-image-card">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src={image.src}
-                      srcSet={getSrcSet(image.src)}
-                      alt={image.title}
-                      onError={(event) => handleImageFallback(event, 'video')}
-                    />
-                    <figcaption>{image.title}</figcaption>
-                  </figure>
-                ))}
+          <div className="archive-media reveal">
+            <div className="archive-video-header">
+              <h3>Film Triptych</h3>
+              <div className="archive-video-nav" aria-label="Video carousel controls">
+                <button
+                  type="button"
+                  className="ghost"
+                  onClick={() => setArchiveVideoIndex((previous) => (previous - 1 + archiveVideos.length) % archiveVideos.length)}
+                >
+                  &larr;
+                </button>
+                <button
+                  type="button"
+                  className="ghost"
+                  onClick={() => setArchiveVideoIndex((previous) => (previous + 1) % archiveVideos.length)}
+                >
+                  &rarr;
+                </button>
               </div>
             </div>
 
-            <aside className="archive-ledger reveal" aria-label="Archive document index">
-              {ARCHIVE_DOCUMENT.pages.map((page) => (
-                <article key={page.pageNumber} className="archive-ledger-card">
-                  <p className="archive-ledger-page">Page {page.pageNumber}</p>
-                  <div className="archive-ledger-lines">
-                    {page.elements.map((line, index) => (
-                      <p
-                        key={`${page.pageNumber}-${index}`}
-                        className={line.bold ? 'archive-line is-bold' : 'archive-line'}
-                        style={{ fontSize: `${line.fontSize}px` }}
-                      >
-                        {line.content}
-                      </p>
-                    ))}
-                  </div>
-                </article>
+            <div className="archive-video-strip">
+              {orderedArchiveVideos.map((video, index) => (
+                <button
+                  key={video.id}
+                  type="button"
+                  className={index === 0 ? 'archive-video-card is-active' : 'archive-video-card'}
+                  onClick={() => {
+                    setArchiveVideoIndex(video.originalIndex);
+                    setActiveArchiveVideoIndex(video.originalIndex);
+                  }}
+                >
+                  <video muted playsInline preload="metadata" poster={imageFallbacks.video} src={video.src} />
+                  <span>{video.title}</span>
+                </button>
               ))}
+            </div>
 
-              <article className="archive-ledger-card archive-grid-card">
-                <p className="archive-ledger-page">Page 3</p>
-                <p className="archive-grid-description">{ARCHIVE_DOCUMENT.grid.description}</p>
-                <div className="archive-grid-values" aria-label="0 to 153 numeric grid">
-                  {ARCHIVE_DOCUMENT.grid.values.map((value) => (
-                    <span key={`grid-${value}`}>{value}</span>
-                  ))}
-                </div>
-              </article>
-            </aside>
+            <div className="archive-image-header">
+              <h3>Image Gallery</h3>
+              <p>{visibleArchiveImages.length} / {archiveImages.length}</p>
+            </div>
+
+            <div className="archive-image-wall">
+              {visibleArchiveImages.map((image) => (
+                <button key={image.id} type="button" className="archive-image-card" onClick={() => setActiveArchiveImage(image)}>
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src={image.src}
+                    srcSet={getSrcSet(image.src)}
+                    alt={image.title}
+                    onError={(event) => handleImageFallback(event, 'video')}
+                  />
+                  <span>{image.title}</span>
+                </button>
+              ))}
+            </div>
+
+            {hasMoreArchiveImages && (
+              <button
+                className="load-more archive-load-more"
+                type="button"
+                onClick={() => setVisibleArchiveImagesCount((count) => Math.min(count + 15, archiveImages.length))}
+              >
+                Load More Images
+              </button>
+            )}
           </div>
         </section>
 
@@ -1475,6 +1470,57 @@ function App() {
             <p>{selectedModel.categoriesLocalized.join(' • ')}</p>
             <p>{selectedModel.bio}</p>
             <button type="button" className="ghost" onClick={() => setSelectedModel(null)}>{copy.gallery.closeProfile}</button>
+          </article>
+        </div>
+      )}
+
+      {activeArchiveVideoIndex !== null && (
+        <div className="modal-backdrop" role="presentation" onClick={() => setActiveArchiveVideoIndex(null)}>
+          <article className="modal-card archive-video-modal" role="dialog" aria-modal="true" onClick={(event) => event.stopPropagation()}>
+            <div className="archive-modal-topbar">
+              <h3>{archiveVideos[activeArchiveVideoIndex].title}</h3>
+              <div className="archive-video-nav">
+                <button
+                  type="button"
+                  className="ghost"
+                  onClick={() => setActiveArchiveVideoIndex((previous) => (previous - 1 + archiveVideos.length) % archiveVideos.length)}
+                >
+                  &larr;
+                </button>
+                <button
+                  type="button"
+                  className="ghost"
+                  onClick={() => setActiveArchiveVideoIndex((previous) => (previous + 1) % archiveVideos.length)}
+                >
+                  &rarr;
+                </button>
+              </div>
+            </div>
+            <video
+              key={archiveVideos[activeArchiveVideoIndex].id}
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              src={archiveVideos[activeArchiveVideoIndex].src}
+            />
+          </article>
+        </div>
+      )}
+
+      {activeArchiveImage && (
+        <div className="modal-backdrop" role="presentation" onClick={() => setActiveArchiveImage(null)}>
+          <article className="modal-card archive-image-modal" role="dialog" aria-modal="true" onClick={(event) => event.stopPropagation()}>
+            <img
+              src={activeArchiveImage.src}
+              srcSet={getSrcSet(activeArchiveImage.src)}
+              alt={activeArchiveImage.title}
+              onError={(event) => handleImageFallback(event, 'video')}
+            />
+            <h3>{activeArchiveImage.title}</h3>
+            <p>{activeArchiveImage.caption}</p>
           </article>
         </div>
       )}
