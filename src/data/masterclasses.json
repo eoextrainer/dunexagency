@@ -1,0 +1,32 @@
+[
+  {
+    "city": "Grenoble",
+    "date": "14-15 August 2026",
+    "venue": "Maison des Arts, Grenoble"
+  },
+  {
+    "city": "Paris",
+    "date": "The following Saturday and Sunday",
+    "venue": "Atelier Lumiere, Paris"
+  },
+  {
+    "city": "Lyon",
+    "date": "The weekend after",
+    "venue": "Maison de la Mode, Lyon"
+  },
+  {
+    "city": "Madrid",
+    "date": "The weekend after",
+    "venue": "Galeria Cero, Madrid"
+  },
+  {
+    "city": "Bruxelles",
+    "date": "The weekend after",
+    "venue": "Galerie Royale, Bruxelles"
+  },
+  {
+    "city": "Milan",
+    "date": "The weekend after",
+    "venue": "Via Montenapoleone Studio, Milan"
+  }
+]
