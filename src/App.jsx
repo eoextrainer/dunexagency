@@ -676,7 +676,6 @@ function App() {
   const [saveDataMode, setSaveDataMode] = useState(false);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [pauseTestimonials, setPauseTestimonials] = useState(false);
-  const [visibleNewsCount, setVisibleNewsCount] = useState(3);
   const [heroVideoHidden, setHeroVideoHidden] = useState(false);
   const [animatedStats, setAnimatedStats] = useState(stats.map(() => 0));
   const [statsAnimated, setStatsAnimated] = useState(false);
@@ -766,6 +765,10 @@ function App() {
   };
 
   const toAssetUrl = (source) => encodeURI(assetPath(source));
+  const withPreviewOffset = (source, seconds = 2) => {
+    if (!source || source.includes('#')) return source;
+    return `${source}#t=${seconds}`;
+  };
 
   const archiveVideos = useMemo(
     () =>
@@ -773,6 +776,7 @@ function App() {
         id: `archive-video-${index + 1}`,
         title: fileName.replace('.mp4', ''),
         src: toAssetUrl(`/res/videos/gallery/${fileName}`),
+        previewSrc: withPreviewOffset(toAssetUrl(`/res/videos/gallery/${fileName}`), 2),
       })),
     [],
   );
@@ -973,7 +977,7 @@ function App() {
     return localizedModels.filter((model) => model.categories.includes(galleryFilter));
   }, [galleryFilter, localizedModels]);
 
-  const visibleNews = useMemo(() => extendedNews.slice(0, visibleNewsCount), [extendedNews, visibleNewsCount]);
+  const visibleNews = useMemo(() => extendedNews.slice(0, 6), [extendedNews]);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
@@ -1193,7 +1197,7 @@ function App() {
 
           <div className="archive-media reveal">
             <div className="archive-video-header">
-              <h3>Film Triptych</h3>
+              <h3>Film Gallery</h3>
               <div className="archive-video-nav" aria-label="Video carousel controls">
                 <button
                   type="button"
@@ -1223,7 +1227,7 @@ function App() {
                     setActiveArchiveVideoIndex(video.originalIndex);
                   }}
                 >
-                  <video muted playsInline preload="metadata" poster={imageFallbacks.video} src={video.src} />
+                  <video muted playsInline preload="metadata" src={video.previewSrc} />
                   <span>{video.title}</span>
                 </button>
               ))}
@@ -1312,12 +1316,6 @@ function App() {
               </article>
             ))}
           </div>
-
-          {visibleNewsCount < extendedNews.length && (
-            <button className="load-more" type="button" onClick={() => setVisibleNewsCount((count) => count + 3)}>
-              {copy.news.loadMore}
-            </button>
-          )}
         </section>
 
         <section id="contact" className="section contact-section">
@@ -1365,9 +1363,8 @@ function App() {
                   playsInline
                   controls
                   preload="metadata"
-                  poster={imageFallbacks.video}
                 >
-                  <source src={toAssetUrl('/res/videos/gallery/DUNEX-INTRO.mp4')} type="video/mp4" />
+                  <source src={withPreviewOffset(toAssetUrl('/res/videos/gallery/DUNEX-INTRO.mp4'), 2)} type="video/mp4" />
                 </video>
               </div>
               <div className="social-links">
