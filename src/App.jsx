@@ -11,6 +11,7 @@ const LANGUAGES = [
   { code: 'es', short: 'ES', name: 'Espa\u00f1ol' },
   { code: 'it', short: 'IT', name: 'Italiano' },
   { code: 'pt', short: 'PT', name: 'Portugu\u00eas' },
+  { code: 'de', short: 'DE', name: 'Deutsch' },
 ];
 
 const DICTIONARY = {
@@ -28,18 +29,18 @@ const DICTIONARY = {
       news: 'News',
       contact: 'Contact',
     },
-    brandTagline: 'Runway Genesis',
+    brandTagline: 'The Elegance of Excellence',
     hero: {
       aria: 'Featured fashion carousel',
-      iframeTitle: 'DUNEX featured runway carousel',
+      iframeTitle: 'EOEX featured runway carousel',
       kicker: 'The runway awaits you',
-      heading: 'DUNEX',
-      subheading: 'Runway Genesis',
+      heading: 'EOEX',
+      subheading: 'The Elegance of Excellence',
       copy: 'Ethical representation for the next generation of global fashion talent.',
       cta: 'Discover the Runway',
     },
     about: {
-      eyebrow: 'The DUNEX Value',
+      eyebrow: 'The EOEX Value',
       title: 'The Elegance of Excellence.',
       cards: [
         {
@@ -50,7 +51,7 @@ const DICTIONARY = {
         {
           title: 'Fair Compensation',
           description:
-            'DUNEX ensures payment for runway, editorial, commercial, and digital placements with transparent earning structures.',
+            'EOEX ensures payment for runway, editorial, commercial, and digital placements with transparent earning structures.',
         },
         {
           title: 'No Castings',
@@ -60,7 +61,7 @@ const DICTIONARY = {
         {
           title: 'Mother Agency Model',
           description:
-            'Models can collaborate with external agencies while DUNEX remains their strategic and legal protection layer.',
+            'Models can collaborate with external agencies while EOEX remains their strategic and legal protection layer.',
         },
         {
           title: 'Masterclass Recruitment',
@@ -77,7 +78,7 @@ const DICTIONARY = {
     },
     masterclasses: {
       eyebrow: 'Masterclass Recruitment',
-      title: 'Multi-city workshops to enter the DUNEX ecosystem.',
+      title: 'Multi-city workshops to enter the EOEX ecosystem.',
       register: 'Register',
       modalTitle: 'Register for',
       modalName: 'Name',
@@ -121,7 +122,7 @@ const DICTIONARY = {
         1: 'Paris-based runway specialist known for couture catwalk precision and editorial versatility.',
         2: 'Campaign-forward model blending natural charisma with high-concept beauty narratives.',
         3: 'Milan-trained talent balancing structured runway movement with adaptable brand storytelling.',
-        4: 'Emerging face selected via DUNEX masterclass track, praised for expressive visual range.',
+        4: 'Emerging face selected via EOEX masterclass track, praised for expressive visual range.',
         5: 'Athletic runway profile with striking symmetry and disciplined rehearsal ethic.',
         6: 'New generation campaign model delivering clean posing language and approachable impact.',
       },
@@ -136,7 +137,7 @@ const DICTIONARY = {
         3: 'Editorial Model',
       },
       quotes: {
-        1: 'DUNEX taught me contract clarity before my first international show. That education changed everything.',
+        1: 'EOEX taught me contract clarity before my first international show. That education changed everything.',
         2: 'The talent quality is exceptional, but what stands out is professionalism and ethical structure.',
         3: 'I joined through a masterclass and felt protected from day one, with transparent pay and guidance.',
       },
@@ -146,9 +147,10 @@ const DICTIONARY = {
       title: 'Agency updates, model spotlights, and industry intelligence.',
       readMore: 'Read More',
       loadMore: 'Load More',
+      comingSoon: 'To be published soon',
       items: {
         1: {
-          title: 'DUNEX Announces Winter Masterclass Circuit',
+          title: 'EOEX Announces Winter Masterclass Circuit',
           excerpt: 'Seven-city recruitment series opens with expanded mentorship modules and legal literacy sessions.',
         },
         2: {
@@ -161,20 +163,20 @@ const DICTIONARY = {
         },
         4: {
           title: 'Client Briefing: Ethical Booking Framework',
-          excerpt: 'How DUNEX aligns creative output with safety, transparency, and performance metrics.',
+          excerpt: 'How EOEX aligns creative output with safety, transparency, and performance metrics.',
         },
         5: {
           title: 'Paris Team Expands Litigation Support Desk',
           excerpt: 'New dedicated legal intervention channel added to the mother-agency support model.',
         },
         6: {
-          title: 'Tokyo Runway Diary from DUNEX Alumni',
+          title: 'Tokyo Runway Diary from EOEX Alumni',
           excerpt: 'First-person account of pacing, backstage discipline, and campaign opportunities post-show.',
         },
       },
     },
     contact: {
-      eyebrow: 'Contact DUNEX',
+      eyebrow: 'Contact EOEX',
       title: 'Applications, bookings, and press inquiries.',
       name: 'Name',
       email: 'Email',
@@ -188,9 +190,9 @@ const DICTIONARY = {
       },
       message: 'Message',
       send: 'Send Message',
-      hq: 'DUNEX Headquarters',
+      hq: 'EOEX Headquarters',
       address: '44 Rue du Faubourg Saint-Honore, Paris',
-      mapTitle: 'DUNEX map',
+      mapTitle: 'EOEX map',
     },
     footer: {
       about: 'About',
@@ -218,18 +220,18 @@ const DICTIONARY = {
       news: 'Actualit\u00e9s',
       contact: 'Contact',
     },
-    brandTagline: 'Gen\u00e8se du Podium',
+    brandTagline: "L'\u00e9l\u00e9gance de l'excellence",
     hero: {
       aria: 'Carrousel mode en vedette',
-      iframeTitle: 'Carrousel podium DUNEX',
+      iframeTitle: 'Carrousel podium EOEX',
       kicker: 'Le podium vous attend',
-      heading: 'DUNEX',
-      subheading: 'Gen\u00e8se du Podium',
+      heading: 'EOEX',
+      subheading: "L'\u00e9l\u00e9gance de l'excellence",
       copy: 'Repr\u00e9sentation \u00e9thique pour la nouvelle g\u00e9n\u00e9ration de talents de la mode mondiale.',
       cta: 'D\u00e9couvrir le Podium',
     },
     about: {
-      eyebrow: 'La Valeur DUNEX',
+      eyebrow: 'La Valeur EOEX',
       title: "L'\u00e9l\u00e9gance de l'excellence.",
       cards: [
         {
@@ -240,7 +242,7 @@ const DICTIONARY = {
         {
           title: 'R\u00e9mun\u00e9ration \u00c9quitable',
           description:
-            'DUNEX garantit une r\u00e9mun\u00e9ration transparente pour le podium, l\'\u00e9ditorial, le commercial et le digital.',
+            'EOEX garantit une r\u00e9mun\u00e9ration transparente pour le podium, l\'\u00e9ditorial, le commercial et le digital.',
         },
         {
           title: 'Sans Castings',
@@ -249,7 +251,7 @@ const DICTIONARY = {
         },
         {
           title: 'Mod\u00e8le Mother Agency',
-          description: 'Les mod\u00e8les peuvent collaborer avec d\'autres agences, DUNEX restant leur protection strat\u00e9gique et l\u00e9gale.',
+          description: 'Les mod\u00e8les peuvent collaborer avec d\'autres agences, EOEX restant leur protection strat\u00e9gique et l\u00e9gale.',
         },
         {
           title: 'Recrutement Masterclass',
@@ -266,7 +268,7 @@ const DICTIONARY = {
     },
     masterclasses: {
       eyebrow: 'Recrutement Masterclass',
-      title: 'Ateliers multi-villes pour int\u00e9grer l\'\u00e9cosyst\u00e8me DUNEX.',
+      title: 'Ateliers multi-villes pour int\u00e9grer l\'\u00e9cosyst\u00e8me EOEX.',
       register: 'S\'inscrire',
       modalTitle: 'S\'inscrire \u00e0',
       modalName: 'Nom',
@@ -299,7 +301,7 @@ const DICTIONARY = {
         1: 'Specialiste podium basee a Paris, reconnue pour sa precision couture et sa polyvalence editoriale.',
         2: 'Modele orientee campagnes, alliant charisme naturel et narrations beaute conceptuelles.',
         3: 'Talent forme a Milan, entre mouvement podium structure et storytelling de marque adaptable.',
-        4: 'Nouveau visage issu des masterclasses DUNEX, salue pour son expressivite visuelle.',
+        4: 'Nouveau visage issu des masterclasses EOEX, salue pour son expressivite visuelle.',
         5: 'Profil athletique de podium, symetrie marquante et discipline exemplaire en repetition.',
         6: 'Modele campagne nouvelle generation, pose claire et impact accessible.',
       },
@@ -321,7 +323,7 @@ const DICTIONARY = {
       portraitSuffix: 'portrait',
       roles: { 1: 'Modele Podium', 2: 'Directeur Creatif, Maison Verre', 3: 'Modele Editoriale' },
       quotes: {
-        1: 'DUNEX m a appris la clarte contractuelle avant mon premier defile international. Cette formation a tout change.',
+        1: 'EOEX m a appris la clarte contractuelle avant mon premier defile international. Cette formation a tout change.',
         2: 'La qualite des talents est exceptionnelle, mais ce qui marque, c est le professionnalisme et la structure ethique.',
         3: 'J ai integre via une masterclass et je me suis sentie protegee des le premier jour, avec remuneration transparente.',
       },
@@ -331,9 +333,10 @@ const DICTIONARY = {
       title: 'Actualit\u00e9s agence, mod\u00e8les mis en lumi\u00e8re et intelligence sectorielle.',
       readMore: 'Lire Plus',
       loadMore: 'Voir Plus',
+      comingSoon: 'A publier bientot',
       items: {
         1: {
-          title: 'DUNEX annonce le circuit hivernal des masterclasses',
+          title: 'EOEX annonce le circuit hivernal des masterclasses',
           excerpt: 'Le recrutement sur sept villes s ouvre avec mentorat elargi et sessions de culture juridique.',
         },
         2: {
@@ -346,20 +349,20 @@ const DICTIONARY = {
         },
         4: {
           title: 'Brief Client: cadre de booking ethique',
-          excerpt: 'Comment DUNEX aligne creation, securite, transparence et performance.',
+          excerpt: 'Comment EOEX aligne creation, securite, transparence et performance.',
         },
         5: {
           title: 'L equipe de Paris etend le support contentieux',
           excerpt: 'Nouveau canal d intervention juridique dedie dans le modele mother agency.',
         },
         6: {
-          title: 'Journal podium de Tokyo par les alumni DUNEX',
+          title: 'Journal podium de Tokyo par les alumni EOEX',
           excerpt: 'Recit sur le rythme, la discipline backstage et les opportunites post-defile.',
         },
       },
     },
     contact: {
-      eyebrow: 'Contacter DUNEX',
+      eyebrow: 'Contacter EOEX',
       title: 'Candidatures, bookings et demandes presse.',
       name: 'Nom',
       email: 'E-mail',
@@ -373,9 +376,9 @@ const DICTIONARY = {
       },
       message: 'Message',
       send: 'Envoyer le Message',
-      hq: 'Si\u00e8ge DUNEX',
+      hq: 'Si\u00e8ge EOEX',
       address: '44 Rue du Faubourg Saint-Honore, Paris',
-      mapTitle: 'Carte DUNEX',
+      mapTitle: 'Carte EOEX',
     },
     footer: {
       about: '\u00c0 propos',
@@ -396,24 +399,24 @@ const DICTIONARY = {
     nav: {
       hero: 'Inicio', about: 'Nosotros', masterclasses: 'Masterclasses', gallery: 'Galer\u00eda', videos: 'V\u00eddeos', testimonials: 'Testimonios', news: 'Noticias', contact: 'Contacto',
     },
-    brandTagline: 'G\u00e9nesis de Pasarela',
+    brandTagline: 'La elegancia de la excelencia',
     hero: {
-      aria: 'Carrusel de moda destacado', iframeTitle: 'Carrusel de pasarela DUNEX', kicker: 'La pasarela te espera', heading: 'DUNEX', subheading: 'G\u00e9nesis de Pasarela', copy: 'Representaci\u00f3n \u00e9tica para la nueva generaci\u00f3n de talento global de moda.', cta: 'Descubrir la Pasarela',
+      aria: 'Carrusel de moda destacado', iframeTitle: 'Carrusel de pasarela EOEX', kicker: 'La pasarela te espera', heading: 'EOEX', subheading: 'La elegancia de la excelencia', copy: 'Representaci\u00f3n \u00e9tica para la nueva generaci\u00f3n de talento global de moda.', cta: 'Descubrir la Pasarela',
     },
     about: {
-      eyebrow: 'El Valor DUNEX', title: 'La elegancia de la excelencia.',
+      eyebrow: 'El Valor EOEX', title: 'La elegancia de la excelencia.',
       cards: [
         { title: 'Educaci\u00f3n Primero', description: 'Cada talento comienza con alfabetizaci\u00f3n real de moda: contratos, derechos, l\u00edmites y negocio.' },
-        { title: 'Compensaci\u00f3n Justa', description: 'DUNEX asegura pago transparente para pasarela, editorial, comercial y digital.' },
+        { title: 'Compensaci\u00f3n Justa', description: 'EOEX asegura pago transparente para pasarela, editorial, comercial y digital.' },
         { title: 'Sin Castings', description: 'Preseleccionamos talento para oportunidades alineadas, reduciendo incertidumbre.' },
-        { title: 'Modelo Mother Agency', description: 'Las modelos colaboran con otras agencias mientras DUNEX protege estrategia y legalidad.' },
+        { title: 'Modelo Mother Agency', description: 'Las modelos colaboran con otras agencias mientras EOEX protege estrategia y legalidad.' },
         { title: 'Reclutamiento Masterclass', description: 'La entrada se gana en talleres intensivos que eval\u00faan est\u00e9tica y disciplina.' },
         { title: 'C\u00f3digo \u00c9tico', description: 'Un marco \u00e9tico estricto mantiene dignidad, seguridad y responsabilidad.' },
       ],
       stats: ['Ciudades', 'Desfiles', '100+ Oportunidades comerciales y editoriales'],
     },
     masterclasses: {
-      eyebrow: 'Reclutamiento Masterclass', title: 'Talleres en varias ciudades para entrar al ecosistema DUNEX.', register: 'Registrar', modalTitle: 'Registrar en', modalName: 'Nombre', modalEmail: 'Correo', modalPhone: 'Tel\u00e9fono', modalCity: 'Ciudad', modalMessage: 'Mensaje', modalPlaceholder: 'Cu\u00e9ntanos tus metas de modelaje', modalSubmit: 'Enviar', modalClose: 'Cerrar',
+      eyebrow: 'Reclutamiento Masterclass', title: 'Talleres en varias ciudades para entrar al ecosistema EOEX.', register: 'Registrar', modalTitle: 'Registrar en', modalName: 'Nombre', modalEmail: 'Correo', modalPhone: 'Tel\u00e9fono', modalCity: 'Ciudad', modalMessage: 'Mensaje', modalPlaceholder: 'Cu\u00e9ntanos tus metas de modelaje', modalSubmit: 'Enviar', modalClose: 'Cerrar',
       schedule: [
         { city: 'Grenoble', date: '14 y 15 de agosto', venue: 'lugar por confirmar' },
         { city: 'Paris', date: '21 y 22 de agosto', venue: 'lugar por confirmar' },
@@ -429,7 +432,7 @@ const DICTIONARY = {
         1: 'Especialista de pasarela en Paris, conocida por precision couture y versatilidad editorial.',
         2: 'Modelo enfocada en campanas, con carisma natural y narrativa visual sofisticada.',
         3: 'Talento formado en Milan, equilibrio entre movimiento de pasarela y storytelling de marca.',
-        4: 'Rostro emergente del circuito masterclass DUNEX, destacada por su rango expresivo.',
+        4: 'Rostro emergente del circuito masterclass EOEX, destacada por su rango expresivo.',
         5: 'Perfil atletico de pasarela con simetria marcada y gran disciplina de ensayo.',
         6: 'Modelo de nueva generacion para campanas, pose limpia e impacto cercano.',
       },
@@ -440,24 +443,25 @@ const DICTIONARY = {
     testimonials: {
       eyebrow: 'Voces', title: 'De modelos y marcas asociadas.', portraitSuffix: 'retrato', roles: { 1: 'Modelo de Pasarela', 2: 'Director Creativo, Maison Verre', 3: 'Modelo Editorial' },
       quotes: {
-        1: 'DUNEX me ense\u00f1\u00f3 claridad contractual antes de mi primer desfile internacional. Esa formaci\u00f3n lo cambi\u00f3 todo.',
+        1: 'EOEX me ense\u00f1\u00f3 claridad contractual antes de mi primer desfile internacional. Esa formaci\u00f3n lo cambi\u00f3 todo.',
         2: 'La calidad del talento es excepcional, pero destaca su profesionalismo y estructura etica.',
         3: 'Entr\u00e9 por una masterclass y me sent\u00ed protegida desde el primer d\u00eda, con pago transparente y gu\u00eda.',
       },
     },
     news: {
       eyebrow: 'Magazine', title: 'Actualizaciones de agencia, foco en modelos e inteligencia del sector.', readMore: 'Leer M\u00e1s', loadMore: 'Cargar M\u00e1s',
+      comingSoon: 'Se publicara pronto',
       items: {
-        1: { title: 'DUNEX anuncia su circuito invernal de masterclasses', excerpt: 'La serie de reclutamiento en siete ciudades abre con mentoria ampliada y formacion legal.' },
+        1: { title: 'EOEX anuncia su circuito invernal de masterclasses', excerpt: 'La serie de reclutamiento en siete ciudades abre con mentoria ampliada y formacion legal.' },
         2: { title: 'Modelo destacada: ascenso editorial de Yara Sol', excerpt: 'Del primer taller a campanas internacionales en menos de seis meses.' },
         3: { title: 'Detras de escena: preparacion couture en Milan', excerpt: 'Un dia entre coaching de movimiento, fittings y coreografia antes del show.' },
-        4: { title: 'Briefing cliente: marco etico de booking', excerpt: 'Como DUNEX alinea creatividad con seguridad, transparencia y rendimiento.' },
+        4: { title: 'Briefing cliente: marco etico de booking', excerpt: 'Como EOEX alinea creatividad con seguridad, transparencia y rendimiento.' },
         5: { title: 'El equipo de Paris amplia soporte legal', excerpt: 'Nuevo canal de intervencion juridica dentro del modelo mother agency.' },
-        6: { title: 'Diario de pasarela en Tokio de alumni DUNEX', excerpt: 'Relato en primera persona sobre ritmo, disciplina backstage y oportunidades post-show.' },
+        6: { title: 'Diario de pasarela en Tokio de alumni EOEX', excerpt: 'Relato en primera persona sobre ritmo, disciplina backstage y oportunidades post-show.' },
       },
     },
     contact: {
-      eyebrow: 'Contacto DUNEX', title: 'Postulaciones, reservas y prensa.', name: 'Nombre', email: 'Correo', subject: 'Asunto', inquiryType: 'Tipo de Consulta', inquiryOptions: { modelling: 'Postulacion de Modelaje', booking: 'Reserva de Cliente', press: 'Prensa', general: 'General' }, message: 'Mensaje', send: 'Enviar Mensaje', hq: 'Sede DUNEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mapa DUNEX',
+      eyebrow: 'Contacto EOEX', title: 'Postulaciones, reservas y prensa.', name: 'Nombre', email: 'Correo', subject: 'Asunto', inquiryType: 'Tipo de Consulta', inquiryOptions: { modelling: 'Postulacion de Modelaje', booking: 'Reserva de Cliente', press: 'Prensa', general: 'General' }, message: 'Mensaje', send: 'Enviar Mensaje', hq: 'Sede EOEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mapa EOEX',
     },
     footer: {
       about: 'Nosotros', masterclasses: 'Masterclasses', contact: 'Contacto', newsletter: 'Newsletter', subscribe: 'Suscribirse', privacy: 'Pol\u00edtica de Privacidad', terms: 'T\u00e9rminos del Servicio', emailPlaceholder: 'tu@ejemplo.com',
@@ -469,21 +473,21 @@ const DICTIONARY = {
     skipToMain: 'Vai al contenuto principale',
     toggleMenu: 'Apri menu',
     nav: { hero: 'Home', about: 'Chi Siamo', masterclasses: 'Masterclass', gallery: 'Galleria', videos: 'Video', testimonials: 'Testimonianze', news: 'News', contact: 'Contatti' },
-    brandTagline: 'Genesi della Passerella',
-    hero: { aria: 'Carousel moda in evidenza', iframeTitle: 'Carousel passerella DUNEX', kicker: 'La passerella ti aspetta', heading: 'DUNEX', subheading: 'Genesi della Passerella', copy: 'Rappresentanza etica per la nuova generazione di talenti globali della moda.', cta: 'Scopri la Passerella' },
+    brandTagline: "L'eleganza dell'eccellenza",
+    hero: { aria: 'Carousel moda in evidenza', iframeTitle: 'Carousel passerella EOEX', kicker: 'La passerella ti aspetta', heading: 'EOEX', subheading: "L'eleganza dell'eccellenza", copy: 'Rappresentanza etica per la nuova generazione di talenti globali della moda.', cta: 'Scopri la Passerella' },
     about: {
-      eyebrow: 'Il Valore DUNEX', title: "L'eleganza dell'eccellenza.",
+      eyebrow: 'Il Valore EOEX', title: "L'eleganza dell'eccellenza.",
       cards: [
         { title: 'Prima l\'Educazione', description: 'Ogni talento inizia con vera cultura moda: contratti, diritti, limiti e business.' },
-        { title: 'Compenso Equo', description: 'DUNEX garantisce compensi trasparenti per passerella, editoriale, commerciale e digitale.' },
+        { title: 'Compenso Equo', description: 'EOEX garantisce compensi trasparenti per passerella, editoriale, commerciale e digitale.' },
         { title: 'Niente Casting', description: 'Preselezioniamo talenti per opportunit\u00e0 coerenti, riducendo incertezza.' },
-        { title: 'Modello Mother Agency', description: 'Le modelle collaborano con agenzie esterne mentre DUNEX resta protezione strategica e legale.' },
+        { title: 'Modello Mother Agency', description: 'Le modelle collaborano con agenzie esterne mentre EOEX resta protezione strategica e legale.' },
         { title: 'Reclutamento Masterclass', description: 'L\'ingresso si conquista con workshop intensivi su estetica e disciplina.' },
         { title: 'Codice Etico', description: 'Un quadro etico rigoroso tutela dignit\u00e0, sicurezza e responsabilit\u00e0 professionale.' },
       ],
       stats: ['Citt\u00e0', 'Sfilate', '100+ Opportunit\u00e0 commerciali ed editoriali'],
     },
-    masterclasses: { eyebrow: 'Reclutamento Masterclass', title: 'Workshop in pi\u00f9 citt\u00e0 per entrare nell\'ecosistema DUNEX.', register: 'Iscriviti', modalTitle: 'Iscriviti a', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefono', modalCity: 'Citt\u00e0', modalMessage: 'Messaggio', modalPlaceholder: 'Parlaci dei tuoi obiettivi nel modeling', modalSubmit: 'Invia', modalClose: 'Chiudi', schedule: [
+    masterclasses: { eyebrow: 'Reclutamento Masterclass', title: 'Workshop in pi\u00f9 citt\u00e0 per entrare nell\'ecosistema EOEX.', register: 'Iscriviti', modalTitle: 'Iscriviti a', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefono', modalCity: 'Citt\u00e0', modalMessage: 'Messaggio', modalPlaceholder: 'Parlaci dei tuoi obiettivi nel modeling', modalSubmit: 'Invia', modalClose: 'Chiudi', schedule: [
       { city: 'Grenoble', date: '14 e 15 agosto', venue: 'sede da confermare' },
       { city: 'Paris', date: '21 e 22 agosto', venue: 'sede da confermare' },
       { city: 'Lyon', date: '28 e 29 agosto', venue: 'sede da confermare' },
@@ -497,7 +501,7 @@ const DICTIONARY = {
         1: 'Specialista passerella con base a Parigi, nota per precisione couture e versatilita editoriale.',
         2: 'Modella orientata alle campagne, con carisma naturale e narrativa beauty ad alto concept.',
         3: 'Talento formato a Milano, equilibrio tra movimento di passerella e storytelling di brand.',
-        4: 'Nuovo volto selezionato nel percorso masterclass DUNEX, apprezzata per ampiezza espressiva.',
+        4: 'Nuovo volto selezionato nel percorso masterclass EOEX, apprezzata per ampiezza espressiva.',
         5: 'Profilo atletico da passerella, simmetria marcata e disciplina nelle prove.',
         6: 'Modella campagna nuova generazione con posa pulita e impatto autentico.',
       },
@@ -506,24 +510,25 @@ const DICTIONARY = {
     testimonials: {
       eyebrow: 'Voci', title: 'Da modelle e brand partner.', portraitSuffix: 'ritratto', roles: { 1: 'Modella Passerella', 2: 'Direttore Creativo, Maison Verre', 3: 'Modella Editoriale' },
       quotes: {
-        1: 'DUNEX mi ha insegnato chiarezza contrattuale prima del mio primo show internazionale. Ha cambiato tutto.',
+        1: 'EOEX mi ha insegnato chiarezza contrattuale prima del mio primo show internazionale. Ha cambiato tutto.',
         2: 'La qualit\u00e0 dei talenti \u00e8 eccezionale, ma spiccano professionalit\u00e0 e struttura etica.',
         3: 'Sono entrata tramite masterclass e mi sono sentita protetta dal primo giorno, con compensi trasparenti.',
       },
     },
     news: {
       eyebrow: 'Magazine', title: 'Aggiornamenti agenzia, spotlight modelle e analisi del settore.', readMore: 'Leggi di Pi\u00f9', loadMore: 'Carica Altro',
+      comingSoon: 'Sara pubblicato presto',
       items: {
-        1: { title: 'DUNEX annuncia il circuito invernale delle masterclass', excerpt: 'La serie di reclutamento in sette citta apre con mentoring esteso e alfabetizzazione legale.' },
+        1: { title: 'EOEX annuncia il circuito invernale delle masterclass', excerpt: 'La serie di reclutamento in sette citta apre con mentoring esteso e alfabetizzazione legale.' },
         2: { title: 'Model Spotlight: la crescita editoriale di Yara Sol', excerpt: 'Dal primo workshop alle campagne internazionali in meno di sei mesi.' },
         3: { title: 'Dietro le quinte: preparazione couture a Milano', excerpt: 'Una giornata tra coaching di movimento, fitting e coreografia prima della sfilata.' },
-        4: { title: 'Briefing clienti: framework etico di booking', excerpt: 'Come DUNEX allinea output creativo con sicurezza, trasparenza e performance.' },
+        4: { title: 'Briefing clienti: framework etico di booking', excerpt: 'Come EOEX allinea output creativo con sicurezza, trasparenza e performance.' },
         5: { title: 'Il team di Parigi amplia il supporto legale', excerpt: 'Nuovo canale dedicato di intervento legale nel modello mother agency.' },
-        6: { title: 'Diario passerella Tokyo dagli alumni DUNEX', excerpt: 'Racconto su ritmo, disciplina backstage e opportunita post-show.' },
+        6: { title: 'Diario passerella Tokyo dagli alumni EOEX', excerpt: 'Racconto su ritmo, disciplina backstage e opportunita post-show.' },
       },
     },
     contact: {
-      eyebrow: 'Contatta DUNEX', title: 'Candidature, booking e richieste stampa.', name: 'Nome', email: 'Email', subject: 'Oggetto', inquiryType: 'Tipo di Richiesta', inquiryOptions: { modelling: 'Candidatura Modella', booking: 'Booking Cliente', press: 'Stampa', general: 'Generale' }, message: 'Messaggio', send: 'Invia Messaggio', hq: 'Sede DUNEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mappa DUNEX',
+      eyebrow: 'Contatta EOEX', title: 'Candidature, booking e richieste stampa.', name: 'Nome', email: 'Email', subject: 'Oggetto', inquiryType: 'Tipo di Richiesta', inquiryOptions: { modelling: 'Candidatura Modella', booking: 'Booking Cliente', press: 'Stampa', general: 'Generale' }, message: 'Messaggio', send: 'Invia Messaggio', hq: 'Sede EOEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mappa EOEX',
     },
     footer: { about: 'Chi Siamo', masterclasses: 'Masterclass', contact: 'Contatti', newsletter: 'Newsletter', subscribe: 'Iscriviti', privacy: 'Privacy Policy', terms: 'Termini di Servizio', emailPlaceholder: 'tuo@esempio.com' },
   },
@@ -533,21 +538,21 @@ const DICTIONARY = {
     skipToMain: 'Ir para o conteudo principal',
     toggleMenu: 'Abrir menu',
     nav: { hero: 'Inicio', about: 'Sobre', masterclasses: 'Masterclasses', gallery: 'Galeria', videos: 'Videos', testimonials: 'Testemunhos', news: 'Noticias', contact: 'Contacto' },
-    brandTagline: 'G\u00e9nesis de Passarela',
-    hero: { aria: 'Carrossel de moda em destaque', iframeTitle: 'Carrossel de passarela DUNEX', kicker: 'A passarela espera por ti', heading: 'DUNEX', subheading: 'G\u00e9nese de Passarela', copy: 'Representa\u00e7\u00e3o \u00e9tica para a nova gera\u00e7\u00e3o de talento global de moda.', cta: 'Descobrir a Passarela' },
+    brandTagline: 'A eleg\u00e2ncia da excel\u00eancia',
+    hero: { aria: 'Carrossel de moda em destaque', iframeTitle: 'Carrossel de passarela EOEX', kicker: 'A passarela espera por ti', heading: 'EOEX', subheading: 'A eleg\u00e2ncia da excel\u00eancia', copy: 'Representa\u00e7\u00e3o \u00e9tica para a nova gera\u00e7\u00e3o de talento global de moda.', cta: 'Descobrir a Passarela' },
     about: {
-      eyebrow: 'O Valor DUNEX', title: 'A eleg\u00e2ncia da excel\u00eancia.',
+      eyebrow: 'O Valor EOEX', title: 'A eleg\u00e2ncia da excel\u00eancia.',
       cards: [
         { title: 'Educa\u00e7\u00e3o Primeiro', description: 'Todo talento come\u00e7a com literacia real de moda: contratos, direitos, limites e neg\u00f3cio.' },
-        { title: 'Compensa\u00e7\u00e3o Justa', description: 'A DUNEX garante pagamento transparente em passarela, editorial, comercial e digital.' },
+        { title: 'Compensa\u00e7\u00e3o Justa', description: 'A EOEX garante pagamento transparente em passarela, editorial, comercial e digital.' },
         { title: 'Sem Castings', description: 'Pr\u00e9-selecionamos talento para oportunidades alinhadas, reduzindo incerteza.' },
-        { title: 'Modelo Mother Agency', description: 'Modelos podem colaborar com outras agencias; a DUNEX protege estrategia e legalidade.' },
+        { title: 'Modelo Mother Agency', description: 'Modelos podem colaborar com outras agencias; a EOEX protege estrategia e legalidade.' },
         { title: 'Recrutamento Masterclass', description: 'A entrada e conquistada em workshops intensivos de estetica e disciplina.' },
         { title: 'C\u00f3digo de \u00c9tica', description: 'Um quadro \u00e9tico rigoroso preserva dignidade, seguran\u00e7a e responsabilidade profissional.' },
       ],
       stats: ['Cidades', 'Desfiles', '100+ Oportunidades comerciais e editoriais'],
     },
-    masterclasses: { eyebrow: 'Recrutamento Masterclass', title: 'Workshops em v\u00e1rias cidades para entrar no ecossistema DUNEX.', register: 'Registar', modalTitle: 'Registar em', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefone', modalCity: 'Cidade', modalMessage: 'Mensagem', modalPlaceholder: 'Conta-nos os teus objetivos de modelagem', modalSubmit: 'Enviar', modalClose: 'Fechar', schedule: [
+    masterclasses: { eyebrow: 'Recrutamento Masterclass', title: 'Workshops em v\u00e1rias cidades para entrar no ecossistema EOEX.', register: 'Registar', modalTitle: 'Registar em', modalName: 'Nome', modalEmail: 'Email', modalPhone: 'Telefone', modalCity: 'Cidade', modalMessage: 'Mensagem', modalPlaceholder: 'Conta-nos os teus objetivos de modelagem', modalSubmit: 'Enviar', modalClose: 'Fechar', schedule: [
       { city: 'Grenoble', date: '14 e 15 de agosto', venue: 'local a confirmar' },
       { city: 'Paris', date: '21 e 22 de agosto', venue: 'local a confirmar' },
       { city: 'Lyon', date: '28 e 29 de agosto', venue: 'local a confirmar' },
@@ -561,7 +566,7 @@ const DICTIONARY = {
         1: 'Especialista de passarela em Paris, conhecida por precisao couture e versatilidade editorial.',
         2: 'Modelo orientada a campanhas, combinando carisma natural e narrativa beauty sofisticada.',
         3: 'Talento formado em Milao, equilibrando movimento de passarela e storytelling de marca.',
-        4: 'Novo rosto vindo da via masterclass DUNEX, elogiada pelo alcance expressivo.',
+        4: 'Novo rosto vindo da via masterclass EOEX, elogiada pelo alcance expressivo.',
         5: 'Perfil atletico de passarela com simetria marcante e disciplina de ensaio.',
         6: 'Modelo de nova geracao para campanhas com linguagem de pose limpa e impacto proximo.',
       },
@@ -570,26 +575,92 @@ const DICTIONARY = {
     testimonials: {
       eyebrow: 'Vozes', title: 'De modelos e marcas parceiras.', portraitSuffix: 'retrato', roles: { 1: 'Modelo de Passarela', 2: 'Diretor Criativo, Maison Verre', 3: 'Modelo Editorial' },
       quotes: {
-        1: 'A DUNEX ensinou-me clareza contratual antes do meu primeiro desfile internacional. Isso mudou tudo.',
+        1: 'A EOEX ensinou-me clareza contratual antes do meu primeiro desfile internacional. Isso mudou tudo.',
         2: 'A qualidade do talento e excecional, mas o destaque e o profissionalismo e a estrutura etica.',
         3: 'Entrei por uma masterclass e senti-me protegida desde o primeiro dia, com pagamento transparente.',
       },
     },
     news: {
       eyebrow: 'Magazine', title: 'Atualiza\u00e7\u00f5es da ag\u00eancia, destaque de modelos e intelig\u00eancia do setor.', readMore: 'Ler Mais', loadMore: 'Carregar Mais',
+      comingSoon: 'Sera publicado em breve',
       items: {
-        1: { title: 'DUNEX anuncia circuito de masterclasses de inverno', excerpt: 'Serie de recrutamento em sete cidades abre com mentoria ampliada e literacia legal.' },
+        1: { title: 'EOEX anuncia circuito de masterclasses de inverno', excerpt: 'Serie de recrutamento em sete cidades abre com mentoria ampliada e literacia legal.' },
         2: { title: 'Destaque: a ascensao editorial de Yara Sol', excerpt: 'Do primeiro workshop a campanhas internacionais em menos de seis meses.' },
         3: { title: 'Bastidores: preparacao couture em Milao', excerpt: 'Um dia entre coaching de movimento, fittings e coreografia antes do desfile.' },
-        4: { title: 'Briefing cliente: framework etico de booking', excerpt: 'Como a DUNEX alinha criacao com seguranca, transparencia e desempenho.' },
+        4: { title: 'Briefing cliente: framework etico de booking', excerpt: 'Como a EOEX alinha criacao com seguranca, transparencia e desempenho.' },
         5: { title: 'Equipa de Paris amplia apoio juridico', excerpt: 'Novo canal dedicado de intervencao legal no modelo mother agency.' },
-        6: { title: 'Diario de passarela em Toquio por alumni DUNEX', excerpt: 'Relato sobre ritmo, disciplina de bastidores e oportunidades pos-show.' },
+        6: { title: 'Diario de passarela em Toquio por alumni EOEX', excerpt: 'Relato sobre ritmo, disciplina de bastidores e oportunidades pos-show.' },
       },
     },
     contact: {
-      eyebrow: 'Contacto DUNEX', title: 'Candidaturas, bookings e pedidos de imprensa.', name: 'Nome', email: 'Email', subject: 'Assunto', inquiryType: 'Tipo de Pedido', inquiryOptions: { modelling: 'Candidatura de Modelo', booking: 'Booking de Cliente', press: 'Imprensa', general: 'Geral' }, message: 'Mensagem', send: 'Enviar Mensagem', hq: 'Sede DUNEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mapa DUNEX',
+      eyebrow: 'Contacto EOEX', title: 'Candidaturas, bookings e pedidos de imprensa.', name: 'Nome', email: 'Email', subject: 'Assunto', inquiryType: 'Tipo de Pedido', inquiryOptions: { modelling: 'Candidatura de Modelo', booking: 'Booking de Cliente', press: 'Imprensa', general: 'Geral' }, message: 'Mensagem', send: 'Enviar Mensagem', hq: 'Sede EOEX', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'Mapa EOEX',
     },
     footer: { about: 'Sobre', masterclasses: 'Masterclasses', contact: 'Contacto', newsletter: 'Newsletter', subscribe: 'Subscrever', privacy: 'Pol\u00edtica de Privacidade', terms: 'Termos de Servi\u00e7o', emailPlaceholder: 'tu@exemplo.com' },
+  },
+  de: {
+    locale: 'de-DE',
+    languageBanner: 'Sprache',
+    skipToMain: 'Zum Hauptinhalt springen',
+    toggleMenu: 'Men\u00fc umschalten',
+    nav: { hero: 'Start', about: '\u00dcber uns', masterclasses: 'Masterclasses', gallery: 'Galerie', videos: 'Videos', testimonials: 'Stimmen', news: 'News', contact: 'Kontakt' },
+    brandTagline: 'Die Eleganz der Exzellenz',
+    hero: { aria: 'Ausgew\u00e4hltes Modekarussell', iframeTitle: 'EOEX Laufsteg-Karussell', kicker: 'Der Laufsteg wartet auf dich', heading: 'EOEX', subheading: 'Die Eleganz der Exzellenz', copy: 'Ethische Repr\u00e4sentation f\u00fcr die neue Generation globaler Modetalente.', cta: 'Laufsteg entdecken' },
+    about: {
+      eyebrow: 'Der EOEX-Wert', title: 'Die Eleganz der Exzellenz.',
+      cards: [
+        { title: 'Bildung zuerst', description: 'Jedes Talent beginnt mit echter Fashion-Kompetenz: Vertr\u00e4ge, Rechte, Grenzen und Business.' },
+        { title: 'Faire Verg\u00fctung', description: 'EOEX sorgt f\u00fcr transparente Verg\u00fctung bei Laufsteg, Editorial, Commercial und Digital.' },
+        { title: 'Keine Castings', description: 'Wir selektieren Talente im Voraus f\u00fcr passende Chancen und reduzieren Unsicherheit.' },
+        { title: 'Mother-Agency-Modell', description: 'Models arbeiten mit externen Agenturen, w\u00e4hrend EOEX strategischen und rechtlichen Schutz bietet.' },
+        { title: 'Masterclass-Rekrutierung', description: 'Der Einstieg wird in intensiven City-Workshops zu \u00c4sthetik und Disziplin verdient.' },
+        { title: 'Ethik-Kodex', description: 'Ein strenger Ethikrahmen sichert W\u00fcrde, Sicherheit und Professionalit\u00e4t.' },
+      ],
+      stats: ['St\u00e4dte', 'Runway-Shows', '100+ Kommerzielle & editoriale Chancen'],
+    },
+    masterclasses: { eyebrow: 'Masterclass-Rekrutierung', title: 'Workshops in mehreren St\u00e4dten f\u00fcr den Einstieg ins EOEX-\u00d6kosystem.', register: 'Anmelden', modalTitle: 'Anmelden f\u00fcr', modalName: 'Name', modalEmail: 'E-Mail', modalPhone: 'Telefon', modalCity: 'Stadt', modalMessage: 'Nachricht', modalPlaceholder: 'Erz\u00e4hle uns von deinen Modelzielen', modalSubmit: 'Senden', modalClose: 'Schlie\u00dfen', schedule: [
+      { city: 'Grenoble', date: '14. & 15. August', venue: 'Ort wird best\u00e4tigt' },
+      { city: 'Paris', date: '21. & 22. August', venue: 'Ort wird best\u00e4tigt' },
+      { city: 'Lyon', date: '28. & 29. August', venue: 'Ort wird best\u00e4tigt' },
+      { city: 'Madrid', date: '4. & 5. September', venue: 'Ort wird best\u00e4tigt' },
+      { city: 'Bruxelles', date: '11. & 12. September', venue: 'Ort wird best\u00e4tigt' },
+      { city: 'Milan', date: '18. & 19. September', venue: 'Ort wird best\u00e4tigt' },
+    ] },
+    gallery: {
+      eyebrow: 'Model-Portfolio', title: 'Kuratiertes Talent f\u00fcr Laufsteg, Editorial und Commercial.', categoriesAria: 'Model-Kategorien', filters: { All: 'Alle', Runway: 'Laufsteg', Editorial: 'Editorial', Commercial: 'Commercial', 'New Faces': 'Neue Gesichter' }, viewProfile: 'Profil ansehen', closeProfile: 'Profil schlie\u00dfen', portfolioSuffix: 'Portfolio', categories: { Runway: 'Laufsteg', Editorial: 'Editorial', Commercial: 'Commercial', 'New Faces': 'Neue Gesichter' },
+      bios: {
+        1: 'Paris-basierte Laufsteg-Spezialistin mit Couture-Pr\u00e4zision und editorialer Vielseitigkeit.',
+        2: 'Kampagnenorientiertes Model mit nat\u00fcrlichem Charisma und moderner Beauty-Narrative.',
+        3: 'In Mailand ausgebildetes Talent zwischen Runway-Movement und Brand-Storytelling.',
+        4: 'Neues Gesicht aus dem EOEX-Masterclass-Track mit starker Ausdrucksbreite.',
+        5: 'Athletisches Runway-Profil mit klarer Symmetrie und hoher Proben-Disziplin.',
+        6: 'Model der neuen Generation mit klarer Pose-Sprache und nahbarer Wirkung.',
+      },
+    },
+    videos: { eyebrow: 'Runway-Highlights', title: 'Filmische Momente aus Shows, Backstage und Testimonials.', pauseAria: 'Runway-Video pausieren', playAria: 'Runway-Video abspielen', pause: 'Pause', play: 'Abspielen', next: 'N\u00e4chster Clip', progressAria: 'Video-Fortschritt', titles: { v1: 'Runway-Opening in Paris', v2: 'Backstage-Atelier', v3: 'Editorial-Movement-Test' } },
+    testimonials: {
+      eyebrow: 'Stimmen', title: 'Von Models und Partnerbrands.', portraitSuffix: 'Portr\u00e4t', roles: { 1: 'Runway-Model', 2: 'Creative Director, Maison Verre', 3: 'Editorial-Model' },
+      quotes: {
+        1: 'EOEX hat mir vor meiner ersten internationalen Show Vertragsklarheit gegeben. Das hat alles ver\u00e4ndert.',
+        2: 'Die Talentqualit\u00e4t ist stark, aber besonders sind Professionalit\u00e4t und ethische Struktur.',
+        3: 'Ich kam \u00fcber eine Masterclass und f\u00fchlte mich vom ersten Tag an gesch\u00fctzt und fair bezahlt.',
+      },
+    },
+    news: {
+      eyebrow: 'Magazin', title: 'Agentur-Updates, Model-Spotlights und Branchenwissen.', readMore: 'Mehr lesen', loadMore: 'Mehr laden',
+      comingSoon: 'Wird bald veroffentlicht',
+      items: {
+        1: { title: 'EOEX startet die Winter-Masterclass-Serie', excerpt: 'Die Rekrutierungsreihe in sieben St\u00e4dten startet mit erweitertem Mentoring und Rechtswissen.' },
+        2: { title: 'Model-Spotlight: Yara Sols editorialer Aufstieg', excerpt: 'Vom ersten Workshop zu internationalen Kampagnen in unter sechs Monaten.' },
+        3: { title: 'Behind the Scenes: Couture-Vorbereitung in Mailand', excerpt: 'Ein Tag zwischen Movement-Coaching, Fittings und Choreografie vor der Show.' },
+        4: { title: 'Client-Briefing: Ethischer Booking-Rahmen', excerpt: 'Wie EOEX Kreativit\u00e4t mit Sicherheit, Transparenz und Performance verbindet.' },
+        5: { title: 'Pariser Team erweitert Rechts-Support', excerpt: 'Neuer dedizierter Kanal f\u00fcr rechtliche Intervention im Mother-Agency-Modell.' },
+        6: { title: 'Tokyo-Runway-Tagebuch von EOEX-Alumni', excerpt: 'Erfahrungen zu Rhythmus, Backstage-Disziplin und Chancen nach der Show.' },
+      },
+    },
+    contact: {
+      eyebrow: 'Kontakt EOEX', title: 'Bewerbungen, Bookings und Presseanfragen.', name: 'Name', email: 'E-Mail', subject: 'Betreff', inquiryType: 'Anfragetyp', inquiryOptions: { modelling: 'Model-Bewerbung', booking: 'Kunden-Booking', press: 'Presse', general: 'Allgemein' }, message: 'Nachricht', send: 'Nachricht senden', hq: 'EOEX Hauptsitz', address: '44 Rue du Faubourg Saint-Honore, Paris', mapTitle: 'EOEX Karte',
+    },
+    footer: { about: '\u00dcber uns', masterclasses: 'Masterclasses', contact: 'Kontakt', newsletter: 'Newsletter', subscribe: 'Abonnieren', privacy: 'Datenschutzrichtlinie', terms: 'Nutzungsbedingungen', emailPlaceholder: 'du@beispiel.com' },
   },
 };
 
@@ -787,7 +858,7 @@ function App() {
         id: item.id,
         title: item.title,
         src: toAssetUrl(item.poster),
-        caption: `Archive reference ${item.id.toUpperCase()} · DUNEX field collection`,
+        caption: `Archive reference ${item.id.toUpperCase()} · EOEX field collection`,
       })),
     [],
   );
@@ -1014,7 +1085,7 @@ function App() {
             event.preventDefault();
             scrollToSection('hero');
           }}>
-            <span className="brand-word">DUNEX</span>
+            <span className="brand-word">EOEX</span>
             <span className="brand-tagline">{copy.brandTagline}</span>
           </a>
 
@@ -1364,7 +1435,7 @@ function App() {
                   controls
                   preload="metadata"
                 >
-                  <source src={withPreviewOffset(toAssetUrl('/res/videos/gallery/DUNEX-INTRO.mp4'), 2)} type="video/mp4" />
+                  <source src={withPreviewOffset(toAssetUrl('/res/videos/gallery/EOEX-INTRO.mp4'), 2)} type="video/mp4" />
                 </video>
               </div>
               <div className="social-links">
@@ -1380,7 +1451,7 @@ function App() {
 
       <footer className="site-footer">
         <div>
-          <h3>DUNEX</h3>
+          <h3>EOEX</h3>
           <p>{copy.brandTagline}</p>
         </div>
         <ul>
@@ -1416,7 +1487,7 @@ function App() {
             <button type="submit">{copy.footer.subscribe}</button>
           </div>
         </form>
-        <small>© {new Date().getFullYear()} DUNEX. {copy.footer.privacy} · {copy.footer.terms}</small>
+        <small>© {new Date().getFullYear()} EOEX. {copy.footer.privacy} · {copy.footer.terms}</small>
       </footer>
 
       {registrationModal && (
