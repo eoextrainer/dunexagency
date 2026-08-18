@@ -1,3 +1,0 @@
-docs/res/videos/gallery/EOEX-INTRO.mp4 filter=lfs diff=lfs merge=lfs -text
-public/res/videos/gallery/EOEX-INTRO.mp4 filter=lfs diff=lfs merge=lfs -text
-src/public/res/videos/gallery/EOEX-INTRO.mp4 filter=lfs diff=lfs merge=lfs -text
