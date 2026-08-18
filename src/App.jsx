@@ -1439,7 +1439,7 @@ function App() {
                 </video>
               </div>
               <div className="social-links">
-                <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://www.instagram.com/eoex.studio/" target="_blank" rel="noreferrer">Instagram</a>
                 <a href="https://www.tiktok.com" target="_blank" rel="noreferrer">TikTok</a>
                 <a href="https://youtube.com" target="_blank" rel="noreferrer">YouTube</a>
                 <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
