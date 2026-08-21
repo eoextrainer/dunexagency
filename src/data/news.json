@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "DUNEX Announces Winter Masterclass Circuit",
+    "excerpt": "Seven-city recruitment series opens with expanded mentorship modules and legal literacy sessions.",
+    "date": "July 21, 2026",
+    "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": 2,
+    "title": "Model Spotlight: The Editorial Rise of Yara Sol",
+    "excerpt": "From first workshop to international campaign boards in under six months.",
+    "date": "July 10, 2026",
+    "image": "https://images.unsplash.com/photo-1492447166138-50c3889fccb1?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": 3,
+    "title": "Behind the Scenes: Milan Couture Prep",
+    "excerpt": "A day inside movement coaching, fittings, and team choreography before show day.",
+    "date": "June 29, 2026",
+    "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": 4,
+    "title": "Client Briefing: Ethical Booking Framework",
+    "excerpt": "How DUNEX aligns creative output with safety, transparency, and performance metrics.",
+    "date": "June 19, 2026",
+    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": 5,
+    "title": "Paris Team Expands Litigation Support Desk",
+    "excerpt": "New dedicated legal intervention channel added to the mother-agency support model.",
+    "date": "June 4, 2026",
+    "image": "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    "id": 6,
+    "title": "Tokyo Runway Diary from DUNEX Alumni",
+    "excerpt": "First-person account of pacing, backstage discipline, and campaign opportunities post-show.",
+    "date": "May 23, 2026",
+    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1200&q=80"
+  }
+]

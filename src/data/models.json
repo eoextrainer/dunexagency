@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Amelie Ross",
+    "categories": ["Runway", "Editorial"],
+    "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80",
+    "bio": "Paris-based runway specialist known for couture catwalk precision and editorial versatility."
+  },
+  {
+    "id": 2,
+    "name": "Naomi Idris",
+    "categories": ["Commercial", "Editorial"],
+    "image": "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
+    "bio": "Campaign-forward model blending natural charisma with high-concept beauty narratives."
+  },
+  {
+    "id": 3,
+    "name": "Luca Vann",
+    "categories": ["Runway", "Commercial"],
+    "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
+    "bio": "Milan-trained talent balancing structured runway movement with adaptable brand storytelling."
+  },
+  {
+    "id": 4,
+    "name": "Yara Sol",
+    "categories": ["New Faces", "Editorial"],
+    "image": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=900&q=80",
+    "bio": "Emerging face selected via DUNEX masterclass track, praised for expressive visual range."
+  },
+  {
+    "id": 5,
+    "name": "Ines Duarte",
+    "categories": ["Runway", "New Faces"],
+    "image": "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80",
+    "bio": "Athletic runway profile with striking symmetry and disciplined rehearsal ethic."
+  },
+  {
+    "id": 6,
+    "name": "Talia Moore",
+    "categories": ["Commercial", "New Faces"],
+    "image": "https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=900&q=80",
+    "bio": "New generation campaign model delivering clean posing language and approachable impact."
+  }
+]
