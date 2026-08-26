@@ -3,3 +3,5 @@ dist/
 .vite/
 .env
 .env.*
+*.original-*.mp4
+gallery/masterclass/
