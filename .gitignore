@@ -6,3 +6,4 @@ dist/
 *.original-*.mp4
 *.original.mp4
 gallery/masterclass/
+node_modules
