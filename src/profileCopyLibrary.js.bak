@@ -1,0 +1,1591 @@
+import { getProfileRoleLabel } from './careersDocumentIndex';
+
+const GENERATED_PROFILE_IDS = Array.from({ length: 56 }, (_, index) => 7 + index);
+
+export const PROFILE_ROLE_BY_ID = Object.fromEntries(
+  Array.from({ length: 62 }, (_, index) => {
+    const profileId = index + 1;
+    return [profileId, `profile_${profileId}`];
+  }),
+);
+
+function detectRoleTrackFromLabel(roleLabel) {
+  const value = String(roleLabel || '').toLowerCase();
+
+  if (/(school director|école|escuela|scuola|schule|education|teaching|pedagog|curriculum|academic|mannequinat|modelaje|modellazione|modelagem|didactic|didattica|didática)/.test(value)) return 'education';
+  if (/(photographer|videographer|editorial|post-production|post production|camera|video)/.test(value)) return 'content';
+  if (/(model|casting|booker|talent|agent|scout)/.test(value)) return 'talent';
+  if (/(production|sourcing|quality|logistics|pattern maker|sample maker|operations)/.test(value)) return 'operations';
+  if (/(marketing|pr manager|social media|brand marketing|influencer)/.test(value)) return 'marketing';
+  if (/(e-commerce|digital asset|chief digital officer|digital)/.test(value)) return 'digital';
+  return 'creative';
+}
+
+export function getCanonicalRoleLabel(profileKey, locale) {
+  const profileId = Number(String(profileKey || '').replace('profile_', ''));
+  if (!Number.isInteger(profileId) || profileId < 1 || profileId > 62) {
+    return getProfileRoleLabel(1, locale);
+  }
+  return getProfileRoleLabel(profileId, locale);
+}
+
+function validateCanonicalRoleLexicon(library) {
+  Object.entries(library).forEach(([profileKey, localeMap]) => {
+    Object.entries(localeMap).forEach(([locale, copy]) => {
+      const canonical = getCanonicalRoleLabel(profileKey, locale);
+      if (copy.roleName !== canonical || copy.navProfile !== canonical) {
+        throw new Error(
+          `Non-approved role label blocked for ${profileKey}/${locale}. Expected "${canonical}" and received roleName="${copy.roleName}" navProfile="${copy.navProfile}".`,
+        );
+      }
+    });
+  });
+}
+
+function roleSpecificChallengesTitle(roleName, locale) {
+  const templates = {
+    en: `Where ${roleName} is most tested in real work`,
+    fr: `Où le rôle de ${roleName} est le plus mis à l'épreuve sur le terrain`,
+    es: `Dónde el rol de ${roleName} se pone más a prueba en la práctica`,
+    it: `Dove il ruolo di ${roleName} viene più messo alla prova nella pratica`,
+    pt: `Onde o papel de ${roleName} é mais testado na prática`,
+    de: `Wo die Rolle ${roleName} in der Praxis am stärksten gefordert ist`,
+  };
+
+  return templates[locale] || templates.en;
+}
+
+const CREATIVE_DIRECTOR_PACK = {
+  en: {
+    roleName: 'Creative Director',
+    navProfile: 'Creative Director',
+    heroEyebrow: 'If you are a',
+    heroSubtitle: 'This message is for you.',
+    labels: {
+      profileEyebrow: 'How the role operates in reality',
+      challengesTitle: 'Where the role is genuinely tested',
+      servicesTitle: 'Support built for strategic creative leadership',
+      masterclassTitle: 'Strengthen your creative leadership practice',
+    },
+    profileSlides: [
+      { title: 'Vision With Consequence', text: 'Every aesthetic decision carries commercial, cultural, and team-level consequences. The role demands clarity under pressure, not just taste.' },
+      { title: 'Direction Across Channels', text: 'You are aligning collections, campaign language, digital output, and internal standards into one coherent brand rhythm.' },
+      { title: 'Authority Through Method', text: 'Your creative authority is sustained when instinct is paired with repeatable decision discipline and transparent leadership.' },
+      { title: 'Relevance Without Drift', text: 'You must absorb emerging signals quickly while protecting the deeper identity that makes the brand unmistakable.' },
+    ],
+    challenges: [
+      'Consumer expectations now shift faster than traditional fashion planning cycles.',
+      'Commercial urgency can compress the space needed for thoughtful creative development.',
+      'Cross-functional alignment gets harder as output expands across more channels.',
+      'Innovation pressure can fragment brand coherence when priorities are unclear.',
+      'Senior creative teams need both autonomy and sharper operating standards.',
+      'High-stakes creative calls are often made with incomplete or conflicting signals.',
+    ],
+    services: [
+      { title: 'Creative Decision Architecture', body: 'We design practical decision frameworks so your aesthetic direction stays coherent, defensible, and timely.' },
+      { title: 'Brand Narrative Calibration', body: 'We refine how your brand voice moves from concept to campaign so expression stays precise across channels.' },
+      { title: 'Creative Team Leadership Lab', body: 'We help you run clearer critiques, stronger rituals, and healthier accountability inside high-performance teams.' },
+      { title: 'Executive Portfolio Positioning', body: 'We recast your portfolio as strategic evidence: choices made, outcomes delivered, leadership demonstrated.' },
+      { title: 'Innovation Governance', body: 'We build a testing model for new ideas that protects signature quality while enabling meaningful evolution.' },
+    ],
+    masterclass: {
+      name: 'Masterclass for Creative Directors',
+      usp: 'A practice-led intensive for creative leaders who want stronger judgment, not louder output.',
+      benefits: [
+        'Build a reliable personal framework for high-impact creative decisions.',
+        'Align ambition with business logic without flattening originality.',
+        'Lead critiques that improve quality and reduce team friction.',
+        'Translate trend noise into clear strategic opportunities.',
+        'Present your portfolio as proof of leadership impact.',
+      ],
+      cta: 'View Program Details',
+    },
+  },
+  fr: {
+    roleName: 'Directeur artistique',
+    navProfile: 'Directeur artistique',
+    heroEyebrow: 'Si vous êtes',
+    heroSubtitle: 'Ce message est pour vous.',
+    labels: {
+      profileEyebrow: 'Comment le rôle s’exerce dans la réalité',
+      challengesTitle: 'Là où le rôle est vraiment mis à l’épreuve',
+      servicesTitle: 'Un accompagnement conçu pour une direction créative stratégique',
+      masterclassTitle: 'Renforcer votre pratique de direction créative',
+    },
+    profileSlides: [
+      { title: 'Vision à effets réels', text: 'Chaque choix esthétique a des effets business, culturels et humains. Le rôle demande de la clarté sous pression, pas seulement du goût.' },
+      { title: 'Direction à travers les canaux', text: 'Vous alignez collection, campagne, digital et standards d’équipe dans un même rythme de marque.' },
+      { title: 'Autorité par la méthode', text: 'L’autorité créative tient dans le temps quand l’intuition s’appuie sur une discipline de décision lisible.' },
+      { title: 'Pertinence sans dérive', text: 'Vous captez vite les signaux émergents tout en protégeant l’identité profonde qui rend la marque reconnaissable.' },
+    ],
+    challenges: [
+      'Les attentes clients évoluent plus vite que les cycles de planification traditionnels.',
+      'L’urgence commerciale peut réduire l’espace nécessaire au travail créatif de fond.',
+      'L’alignement inter-équipes se complexifie à mesure que les canaux se multiplient.',
+      'La pression d’innovation peut fragmenter la cohérence de marque.',
+      'Les équipes créatives seniors demandent autonomie et standards plus nets.',
+      'Les décisions les plus exposées se prennent souvent avec des signaux incomplets.',
+    ],
+    services: [
+      { title: 'Architecture de décision créative', body: 'Nous construisons des cadres décisionnels concrets pour préserver cohérence, vitesse et justesse créative.' },
+      { title: 'Calibration du récit de marque', body: 'Nous affinons la circulation de votre voix de marque, du concept à la campagne, sans perte de précision.' },
+      { title: 'Laboratoire de leadership créatif', body: 'Nous renforçons vos critiques, vos rituels d’équipe et votre responsabilité opérationnelle.' },
+      { title: 'Positionnement portfolio exécutif', body: 'Nous transformons votre portfolio en preuve stratégique: arbitrages, résultats, impact de leadership.' },
+      { title: 'Gouvernance de l’innovation', body: 'Nous mettons en place un modèle de test qui ouvre de nouvelles pistes sans diluer la signature.' },
+    ],
+    masterclass: {
+      name: 'Masterclass Directeur artistique',
+      usp: 'Un format intensif orienté pratique pour affûter le jugement créatif en contexte réel.',
+      benefits: [
+        'Construire un cadre personnel fiable pour les décisions à fort enjeu.',
+        'Aligner ambition créative et logique business sans lisser l’originalité.',
+        'Conduire des critiques qui élèvent le niveau et réduisent les frictions.',
+        'Transformer le bruit des tendances en priorités stratégiques claires.',
+        'Présenter votre portfolio comme preuve d’impact de direction.',
+      ],
+      cta: 'Voir le programme',
+    },
+  },
+  es: {
+    roleName: 'Director Creativo',
+    navProfile: 'Director Creativo',
+    heroEyebrow: 'Si eres',
+    heroSubtitle: 'Este mensaje es para ti.',
+    labels: {
+      profileEyebrow: 'Cómo funciona el rol en la realidad',
+      challengesTitle: 'Dónde el rol se pone realmente a prueba',
+      servicesTitle: 'Acompañamiento para liderazgo creativo estratégico',
+      masterclassTitle: 'Fortalece tu práctica de liderazgo creativo',
+    },
+    profileSlides: [
+      { title: 'Visión con consecuencias', text: 'Cada decisión estética tiene impacto comercial, cultural y humano. El rol exige claridad bajo presión, no solo criterio visual.' },
+      { title: 'Dirección entre canales', text: 'Alineas colección, campaña, digital y estándares de equipo dentro de un mismo pulso de marca.' },
+      { title: 'Autoridad con método', text: 'La autoridad creativa se sostiene cuando la intuición se apoya en un sistema de decisión consistente.' },
+      { title: 'Relevancia sin deriva', text: 'Lees señales emergentes con rapidez sin perder la identidad profunda que distingue a la marca.' },
+    ],
+    challenges: [
+      'Las expectativas del consumidor cambian más rápido que los ciclos de planificación clásicos.',
+      'La urgencia comercial puede reducir el espacio para un desarrollo creativo sólido.',
+      'Alinear áreas se vuelve más complejo a medida que crecen los canales.',
+      'La presión por innovar puede romper la coherencia de marca.',
+      'Los equipos senior necesitan autonomía junto con estándares más claros.',
+      'Las decisiones más visibles suelen tomarse con señales incompletas.',
+    ],
+    services: [
+      { title: 'Arquitectura de decisión creativa', body: 'Diseñamos marcos de decisión para que tu dirección creativa sea coherente, rápida y defendible.' },
+      { title: 'Calibración del relato de marca', body: 'Afinamos cómo viaja la voz de marca desde el concepto hasta la campaña.' },
+      { title: 'Laboratorio de liderazgo creativo', body: 'Fortalecemos dinámicas de crítica, rituales de equipo y responsabilidad operativa.' },
+      { title: 'Posicionamiento de portafolio ejecutivo', body: 'Convertimos tu portafolio en evidencia estratégica de decisiones, resultados e impacto de liderazgo.' },
+      { title: 'Gobernanza de innovación', body: 'Construimos un modelo de prueba para nuevas ideas sin diluir la firma de marca.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para Director Creativo',
+      usp: 'Un formato intensivo y práctico para afinar criterio creativo en escenarios de alta exigencia.',
+      benefits: [
+        'Construir un marco personal para decisiones de alto impacto.',
+        'Alinear ambición creativa y lógica de negocio sin perder singularidad.',
+        'Guiar críticas que elevan calidad y reducen fricción.',
+        'Convertir ruido de tendencias en oportunidades estratégicas claras.',
+        'Presentar tu portafolio como prueba de impacto de liderazgo.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  it: {
+    roleName: 'Direttore Creativo',
+    navProfile: 'Direttore Creativo',
+    heroEyebrow: 'Se sei',
+    heroSubtitle: 'Questo messaggio è per te.',
+    labels: {
+      profileEyebrow: 'Come il ruolo funziona nella pratica reale',
+      challengesTitle: 'Dove il ruolo viene davvero messo alla prova',
+      servicesTitle: 'Supporto pensato per una leadership creativa strategica',
+      masterclassTitle: 'Rafforza la tua pratica di leadership creativa',
+    },
+    profileSlides: [
+      { title: 'Visione con conseguenze', text: 'Ogni scelta estetica genera effetti commerciali, culturali e di team. Il ruolo richiede chiarezza sotto pressione, non solo gusto.' },
+      { title: 'Direzione tra canali', text: 'Allinei collezione, campagna, digitale e standard operativi in un unico ritmo di marca.' },
+      { title: 'Autorevolezza con metodo', text: 'L’autorevolezza creativa dura nel tempo quando l’intuizione è sostenuta da disciplina decisionale.' },
+      { title: 'Rilevanza senza deriva', text: 'Interpreti segnali emergenti rapidamente proteggendo l’identità profonda del brand.' },
+    ],
+    challenges: [
+      'Le aspettative del pubblico cambiano più rapidamente dei cicli tradizionali.',
+      'L’urgenza commerciale può comprimere il tempo del lavoro creativo di qualità.',
+      'Allineare funzioni diverse diventa più complesso con la crescita dei canali.',
+      'La pressione all’innovazione può indebolire la coerenza di marca.',
+      'I team senior chiedono autonomia insieme a standard più nitidi.',
+      'Le decisioni più esposte arrivano spesso con segnali incompleti.',
+    ],
+    services: [
+      { title: 'Architettura decisionale creativa', body: 'Progettiamo cornici decisionali pratiche per mantenere coerenza, velocità e qualità.' },
+      { title: 'Calibrazione del racconto di marca', body: 'Affiniamo il passaggio della voce del brand dal concept alla campagna.' },
+      { title: 'Laboratorio di leadership creativa', body: 'Rafforziamo critiche, rituali di team e responsabilità operativa.' },
+      { title: 'Posizionamento portfolio executive', body: 'Trasformiamo il portfolio in evidenza strategica di scelte, risultati e impatto.' },
+      { title: 'Governance dell’innovazione', body: 'Costruiamo un modello di test per nuove direzioni senza perdere identità.' },
+    ],
+    masterclass: {
+      name: 'Masterclass per Direttore Creativo',
+      usp: 'Un percorso intensivo e pratico per affinare il giudizio creativo in scenari ad alta pressione.',
+      benefits: [
+        'Costruire un framework personale per decisioni ad alto impatto.',
+        'Allineare ambizione creativa e logica di business senza appiattire lo stile.',
+        'Guidare critiche che alzano qualità e riducono attrito interno.',
+        'Tradurre il rumore di tendenza in priorità strategiche chiare.',
+        'Presentare il portfolio come prova di leadership e risultati.',
+      ],
+      cta: 'Scopri il programma',
+    },
+  },
+  pt: {
+    roleName: 'Diretor Criativo',
+    navProfile: 'Diretor Criativo',
+    heroEyebrow: 'Se você é',
+    heroSubtitle: 'Esta mensagem é para você.',
+    labels: {
+      profileEyebrow: 'Como o papel funciona na prática real',
+      challengesTitle: 'Onde o papel é realmente testado',
+      servicesTitle: 'Suporte para liderança criativa estratégica',
+      masterclassTitle: 'Fortaleça sua prática de liderança criativa',
+    },
+    profileSlides: [
+      { title: 'Visão com consequência', text: 'Cada decisão estética produz efeitos comerciais, culturais e humanos. O papel pede clareza sob pressão, não apenas gosto.' },
+      { title: 'Direção entre canais', text: 'Você alinha coleção, campanha, digital e padrões de equipe em um único ritmo de marca.' },
+      { title: 'Autoridade com método', text: 'A autoridade criativa se sustenta quando intuição e disciplina de decisão caminham juntas.' },
+      { title: 'Relevância sem desvio', text: 'Você interpreta sinais emergentes com rapidez sem perder a identidade profunda da marca.' },
+    ],
+    challenges: [
+      'As expectativas do público mudam mais rápido que os ciclos tradicionais de planejamento.',
+      'A urgência comercial pode reduzir o espaço do trabalho criativo de qualidade.',
+      'Alinhar áreas diferentes fica mais complexo com a multiplicação de canais.',
+      'A pressão por inovação pode fragmentar a coerência de marca.',
+      'Times seniores precisam de autonomia e padrões mais claros ao mesmo tempo.',
+      'As decisões mais visíveis costumam ser tomadas com sinais incompletos.',
+    ],
+    services: [
+      { title: 'Arquitetura de decisão criativa', body: 'Desenhamos estruturas de decisão para manter sua direção criativa coerente e sustentável.' },
+      { title: 'Calibragem da narrativa de marca', body: 'Refinamos como a voz da marca atravessa do conceito à campanha.' },
+      { title: 'Ateliê de liderança criativa', body: 'Fortalecemos rituais de equipe, qualidade de crítica e responsabilidade operacional.' },
+      { title: 'Posicionamento de portfólio executivo', body: 'Transformamos o portfólio em evidência estratégica de escolhas e resultados.' },
+      { title: 'Governança da inovação', body: 'Construímos um modelo de teste para novas ideias sem enfraquecer a assinatura da marca.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para Diretor Criativo',
+      usp: 'Um intensivo prático para elevar a qualidade das decisões criativas em contextos reais.',
+      benefits: [
+        'Construir um framework pessoal para decisões de alto impacto.',
+        'Alinhar ambição criativa e lógica de negócio sem perder originalidade.',
+        'Conduzir críticas que elevam qualidade e reduzem fricção.',
+        'Converter ruído de tendência em prioridades estratégicas.',
+        'Apresentar o portfólio como prova de impacto de liderança.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  de: {
+    roleName: 'Kreativdirektor',
+    navProfile: 'Kreativdirektor',
+    heroEyebrow: 'Wenn Sie',
+    heroSubtitle: 'Diese Botschaft ist für Sie.',
+    labels: {
+      profileEyebrow: 'Wie die Rolle in der Praxis wirklich funktioniert',
+      challengesTitle: 'Wo die Rolle tatsächlich auf die Probe gestellt wird',
+      servicesTitle: 'Unterstützung für strategische kreative Führung',
+      masterclassTitle: 'Schärfen Sie Ihre Praxis kreativer Führung',
+    },
+    profileSlides: [
+      { title: 'Vision mit Konsequenz', text: 'Jede ästhetische Entscheidung hat wirtschaftliche, kulturelle und teambezogene Folgen. Die Rolle verlangt Klarheit unter Druck.' },
+      { title: 'Führung über Kanäle', text: 'Sie verbinden Kollektion, Kampagne, Digital und Teamstandards zu einem konsistenten Markenrhythmus.' },
+      { title: 'Autorität durch Methode', text: 'Kreative Autorität bleibt tragfähig, wenn Intuition durch klare Entscheidungsdisziplin gestützt wird.' },
+      { title: 'Relevanz ohne Drift', text: 'Sie lesen neue Signale schnell und schützen zugleich die Identität, die die Marke unverwechselbar macht.' },
+    ],
+    challenges: [
+      'Kundenerwartungen verändern sich schneller als klassische Planungszyklen.',
+      'Kommerzielle Dringlichkeit kann den Raum für fundierte kreative Entwicklung verkleinern.',
+      'Bereichsübergreifende Ausrichtung wird mit zunehmender Kanalvielfalt schwieriger.',
+      'Innovationsdruck kann die Markenkohärenz schwächen, wenn Prioritäten unklar sind.',
+      'Senior-Kreativteams brauchen gleichzeitig Freiheit und klare Standards.',
+      'Die sichtbarsten Entscheidungen entstehen oft aus unvollständigen Signalen.',
+    ],
+    services: [
+      { title: 'Architektur kreativer Entscheidungen', body: 'Wir entwickeln praktikable Entscheidungsrahmen für konsistente, belastbare kreative Führung.' },
+      { title: 'Kalibrierung der Markenerzählung', body: 'Wir schärfen den Weg der Markenstimme vom Konzept bis zur Kampagne.' },
+      { title: 'Führungslabor für Kreativteams', body: 'Wir stärken Kritikformate, Teamrituale und operative Verantwortung.' },
+      { title: 'Strategische Portfolio-Positionierung', body: 'Wir zeigen Ihr Portfolio als belastbaren Nachweis für Entscheidungen und Wirkung.' },
+      { title: 'Innovations-Governance', body: 'Wir bauen ein Testmodell für neue Richtungen ohne Verlust der Markensignatur.' },
+    ],
+    masterclass: {
+      name: 'Masterclass für Kreativdirektoren',
+      usp: 'Ein praxisnahes Intensivformat für bessere kreative Entscheidungen in realen Drucksituationen.',
+      benefits: [
+        'Ein persönliches Modell für Entscheidungen mit hoher Tragweite entwickeln.',
+        'Kreativen Anspruch und Business-Logik verbinden ohne Originalitätsverlust.',
+        'Kritiken führen, die Qualität steigern und Reibung reduzieren.',
+        'Trendrauschen in klare strategische Prioritäten übersetzen.',
+        'Das Portfolio als Beleg für Führungswirkung positionieren.',
+      ],
+      cta: 'Programm ansehen',
+    },
+  },
+};
+
+const FASHION_VIDEOGRAPHER_PACK = {
+  en: {
+    roleName: 'Fashion Videographer',
+    navProfile: 'Fashion Videographer',
+    heroEyebrow: 'If you are a',
+    heroSubtitle: 'This message is for you.',
+    labels: {
+      profileEyebrow: 'What the role demands in real production cycles',
+      challengesTitle: 'Where pressure accumulates in the workflow',
+      servicesTitle: 'Support for stronger visual storytelling output',
+      masterclassTitle: 'Develop a sharper video storytelling practice',
+    },
+    profileSlides: [
+      { title: 'Speed With Intent', text: 'You are expected to move quickly across formats while preserving narrative intent and visual discipline.' },
+      { title: 'Platform Intelligence', text: 'Every cut, pacing shift, and framing choice must respond to channel behavior without losing authorship.' },
+      { title: 'Production Leadership', text: 'You are directing people, timing, and creative coherence from pre-production through final delivery.' },
+      { title: 'Distinctive Signal', text: 'Your edge is the ability to turn trend energy into work that still feels authored and durable.' },
+    ],
+    challenges: [
+      'Short-form demand can erode narrative depth when process is weak.',
+      'Platform shifts can force reactive output if strategic filters are missing.',
+      'Crew, gear, and post constraints often compress creative options.',
+      'Maintaining quality across campaign and social cuts is structurally hard.',
+      'Approvals are frequently expected on compressed timelines.',
+      'A recognizable visual signature must survive across different content speeds.',
+    ],
+    services: [
+      { title: 'Video Narrative Design', body: 'We strengthen your story architecture so short and long formats feel connected and intentional.' },
+      { title: 'Channel-Specific Editing Strategy', body: 'We optimize edit logic per platform while preserving tone and visual integrity.' },
+      { title: 'Set-to-Post Workflow Coaching', body: 'We improve your production flow from planning through final export for better consistency.' },
+      { title: 'Visual Signature Development', body: 'We help define a clearer stylistic language so your work remains recognizable at scale.' },
+      { title: 'Portfolio Positioning for Premium Projects', body: 'We frame your reel around outcomes and strategic value, not just aesthetics.' },
+    ],
+    masterclass: {
+      name: 'Masterclass for Fashion Videographers',
+      usp: 'A craft-focused intensive for creators who need sharper storytelling under real deadlines.',
+      benefits: [
+        'Build repeatable frameworks for concept, shot logic, and edit rhythm.',
+        'Adapt to platform formats without losing visual authorship.',
+        'Improve collaboration with stylists, producers, and creative leads.',
+        'Increase operational clarity from pre-production to delivery.',
+        'Position your body of work with stronger strategic relevance.',
+      ],
+      cta: 'View Program Details',
+    },
+  },
+  fr: {
+    roleName: 'Vidéaste de mode',
+    navProfile: 'Vidéaste de mode',
+    heroEyebrow: 'Si vous êtes',
+    heroSubtitle: 'Ce message est pour vous.',
+    labels: {
+      profileEyebrow: 'Ce que le rôle exige sur des cycles de production réels',
+      challengesTitle: 'Là où la pression s’accumule dans le flux de travail',
+      servicesTitle: 'Un accompagnement pour une narration visuelle plus forte',
+      masterclassTitle: 'Développer une pratique vidéo plus incisive',
+    },
+    profileSlides: [
+      { title: 'Vitesse avec intention', text: 'Vous devez avancer vite sur plusieurs formats sans sacrifier l’intention narrative ni la précision visuelle.' },
+      { title: 'Intelligence plateforme', text: 'Chaque coupe et chaque rythme doivent s’adapter au canal sans diluer votre signature.' },
+      { title: 'Leadership de production', text: 'Vous coordonnez équipes, timing et cohérence créative de la préparation à la livraison.' },
+      { title: 'Signal distinctif', text: 'Votre force: transformer l’énergie des tendances en contenu durable et clairement auteur.' },
+    ],
+    challenges: [
+      'La demande de formats courts peut fragiliser la profondeur narrative.',
+      'Les évolutions de plateforme peuvent pousser à une production réactive.',
+      'Les contraintes d’équipe, de matériel et de postproduction réduisent les options.',
+      'Maintenir la qualité entre campagne et social est un enjeu structurel.',
+      'Les validations créatives arrivent souvent sur des délais très serrés.',
+      'Une signature visuelle claire doit survivre à des cadences multiples.',
+    ],
+    services: [
+      { title: 'Conception de narration vidéo', body: 'Nous renforçons votre architecture narrative pour relier formats courts et longs avec cohérence.' },
+      { title: 'Stratégie de montage par canal', body: 'Nous adaptons la logique de montage à chaque plateforme sans perte de ton.' },
+      { title: 'Coaching du flux, du tournage à la postproduction', body: 'Nous optimisons le flux opérationnel de la préparation jusqu’à la livraison finale.' },
+      { title: 'Développement de signature visuelle', body: 'Nous clarifions votre langage visuel pour une reconnaissance stable dans le temps.' },
+      { title: 'Portfolio pour projets premium', body: 'Nous repositionnons votre reel autour des résultats, de la méthode et de l’impact.' },
+    ],
+    masterclass: {
+      name: 'Masterclass Vidéaste de mode',
+      usp: 'Un laboratoire pratique pour mieux raconter sous contrainte de délais réels.',
+      benefits: [
+        'Construire des modèles répétables pour concept, cadrage et rythme de montage.',
+        'Adapter les formats de plateforme sans perdre votre signature.',
+        'Mieux collaborer avec stylistes, production et direction créative.',
+        'Gagner en clarté opérationnelle de la prépa à la livraison.',
+        'Positionner votre travail avec une valeur stratégique plus lisible.',
+      ],
+      cta: 'Voir le programme',
+    },
+  },
+  es: {
+    roleName: 'Videógrafo de moda',
+    navProfile: 'Videógrafo de moda',
+    heroEyebrow: 'Si eres',
+    heroSubtitle: 'Este mensaje es para ti.',
+    labels: {
+      profileEyebrow: 'Lo que el rol exige en ciclos de producción reales',
+      challengesTitle: 'Dónde se concentra la presión del flujo',
+      servicesTitle: 'Acompañamiento para una narrativa visual más sólida',
+      masterclassTitle: 'Desarrolla una práctica audiovisual más precisa',
+    },
+    profileSlides: [
+      { title: 'Velocidad con intención', text: 'Debes trabajar rápido entre formatos sin perder intención narrativa ni consistencia visual.' },
+      { title: 'Lectura de plataforma', text: 'Cada corte y ritmo se adapta al canal sin borrar tu autoría.' },
+      { title: 'Liderazgo de producción', text: 'Coordinas personas, tiempos y coherencia creativa desde preproducción hasta entrega.' },
+      { title: 'Señal propia', text: 'Tu diferencial está en convertir tendencia en piezas con identidad y permanencia.' },
+    ],
+    challenges: [
+      'La demanda de formato corto puede reducir profundidad narrativa.',
+      'Los cambios de plataforma empujan decisiones reactivas.',
+      'Las limitaciones de equipo, rodaje y postproducción comprimen opciones.',
+      'Sostener calidad entre campaña y social exige un método robusto.',
+      'Las aprobaciones suelen llegar con ventanas de tiempo mínimas.',
+      'La firma visual debe mantenerse en velocidades de salida muy distintas.',
+    ],
+    services: [
+      { title: 'Diseño de narrativa audiovisual', body: 'Estructuramos arcos narrativos para mantener coherencia entre formatos cortos y largos.' },
+      { title: 'Estrategia de edición por canal', body: 'Ajustamos la lógica de montaje por plataforma sin perder tono ni consistencia.' },
+      { title: 'Acompañamiento de flujo, del set a la postproducción', body: 'Optimizamos la cadena operativa desde planificación hasta entrega final.' },
+      { title: 'Desarrollo de firma visual', body: 'Definimos un lenguaje visual reconocible y sostenible en distintos contextos.' },
+      { title: 'Portafolio para proyectos premium', body: 'Replanteamos reel y casos con foco en valor estratégico y resultados.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para videógrafos de moda',
+      usp: 'Un laboratorio práctico para narrar mejor bajo plazos reales.',
+      benefits: [
+        'Crear marcos repetibles para concepto, toma y ritmo de edición.',
+        'Adaptarte a formatos de plataforma sin perder autoría visual.',
+        'Mejorar colaboración con estilismo, producción y dirección creativa.',
+        'Ganar claridad operativa desde prepro hasta entrega.',
+        'Presentar tu trabajo con posicionamiento estratégico más fuerte.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  it: {
+    roleName: 'Videografo di moda',
+    navProfile: 'Videografo di moda',
+    heroEyebrow: 'Se sei',
+    heroSubtitle: 'Questo messaggio è per te.',
+    labels: {
+      profileEyebrow: 'Cosa richiede davvero il ruolo in cicli produttivi reali',
+      challengesTitle: 'Dove la pressione si concentra nel flusso',
+      servicesTitle: 'Supporto per una narrazione visiva più solida',
+      masterclassTitle: 'Sviluppa una pratica video più precisa',
+    },
+    profileSlides: [
+      { title: 'Velocità con intenzione', text: 'Lavori su più formati con tempi stretti mantenendo intenzione narrativa e qualità visiva.' },
+      { title: 'Intelligenza di piattaforma', text: 'Tagli e ritmo cambiano per canale senza perdere la tua impronta autoriale.' },
+      { title: 'Leadership di produzione', text: 'Coordini persone, tempi e coerenza creativa dalla preproduzione alla consegna.' },
+      { title: 'Segnale distintivo', text: 'Il vantaggio nasce quando trasformi la tendenza in contenuti riconoscibili e durevoli.' },
+    ],
+    challenges: [
+      'La domanda short-form può ridurre la profondità narrativa.',
+      'I cambi di piattaforma possono spingere scelte troppo reattive.',
+      'Vincoli di troupe, attrezzatura e postproduzione comprimono le opzioni.',
+      'Mantenere qualità tra campagna e social richiede metodo.',
+      'Le approvazioni creative arrivano spesso con tempi molto stretti.',
+      'Una firma visiva chiara deve reggere velocità di pubblicazione diverse.',
+    ],
+    services: [
+      { title: 'Progettazione della narrativa video', body: 'Costruiamo archi narrativi coerenti tra formati brevi e lunghi.' },
+      { title: 'Strategia di montaggio per canale', body: 'Affiniamo la logica di montaggio per piattaforma senza perdere tono e continuità.' },
+      { title: 'Affiancamento del flusso, dal set alla postproduzione', body: 'Ottimizziamo il flusso operativo dalla pianificazione alla consegna finale.' },
+      { title: 'Sviluppo della firma visiva', body: 'Rendiamo il linguaggio visivo più riconoscibile e sostenibile nel tempo.' },
+      { title: 'Portfolio per progetti premium', body: 'Riposizioniamo reel e case history attorno a risultato e impatto strategico.' },
+    ],
+    masterclass: {
+      name: 'Masterclass per videografi di moda',
+      usp: 'Un laboratorio pratico per raccontare meglio sotto scadenze reali.',
+      benefits: [
+        'Creare framework ripetibili per concept, ripresa e ritmo di montaggio.',
+        'Adattarsi ai formati piattaforma senza perdere autorialità visiva.',
+        'Collaborare meglio con styling, produzione e direzione creativa.',
+        'Aumentare la chiarezza operativa da pre-produzione a delivery.',
+        'Presentare il lavoro con un posizionamento strategico più forte.',
+      ],
+      cta: 'Scopri il programma',
+    },
+  },
+  pt: {
+    roleName: 'Videógrafo de moda',
+    navProfile: 'Videógrafo de moda',
+    heroEyebrow: 'Se você é',
+    heroSubtitle: 'Esta mensagem é para você.',
+    labels: {
+      profileEyebrow: 'O que o papel exige em ciclos de produção reais',
+      challengesTitle: 'Onde a pressão se concentra no fluxo',
+      servicesTitle: 'Suporte para uma narrativa visual mais forte',
+      masterclassTitle: 'Desenvolva uma prática audiovisual mais precisa',
+    },
+    profileSlides: [
+      { title: 'Velocidade com intenção', text: 'Você precisa operar rápido entre formatos sem perder intenção narrativa nem qualidade visual.' },
+      { title: 'Leitura de plataforma', text: 'Cada corte e ritmo se adapta ao canal sem apagar sua autoria.' },
+      { title: 'Liderança de produção', text: 'Você coordena pessoas, prazos e coerência criativa da pré-produção à entrega.' },
+      { title: 'Sinal autoral', text: 'Seu diferencial está em transformar tendência em conteúdo com identidade e permanência.' },
+    ],
+    challenges: [
+      'A demanda por short-form pode reduzir profundidade narrativa.',
+      'Mudanças de plataforma podem empurrar decisões reativas.',
+      'Limites de equipe, equipamento e pós-produção comprimem opções criativas.',
+      'Manter qualidade entre campanha e social exige método consistente.',
+      'Aprovações criativas costumam chegar com janelas de tempo muito curtas.',
+      'A assinatura visual precisa sobreviver a velocidades de entrega diferentes.',
+    ],
+    services: [
+      { title: 'Design de narrativa em vídeo', body: 'Estruturamos arcos narrativos para conectar formatos curtos e longos com coerência.' },
+      { title: 'Estratégia de edição por canal', body: 'Refinamos a lógica de montagem por plataforma sem perder tom e continuidade.' },
+      { title: 'Acompanhamento de fluxo, do set à pós-produção', body: 'Otimizamos o fluxo operacional da preparação até a entrega final.' },
+      { title: 'Desenvolvimento de assinatura visual', body: 'Clarificamos sua linguagem visual para manter reconhecimento e consistência.' },
+      { title: 'Portfólio para projetos premium', body: 'Reposicionamos reel e cases com foco em resultado e impacto estratégico.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para videógrafos de moda',
+      usp: 'Um laboratório prático para contar melhor sob prazos reais.',
+      benefits: [
+        'Criar modelos repetíveis para conceito, captação e ritmo de edição.',
+        'Adaptar formatos de plataforma sem perder autoria visual.',
+        'Melhorar colaboração com styling, produção e direção criativa.',
+        'Ganhar clareza operacional da pré até a entrega.',
+        'Apresentar seu trabalho com posicionamento estratégico mais forte.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  de: {
+    roleName: 'Videograf für Mode',
+    navProfile: 'Videograf für Mode',
+    heroEyebrow: 'Wenn Sie',
+    heroSubtitle: 'Diese Botschaft ist für Sie.',
+    labels: {
+      profileEyebrow: 'Was die Rolle in realen Produktionszyklen verlangt',
+      challengesTitle: 'Wo sich der Druck im Workflow verdichtet',
+      servicesTitle: 'Unterstützung für stärkere visuelle Erzählqualität',
+      masterclassTitle: 'Entwickeln Sie eine präzisere Praxis des Video-Storytellings',
+    },
+    profileSlides: [
+      { title: 'Tempo mit Absicht', text: 'Sie arbeiten schnell über Formate hinweg und sichern trotzdem visuelle Intention und technische Qualität.' },
+      { title: 'Plattformkompetenz', text: 'Schnitt, Rhythmus und Kadrierung passen sich dem Kanal an, ohne Ihre Handschrift zu verlieren.' },
+      { title: 'Produktionsführung', text: 'Sie führen Menschen, Timing und kreative Kohärenz von der Vorbereitung bis zur finalen Ausspielung.' },
+      { title: 'Eigenes Signal', text: 'Ihre Stärke: Trends in präzise Inhalte übersetzen, die erkennbar und tragfähig bleiben.' },
+    ],
+    challenges: [
+      'Short-Form-Druck kann narrative Tiefe schwächen.',
+      'Plattformwechsel fördern reaktive Entscheidungen.',
+      'Team-, Technik- und Postproduktionsgrenzen engen kreative Optionen ein.',
+      'Qualität über Kampagne und Social hinweg zu halten ist strukturell anspruchsvoll.',
+      'Kreative Freigaben werden häufig in sehr kurzen Fenstern erwartet.',
+      'Eine klare visuelle Handschrift muss über unterschiedliche Geschwindigkeiten bestehen.',
+    ],
+    services: [
+      { title: 'Video-Narrativdesign', body: 'Wir schärfen Erzählbögen, damit kurze und lange Formate zusammenhängend wirken.' },
+      { title: 'Edit-Strategie pro Kanal', body: 'Wir optimieren die Schnittlogik je Plattform bei stabiler Tonalität und Kohärenz.' },
+      { title: 'Workflow-Coaching von Set bis Postproduktion', body: 'Wir verbessern den Produktionsfluss von der Planung bis zur finalen Ausspielung.' },
+      { title: 'Entwicklung visueller Signatur', body: 'Wir präzisieren Ihre Bildsprache für verlässliche Wiedererkennbarkeit.' },
+      { title: 'Portfolio für Premium-Projekte', body: 'Wir positionieren Reel und Cases über Wirkung, Entscheidungskraft und Ergebnis.' },
+    ],
+    masterclass: {
+      name: 'Masterclass für Modevideografen',
+      usp: 'Ein praxisnahes Intensivformat für besseres Storytelling unter realen Deadlines.',
+      benefits: [
+        'Wiederholbare Modelle für Konzept, Shot-Logik und Edit-Rhythmus entwickeln.',
+        'Plattformformate bedienen, ohne visuelle Autorschaft zu verlieren.',
+        'Zusammenarbeit mit Styling, Produktion und Creative Leads verbessern.',
+        'Mehr Klarheit von Pre-Pro bis Delivery gewinnen.',
+        'Ihr Portfolio strategisch stärker positionieren.',
+      ],
+      cta: 'Programm ansehen',
+    },
+  },
+};
+
+const EDUCATION_DIRECTOR_PACK = {
+  en: {
+    roleName: 'Fashion Modelling School Director',
+    navProfile: 'Fashion Modelling School Director',
+    heroEyebrow: 'If you are a',
+    heroSubtitle: 'This message is for you.',
+    labels: {
+      profileEyebrow: 'How the school-director role works in reality',
+      challengesTitle: 'Where academic leadership is truly tested',
+      servicesTitle: 'Support for curriculum quality and student outcomes',
+      masterclassTitle: 'Strengthen your school leadership practice',
+    },
+    profileSlides: [
+      { title: 'Educational Direction With Industry Relevance', text: 'You shape curriculum choices that must stay academically credible while matching real hiring expectations.' },
+      { title: 'Faculty Alignment And Pedagogical Standards', text: 'You lead teachers toward shared evaluation criteria so students experience consistent guidance and fair progression.' },
+      { title: 'Student Pathway Governance', text: 'You monitor learner progression, intervention points, and portfolio readiness to reduce dropout risk and improve placement quality.' },
+      { title: 'Institutional Reputation Under Pressure', text: 'Your decisions influence employability outcomes, parent trust, partner confidence, and long-term school credibility.' },
+    ],
+    challenges: [
+      'Industry expectations evolve faster than traditional curriculum update cycles.',
+      'Faculty calibration can drift without clear teaching and assessment standards.',
+      'Students need both confidence support and objective performance accountability.',
+      'Operational limits can weaken mentoring quality if scheduling is not redesigned.',
+      'School reputation is exposed when employability metrics are inconsistent.',
+      'AI adoption in pedagogy needs governance to protect fairness and learning integrity.',
+    ],
+    services: [
+      { title: 'Curriculum Governance Design', body: 'We help structure curriculum architecture so standards stay current, assessable, and aligned with real market demand.' },
+      { title: 'Faculty Calibration System', body: 'We establish shared rubrics and teaching rituals to improve consistency across instructors and cohorts.' },
+      { title: 'Student Progression Intelligence', body: 'We implement practical checkpoints that flag risk early and guide targeted interventions.' },
+      { title: 'Industry Partnership Activation', body: 'We strengthen school-to-industry bridges for internships, briefs, and hiring pathways that create measurable outcomes.' },
+      { title: 'School Positioning And Credibility Strategy', body: 'We align leadership messaging, quality proof, and outcome reporting to reinforce institutional trust.' },
+    ],
+    masterclass: {
+      name: 'Masterclass for Fashion School Directors',
+      usp: 'A leadership-intensive format focused on curriculum quality, faculty alignment, and graduate readiness.',
+      benefits: [
+        'Build a repeatable model for curriculum updates tied to industry reality.',
+        'Standardize faculty evaluation and feedback without flattening teaching style.',
+        'Improve student progression monitoring with clear intervention protocols.',
+        'Strengthen employability outcomes through structured partner engagement.',
+        'Adopt AI in pedagogy with governance that protects fairness and quality.',
+      ],
+      cta: 'View Program Details',
+    },
+  },
+  fr: {
+    roleName: 'Directeur d\'école de mannequinat',
+    navProfile: 'Directeur d\'école de mannequinat',
+    heroEyebrow: 'Si vous êtes',
+    heroSubtitle: 'Ce message est pour vous.',
+    labels: {
+      profileEyebrow: 'Comment le rôle de direction d’école fonctionne réellement',
+      challengesTitle: 'Là où le leadership pédagogique est vraiment mis à l’épreuve',
+      servicesTitle: 'Un accompagnement pour la qualité des parcours et l’employabilité',
+      masterclassTitle: 'Renforcer votre pratique de direction pédagogique',
+    },
+    profileSlides: [
+      { title: 'Direction pédagogique et exigence marché', text: 'Vous pilotez des choix de programme qui doivent rester académiquement solides et utiles à l’insertion professionnelle.' },
+      { title: 'Alignement des formateurs', text: 'Vous harmonisez les critères d’évaluation pour garantir un suivi cohérent entre classes et intervenants.' },
+      { title: 'Progression étudiante', text: 'Vous supervisez les jalons de progression, les points d’alerte et la préparation portfolio pour sécuriser les trajectoires.' },
+      { title: 'Réputation institutionnelle', text: 'Vos arbitrages influencent l’employabilité des diplômés, la confiance des familles et la crédibilité de l’école.' },
+    ],
+    challenges: [
+      'Les attentes de l’industrie évoluent plus vite que les cycles classiques de révision de programme.',
+      'Sans calibration claire, les pratiques d’évaluation peuvent diverger entre formateurs.',
+      'Les étudiants ont besoin d’un cadre exigeant sans perdre le soutien nécessaire à la confiance.',
+      'Les contraintes opérationnelles peuvent affaiblir la qualité du mentorat.',
+      'La réputation de l’école est exposée quand les indicateurs d’insertion sont irréguliers.',
+      'L’intégration de l’IA pédagogique exige une gouvernance explicite.',
+    ],
+    services: [
+      { title: 'Architecture de gouvernance curriculaire', body: 'Nous structurons vos programmes pour maintenir des standards à jour, lisibles et alignés avec les besoins du marché.' },
+      { title: 'Système de calibration des formateurs', body: 'Nous mettons en place rubriques communes et rituels pédagogiques pour renforcer la cohérence d’enseignement.' },
+      { title: 'Pilotage de progression étudiante', body: 'Nous installons des checkpoints concrets pour détecter les risques tôt et orienter les actions de soutien.' },
+      { title: 'Activation des partenariats industrie', body: 'Nous renforçons les passerelles école-industrie pour créer des débouchés mesurables.' },
+      { title: 'Stratégie de crédibilité institutionnelle', body: 'Nous alignons discours de direction, preuves de qualité et reporting résultats pour consolider la confiance.' },
+    ],
+    masterclass: {
+      name: 'Masterclass Directeur d\'école de mannequinat',
+      usp: 'Un format intensif centré sur la qualité pédagogique, l’alignement des équipes et la préparation à l’emploi.',
+      benefits: [
+        'Mettre en place un modèle de mise à jour curriculaire relié au terrain.',
+        'Harmoniser l’évaluation pédagogique sans uniformiser les styles d’enseignement.',
+        'Renforcer le suivi de progression avec des protocoles d’intervention clairs.',
+        'Améliorer les résultats d’employabilité via des partenariats structurés.',
+        'Intégrer l’IA pédagogique avec des garde-fous de qualité et d’équité.',
+      ],
+      cta: 'Voir le programme',
+    },
+  },
+  es: {
+    roleName: 'Director de escuela de modelaje de moda',
+    navProfile: 'Director de escuela de modelaje de moda',
+    heroEyebrow: 'Si eres',
+    heroSubtitle: 'Este mensaje es para ti.',
+    labels: {
+      profileEyebrow: 'Cómo funciona realmente la dirección de escuela',
+      challengesTitle: 'Dónde se pone a prueba el liderazgo académico',
+      servicesTitle: 'Apoyo para calidad curricular y empleabilidad estudiantil',
+      masterclassTitle: 'Fortalece tu práctica de dirección académica',
+    },
+    profileSlides: [
+      { title: 'Dirección pedagógica con relevancia de mercado', text: 'Defiendes decisiones curriculares que deben ser rigurosas en lo académico y útiles para la inserción laboral real.' },
+      { title: 'Alineación docente', text: 'Coordinas criterios de evaluación compartidos para dar coherencia entre profesores, grupos y niveles.' },
+      { title: 'Gobernanza de trayectoria estudiantil', text: 'Supervisas progresión, alertas tempranas y preparación de portafolio para sostener resultados formativos.' },
+      { title: 'Reputación institucional bajo presión', text: 'Tus decisiones impactan empleabilidad, confianza de familias y credibilidad de la escuela a largo plazo.' },
+    ],
+    challenges: [
+      'La expectativa de la industria cambia más rápido que los ciclos tradicionales del plan de estudios.',
+      'Sin calibración, los criterios de evaluación pueden desviarse entre docentes.',
+      'El alumnado necesita exigencia objetiva y soporte de confianza al mismo tiempo.',
+      'Las limitaciones operativas pueden erosionar la calidad de la mentoría.',
+      'La reputación se resiente cuando los resultados de empleabilidad son irregulares.',
+      'La adopción de IA educativa exige gobernanza para proteger calidad y equidad.',
+    ],
+    services: [
+      { title: 'Diseño de gobernanza curricular', body: 'Estructuramos arquitectura curricular para mantener estándares actualizados, medibles y conectados al mercado.' },
+      { title: 'Sistema de calibración docente', body: 'Definimos rúbricas y rituales pedagógicos compartidos para elevar consistencia formativa.' },
+      { title: 'Inteligencia de progresión estudiantil', body: 'Implementamos checkpoints para detectar riesgo temprano y activar intervenciones concretas.' },
+      { title: 'Activación de alianzas con la industria', body: 'Fortalecemos puentes escuela-industria para prácticas, briefs y colocación profesional medible.' },
+      { title: 'Estrategia de credibilidad institucional', body: 'Alineamos relato directivo, pruebas de calidad y reporting de resultados para reforzar confianza.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para directores de escuelas de moda',
+      usp: 'Un formato intensivo enfocado en calidad curricular, alineación docente y preparación laboral.',
+      benefits: [
+        'Construir un modelo repetible de actualización curricular conectado al sector.',
+        'Estandarizar evaluación docente sin aplanar estilos pedagógicos.',
+        'Mejorar monitoreo de progreso con protocolos claros de intervención.',
+        'Elevar empleabilidad mediante alianzas estructuradas con la industria.',
+        'Adoptar IA educativa con gobernanza que proteja equidad y nivel académico.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  it: {
+    roleName: 'Direttore di scuola di design della moda',
+    navProfile: 'Direttore di scuola di design della moda',
+    heroEyebrow: 'Se sei',
+    heroSubtitle: 'Questo messaggio è per te.',
+    labels: {
+      profileEyebrow: 'Come funziona davvero la direzione scolastica',
+      challengesTitle: 'Dove la leadership didattica viene messa alla prova',
+      servicesTitle: 'Supporto per qualità curricolare e occupabilità degli studenti',
+      masterclassTitle: 'Rafforza la tua pratica di direzione accademica',
+    },
+    profileSlides: [
+      { title: 'Direzione didattica con rilevanza di mercato', text: 'Guida scelte curricolari che devono restare rigorose sul piano formativo e utili all’inserimento professionale.' },
+      { title: 'Allineamento del corpo docente', text: 'Coordini criteri di valutazione condivisi per garantire coerenza tra classi, docenti e percorsi.' },
+      { title: 'Governance della progressione studente', text: 'Supervisioni avanzamento, segnali di rischio e portfolio readiness per migliorare esiti e continuità.' },
+      { title: 'Reputazione istituzionale sotto pressione', text: 'Le tue decisioni influenzano occupabilità, fiducia delle famiglie e credibilità dell’istituto nel lungo periodo.' },
+    ],
+    challenges: [
+      'Le aspettative dell’industria evolvono più rapidamente dei cicli curricolari tradizionali.',
+      'Senza calibrazione, i criteri valutativi possono divergere tra docenti.',
+      'Gli studenti hanno bisogno di rigore oggettivo e supporto alla fiducia insieme.',
+      'Vincoli operativi possono ridurre la qualità del mentoring.',
+      'La reputazione scolastica si indebolisce con risultati occupazionali discontinui.',
+      'L’integrazione dell’AI didattica richiede governance esplicita su qualità ed equità.',
+    ],
+    services: [
+      { title: 'Progettazione governance curricolare', body: 'Strutturiamo l’architettura del percorso per mantenere standard aggiornati, misurabili e coerenti con il mercato.' },
+      { title: 'Sistema di calibrazione docenti', body: 'Definiamo rubriche comuni e rituali didattici per aumentare coerenza e qualità formativa.' },
+      { title: 'Intelligence sulla progressione studenti', body: 'Implementiamo checkpoint pratici per rilevare rischi in anticipo e attivare interventi mirati.' },
+      { title: 'Attivazione partnership con l’industria', body: 'Rafforziamo i ponti scuola-industria per stage, brief e percorsi di inserimento misurabili.' },
+      { title: 'Strategia di credibilità istituzionale', body: 'Allineiamo narrativa direzionale, evidenze di qualità e reporting risultati per consolidare fiducia.' },
+    ],
+    masterclass: {
+      name: 'Masterclass per direttori di scuole moda',
+      usp: 'Un formato intensivo orientato a qualità didattica, allineamento docenti e preparazione professionale degli studenti.',
+      benefits: [
+        'Costruire un modello ripetibile di aggiornamento curricolare connesso al settore.',
+        'Standardizzare la valutazione senza appiattire gli stili di insegnamento.',
+        'Migliorare il monitoraggio progressivo con protocolli di intervento chiari.',
+        'Rafforzare l’occupabilità con partnership strutturate con la filiera moda.',
+        'Adottare AI didattica con governance che protegga qualità ed equità.',
+      ],
+      cta: 'Scopri il programma',
+    },
+  },
+  pt: {
+    roleName: 'Diretor de escola de modelagem de moda',
+    navProfile: 'Diretor de escola de modelagem de moda',
+    heroEyebrow: 'Se você é',
+    heroSubtitle: 'Esta mensagem é para você.',
+    labels: {
+      profileEyebrow: 'Como a direção escolar funciona na prática real',
+      challengesTitle: 'Onde a liderança pedagógica é realmente testada',
+      servicesTitle: 'Apoio para qualidade curricular e empregabilidade dos estudantes',
+      masterclassTitle: 'Fortaleça sua prática de direção acadêmica',
+    },
+    profileSlides: [
+      { title: 'Direção pedagógica com relevância de mercado', text: 'Você orienta escolhas curriculares que precisam ser academicamente sólidas e alinhadas às exigências reais de contratação.' },
+      { title: 'Alinhamento do corpo docente', text: 'Você coordena critérios de avaliação partilhados para garantir consistência entre turmas e professores.' },
+      { title: 'Governança da progressão estudantil', text: 'Você acompanha evolução, pontos de risco e prontidão de portfólio para melhorar resultados formativos.' },
+      { title: 'Reputação institucional sob pressão', text: 'Suas decisões impactam empregabilidade, confiança das famílias e credibilidade da escola no longo prazo.' },
+    ],
+    challenges: [
+      'As expectativas da indústria evoluem mais rápido do que os ciclos curriculares tradicionais.',
+      'Sem calibração, critérios de avaliação podem divergir entre docentes.',
+      'Os estudantes precisam de exigência objetiva e suporte de confiança ao mesmo tempo.',
+      'Restrições operacionais podem reduzir a qualidade da mentoria.',
+      'A reputação da escola sofre quando resultados de empregabilidade são inconsistentes.',
+      'A adoção de IA no ensino exige governança para proteger qualidade e equidade.',
+    ],
+    services: [
+      { title: 'Desenho de governança curricular', body: 'Estruturamos a arquitetura curricular para manter padrões atualizados, mensuráveis e conectados ao mercado.' },
+      { title: 'Sistema de calibração docente', body: 'Definimos rubricas partilhadas e rituais pedagógicos para elevar consistência e qualidade de ensino.' },
+      { title: 'Inteligência de progressão estudantil', body: 'Implementamos checkpoints para detectar risco cedo e ativar intervenções concretas.' },
+      { title: 'Ativação de parcerias com a indústria', body: 'Fortalecemos pontes escola-indústria para estágios, briefs e caminhos de colocação mensuráveis.' },
+      { title: 'Estratégia de credibilidade institucional', body: 'Alinhamos narrativa de liderança, prova de qualidade e reporte de resultados para reforçar confiança.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para diretores de escolas de moda',
+      usp: 'Um formato intensivo focado em qualidade curricular, alinhamento docente e preparação profissional dos estudantes.',
+      benefits: [
+        'Construir um modelo repetível de atualização curricular conectado ao setor.',
+        'Padronizar avaliação docente sem anular estilos pedagógicos.',
+        'Melhorar monitorização de progresso com protocolos claros de intervenção.',
+        'Elevar empregabilidade com parcerias estruturadas com a indústria.',
+        'Adotar IA pedagógica com governança que proteja qualidade e equidade.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  de: {
+    roleName: 'Leiter einer Fashion-Modelschule',
+    navProfile: 'Leiter einer Fashion-Modelschule',
+    heroEyebrow: 'Wenn Sie',
+    heroSubtitle: 'Diese Botschaft ist für Sie.',
+    labels: {
+      profileEyebrow: 'Wie die Schulleitungsrolle in der Praxis funktioniert',
+      challengesTitle: 'Wo pädagogische Führung wirklich auf die Probe gestellt wird',
+      servicesTitle: 'Unterstützung für Curriculum-Qualität und Beschäftigungsfähigkeit',
+      masterclassTitle: 'Schärfen Sie Ihre akademische Führungspraxis',
+    },
+    profileSlides: [
+      { title: 'Pädagogische Führung mit Marktrelevanz', text: 'Sie steuern Curriculum-Entscheidungen, die akademisch belastbar und zugleich arbeitsmarktnah sein müssen.' },
+      { title: 'Dozierenden-Ausrichtung', text: 'Sie etablieren gemeinsame Bewertungsmaßstäbe, damit Lernwege über Klassen hinweg konsistent bleiben.' },
+      { title: 'Steuerung der Lernprogression', text: 'Sie überwachen Entwicklung, Risikosignale und Portfolio-Reife, um Ausbildungsresultate zu stabilisieren.' },
+      { title: 'Institutionelle Reputation unter Druck', text: 'Ihre Entscheidungen beeinflussen Beschäftigungsfähigkeit, Elternvertrauen und die langfristige Glaubwürdigkeit der Schule.' },
+    ],
+    challenges: [
+      'Branchenanforderungen ändern sich schneller als klassische Curriculum-Zyklen.',
+      'Ohne Kalibrierung driften Bewertungsmaßstäbe zwischen Lehrkräften auseinander.',
+      'Studierende brauchen gleichzeitig klare Leistungserwartung und verlässliche Unterstützung.',
+      'Operative Grenzen können die Qualität des Mentorings schwächen.',
+      'Schulreputation leidet, wenn Employability-Ergebnisse nicht stabil sind.',
+      'Der Einsatz von KI in der Lehre braucht Governance für Fairness und Qualitätskontrolle.',
+    ],
+    services: [
+      { title: 'Curriculum-Governance-Design', body: 'Wir strukturieren die Curriculum-Architektur für aktuelle, messbare und marktrelevante Standards.' },
+      { title: 'Dozierenden-Kalibrierungssystem', body: 'Wir etablieren gemeinsame Rubriken und Lehrrituale für konsistente Ausbildungsqualität.' },
+      { title: 'Lernprogressions-Intelligence', body: 'Wir implementieren klare Checkpoints, um Risiken früh zu erkennen und gezielt zu intervenieren.' },
+      { title: 'Industriepartnerschaften aktivieren', body: 'Wir stärken Schule-Industrie-Brücken für Praktika, Briefings und messbare Übergänge in den Beruf.' },
+      { title: 'Strategie für institutionelle Glaubwürdigkeit', body: 'Wir verbinden Führungsnarrativ, Qualitätsnachweise und Ergebnisreporting zu belastbarem Vertrauen.' },
+    ],
+    masterclass: {
+      name: 'Masterclass für Leitung von Modeschulen',
+      usp: 'Ein intensives Format für Curriculum-Qualität, Dozierenden-Ausrichtung und berufsnahe Ausbildungsresultate.',
+      benefits: [
+        'Ein wiederholbares Modell für Curriculum-Updates mit Branchenbezug aufbauen.',
+        'Bewertungssysteme standardisieren, ohne Lehrstile zu nivellieren.',
+        'Lernfortschritt mit klaren Interventionsprotokollen besser steuern.',
+        'Employability über strukturierte Industriepartnerschaften stärken.',
+        'KI in der Lehre mit Governance für Fairness und Qualität einführen.',
+      ],
+      cta: 'Programm ansehen',
+    },
+  },
+};
+
+const TALENT_SCOUT_PACK = {
+  en: {
+    roleName: 'Talent Scout',
+    navProfile: 'Talent Scout',
+    heroEyebrow: 'If you are a',
+    heroSubtitle: 'This message is for you.',
+    labels: {
+      profileEyebrow: 'What the role requires in the field',
+      challengesTitle: 'Critical pressure points in talent discovery',
+      servicesTitle: 'Support for stronger talent judgment',
+      masterclassTitle: 'Build a stronger, ethical scouting practice',
+    },
+    profileSlides: [
+      { title: 'Potential Before Visibility', text: 'You identify long-term potential before it becomes obvious in metrics or market attention.' },
+      { title: 'Trust as Infrastructure', text: 'Your effectiveness depends on transparent process, ethical conduct, and consistent communication.' },
+      { title: 'Network Intelligence', text: 'You create value through trusted relationships across agencies, casting, creators, and emerging scenes.' },
+      { title: 'Fast Calls, Lasting Impact', text: 'You make rapid judgments that can shape careers, brand quality, and team credibility.' },
+    ],
+    challenges: [
+      'High competition narrows early discovery windows.',
+      'Digital traction can be misleading without context.',
+      'Talent expectations and career realities often diverge early.',
+      'Trust is fragile when communication lacks structure.',
+      'Ethical standards require constant attention in fast-moving environments.',
+      'Long-term potential is difficult to assess from short-term visibility.',
+    ],
+    services: [
+      { title: 'Scouting Evaluation Frameworks', body: 'We help you evaluate potential through clearer criteria that combine intuition, context, and trajectory.' },
+      { title: 'Ethical Scouting Protocols', body: 'We establish practical standards that protect talent dignity and strengthen professional trust.' },
+      { title: 'Pipeline Quality Mapping', body: 'We redesign pipeline stages to improve fit quality, follow-through, and decision clarity.' },
+      { title: 'Communication and Trust Practice', body: 'We sharpen how you communicate with talent and partners to reduce ambiguity.' },
+      { title: 'Senior Scouting Positioning', body: 'We frame your track record as measurable impact across discovery, development, and placement.' },
+    ],
+    masterclass: {
+      name: 'Masterclass for Talent Scouts',
+      usp: 'A field-informed program for sharper judgment, stronger ethics, and durable influence.',
+      benefits: [
+        'Develop robust methods for evaluating potential beyond surface metrics.',
+        'Improve ethical decision-making in fast recruitment contexts.',
+        'Strengthen communication with agencies, talent, and brand partners.',
+        'Build healthier pipelines with better conversion quality.',
+        'Position your experience as strategic scouting leadership.',
+      ],
+      cta: 'View Program Details',
+    },
+  },
+  fr: {
+    roleName: 'Chargé de détection de talents mode',
+    navProfile: 'Chargé de détection de talents mode',
+    heroEyebrow: 'Si vous êtes',
+    heroSubtitle: 'Ce message est pour vous.',
+    labels: {
+      profileEyebrow: 'Ce que le rôle demande réellement sur le terrain',
+      challengesTitle: 'Points de tension critiques en découverte de talents',
+      servicesTitle: 'Un accompagnement pour affiner le jugement talent',
+      masterclassTitle: 'Renforcer une pratique de scouting exigeante et éthique',
+    },
+    profileSlides: [
+      { title: 'Potentiel avant visibilité', text: 'Vous repérez des trajectoires durables avant qu’elles n’apparaissent dans les métriques.' },
+      { title: 'La confiance comme base', text: 'L’efficacité du rôle repose sur des process transparents, une éthique claire et une communication constante.' },
+      { title: 'Intelligence réseau', text: 'Votre impact grandit grâce aux relations de confiance avec agences, casting et communautés émergentes.' },
+      { title: 'Décisions rapides, effets durables', text: 'Vos arbitrages influencent des carrières, des standards de marque et la crédibilité des équipes.' },
+    ],
+    challenges: [
+      'La concurrence élevée réduit les fenêtres de découverte précoce.',
+      'La traction digitale peut être trompeuse sans lecture contextuelle.',
+      'Les attentes des talents et la réalité du métier divergent souvent au départ.',
+      'La confiance s’érode vite quand la communication reste floue.',
+      'Les standards éthiques exigent une vigilance continue.',
+      'Le potentiel long terme est difficile à lire sur la seule visibilité court terme.',
+    ],
+    services: [
+      { title: 'Cadres d’évaluation scouting', body: 'Nous renforçons vos critères pour croiser intuition, contexte et trajectoire réelle.' },
+      { title: 'Protocoles de scouting éthique', body: 'Nous installons des standards concrets qui protègent la dignité des talents.' },
+      { title: 'Cartographie qualité du pipeline', body: 'Nous structurons les étapes de pipeline pour améliorer fit, suivi et lisibilité des décisions.' },
+      { title: 'Pratique communication et confiance', body: 'Nous clarifions vos échanges avec talents et partenaires pour réduire l’ambiguïté.' },
+      { title: 'Positionnement senior scouting', body: 'Nous valorisons votre parcours comme impact mesurable sur découverte et développement.' },
+    ],
+    masterclass: {
+      name: 'Masterclass Chargé de détection de talents mode',
+      usp: 'Un programme ancré terrain pour affûter jugement, éthique et influence durable.',
+      benefits: [
+        'Construire une méthode robuste d’évaluation au-delà de la visibilité.',
+        'Élever la qualité des décisions éthiques en contexte rapide.',
+        'Renforcer la communication avec agences, talents et marques.',
+        'Concevoir des pipelines plus sains avec meilleure conversion.',
+        'Positionner votre expérience comme leadership stratégique scouting.',
+      ],
+      cta: 'Voir le programme',
+    },
+  },
+  es: {
+    roleName: 'Cazatalentos de moda',
+    navProfile: 'Cazatalentos de moda',
+    heroEyebrow: 'Si eres',
+    heroSubtitle: 'Este mensaje es para ti.',
+    labels: {
+      profileEyebrow: 'Lo que el rol exige realmente en campo',
+      challengesTitle: 'Puntos críticos de fricción en descubrimiento de talento',
+      servicesTitle: 'Acompañamiento para afinar criterio de talento',
+      masterclassTitle: 'Fortalece una práctica de scouting ética y sólida',
+    },
+    profileSlides: [
+      { title: 'Potencial antes de visibilidad', text: 'Detectas trayectorias de largo plazo antes de que aparezcan con claridad en métricas.' },
+      { title: 'Confianza como estructura', text: 'El rol funciona cuando hay procesos transparentes, ética firme y comunicación constante.' },
+      { title: 'Inteligencia de red', text: 'Tu impacto crece a través de relaciones confiables con agencias, casting y comunidades emergentes.' },
+      { title: 'Decisiones rápidas, efecto duradero', text: 'Tus decisiones pueden definir carreras, estándares de marca y credibilidad de equipo.' },
+    ],
+    challenges: [
+      'La competencia alta reduce ventanas de descubrimiento temprano.',
+      'La tracción digital puede engañar cuando falta contexto.',
+      'Las expectativas del talento y la realidad profesional divergen al inicio.',
+      'La confianza se erosiona rápido con comunicación ambigua.',
+      'Los estándares éticos exigen vigilancia continua.',
+      'El potencial de largo plazo no siempre se refleja en visibilidad inmediata.',
+    ],
+    services: [
+      { title: 'Marcos de evaluación scouting', body: 'Fortalecemos tus criterios para combinar intuición, contexto y trayectoria real.' },
+      { title: 'Protocolos de scouting ético', body: 'Definimos estándares prácticos que protegen la dignidad del talento.' },
+      { title: 'Mapeo de calidad del pipeline', body: 'Reordenamos etapas para mejorar fit, seguimiento y claridad de decisión.' },
+      { title: 'Práctica de comunicación y confianza', body: 'Afinamos conversaciones con talento y socios para reducir ambigüedad.' },
+      { title: 'Posicionamiento para scouting senior', body: 'Reencuadramos tu trayectoria como impacto medible en descubrimiento y desarrollo.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para cazatalentos de moda',
+      usp: 'Un programa de campo para elevar criterio, ética e influencia sostenida.',
+      benefits: [
+        'Desarrollar métodos robustos para evaluar potencial más allá de la visibilidad.',
+        'Mejorar decisiones éticas en contextos de reclutamiento acelerado.',
+        'Fortalecer la comunicación con agencias, talento y marcas.',
+        'Construir pipelines más sanos y con mejor conversión.',
+        'Posicionar tu experiencia como liderazgo estratégico de scouting.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  it: {
+    roleName: 'Talent scout della moda',
+    navProfile: 'Talent scout della moda',
+    heroEyebrow: 'Se sei',
+    heroSubtitle: 'Questo messaggio è per te.',
+    labels: {
+      profileEyebrow: 'Cosa richiede davvero il ruolo sul campo',
+      challengesTitle: 'Attriti critici nella scoperta del talento',
+      servicesTitle: 'Supporto per affinare il giudizio sul talento',
+      masterclassTitle: 'Rafforza una pratica di scouting etica e solida',
+    },
+    profileSlides: [
+      { title: 'Potenziale prima della visibilità', text: 'Riconosci traiettorie di lungo periodo prima che emergano chiaramente nelle metriche.' },
+      { title: 'Fiducia come struttura', text: 'Il ruolo regge su processi trasparenti, etica operativa e comunicazione costante.' },
+      { title: 'Intelligenza di rete', text: 'Il tuo impatto cresce nella qualità delle relazioni con agenzie, casting e community emergenti.' },
+      { title: 'Decisioni rapide, impatto duraturo', text: 'Le tue scelte possono orientare carriere, standard di brand e credibilità di team.' },
+    ],
+    challenges: [
+      'La competizione alta riduce le finestre di scoperta precoce.',
+      'La trazione digitale può essere fuorviante senza contesto.',
+      'Aspettative dei talenti e realtà professionale divergono nelle fasi iniziali.',
+      'La fiducia si indebolisce rapidamente con comunicazione poco chiara.',
+      'Gli standard etici richiedono vigilanza continua.',
+      'Il potenziale di lungo periodo non coincide sempre con la visibilità immediata.',
+    ],
+    services: [
+      { title: 'Framework di valutazione scouting', body: 'Rafforziamo i criteri per unire intuizione, contesto e traiettoria concreta.' },
+      { title: 'Protocolli di scouting etico', body: 'Definiamo standard pratici che proteggono dignità e fiducia professionale.' },
+      { title: 'Mappatura qualità pipeline', body: 'Ridisegniamo le fasi del pipeline per migliorare fit e trasparenza decisionale.' },
+      { title: 'Pratica di comunicazione e fiducia', body: 'Affiniamo il dialogo con talenti e partner per ridurre ambiguità.' },
+      { title: 'Posizionamento scouting senior', body: 'Valorizziamo il tuo percorso come impatto misurabile su discovery e sviluppo.' },
+    ],
+    masterclass: {
+      name: 'Masterclass per talent scout della moda',
+      usp: 'Un programma sul campo per migliorare giudizio, etica e influenza nel tempo.',
+      benefits: [
+        'Sviluppare metodi robusti per valutare potenziale oltre la visibilità.',
+        'Migliorare decisioni etiche in contesti di recruiting rapidi.',
+        'Rafforzare la comunicazione con agenzie, talenti e brand.',
+        'Costruire pipeline più sane con conversione migliore.',
+        'Posizionare l’esperienza come leadership strategica di scouting.',
+      ],
+      cta: 'Scopri il programma',
+    },
+  },
+  pt: {
+    roleName: 'Olheiro de talentos da moda',
+    navProfile: 'Olheiro de talentos da moda',
+    heroEyebrow: 'Se você é',
+    heroSubtitle: 'Esta mensagem é para você.',
+    labels: {
+      profileEyebrow: 'O que o papel realmente exige no campo',
+      challengesTitle: 'Pontos críticos de fricção na descoberta de talentos',
+      servicesTitle: 'Suporte para refinar o julgamento de talento',
+      masterclassTitle: 'Fortaleça uma prática de scouting ética e consistente',
+    },
+    profileSlides: [
+      { title: 'Potencial antes da visibilidade', text: 'Você identifica trajetórias de longo prazo antes de elas aparecerem claramente nas métricas.' },
+      { title: 'Confiança como estrutura', text: 'O papel depende de processos transparentes, ética aplicada e comunicação constante.' },
+      { title: 'Inteligência de rede', text: 'Seu impacto cresce na qualidade das relações com agências, casting e comunidades emergentes.' },
+      { title: 'Decisões rápidas, efeito duradouro', text: 'Suas escolhas podem influenciar carreiras, padrões de marca e credibilidade de equipe.' },
+    ],
+    challenges: [
+      'A alta competição reduz janelas de descoberta precoce.',
+      'Tração digital pode ser enganosa sem contexto.',
+      'Expectativas do talento e realidade profissional divergem no início.',
+      'A confiança se desgasta rápido com comunicação ambígua.',
+      'Padrões éticos exigem vigilância contínua.',
+      'Potencial de longo prazo não aparece sempre na visibilidade imediata.',
+    ],
+    services: [
+      { title: 'Frameworks de avaliação scouting', body: 'Fortalecemos critérios para unir intuição, contexto e trajetória concreta.' },
+      { title: 'Protocolos de scouting ético', body: 'Definimos padrões práticos que protegem dignidade e confiança profissional.' },
+      { title: 'Mapeamento de qualidade do pipeline', body: 'Reestruturamos etapas para melhorar fit, acompanhamento e clareza decisória.' },
+      { title: 'Prática de comunicação e confiança', body: 'Aprimoramos diálogos com talentos e parceiros para reduzir ambiguidade.' },
+      { title: 'Posicionamento para scouting sênior', body: 'Reposicionamos sua trajetória como impacto mensurável em descoberta e desenvolvimento.' },
+    ],
+    masterclass: {
+      name: 'Masterclass para olheiros de talentos da moda',
+      usp: 'Um programa de campo para elevar julgamento, ética e influência sustentável.',
+      benefits: [
+        'Desenvolver métodos robustos para avaliar potencial além da visibilidade.',
+        'Melhorar decisões éticas em contextos acelerados de recrutamento.',
+        'Fortalecer a comunicação com agências, talentos e marcas.',
+        'Construir pipelines mais saudáveis com melhor conversão.',
+        'Posicionar a experiência como liderança estratégica de scouting.',
+      ],
+      cta: 'Ver programa',
+    },
+  },
+  de: {
+    roleName: 'Talentscout für Mode',
+    navProfile: 'Talentscout für Mode',
+    heroEyebrow: 'Wenn Sie',
+    heroSubtitle: 'Diese Botschaft ist für Sie.',
+    labels: {
+      profileEyebrow: 'Was die Rolle im Feld wirklich verlangt',
+      challengesTitle: 'Kritische Reibungspunkte in der Talentsuche',
+      servicesTitle: 'Unterstützung für präziseres Talenturteil',
+      masterclassTitle: 'Stärken Sie eine ethische, belastbare Scouting-Praxis',
+    },
+    profileSlides: [
+      { title: 'Potenzial vor Sichtbarkeit', text: 'Sie erkennen langfristiges Potenzial, bevor es sich in Kennzahlen oder Marktaufmerksamkeit zeigt.' },
+      { title: 'Vertrauen als Infrastruktur', text: 'Die Rolle funktioniert über transparente Prozesse, klare Ethik und verlässliche Kommunikation.' },
+      { title: 'Netzwerkintelligenz', text: 'Ihr Einfluss wächst über belastbare Beziehungen zu Agenturen, Casting und aufstrebenden Szenen.' },
+      { title: 'Schnelle Entscheidungen, nachhaltige Wirkung', text: 'Ihre Entscheidungen prägen Karrieren, Markenqualität und Teamglaubwürdigkeit.' },
+    ],
+    challenges: [
+      'Hoher Wettbewerb verengt frühe Entdeckungsfenster.',
+      'Digitale Traktion kann ohne Kontext irreführend sein.',
+      'Talent-Erwartung und Berufsrealität driften früh auseinander.',
+      'Vertrauen schwindet schnell bei unklarer Kommunikation.',
+      'Ethische Standards brauchen kontinuierliche Aufmerksamkeit.',
+      'Langfristiges Potenzial ist aus kurzfristiger Sichtbarkeit schwer abzuleiten.',
+    ],
+    services: [
+      { title: 'Scouting-Bewertungsframeworks', body: 'Wir schärfen Kriterien, die Intuition, Kontext und Entwicklungspfad zusammenführen.' },
+      { title: 'Ethische Scouting-Protokolle', body: 'Wir etablieren umsetzbare Standards zum Schutz von Würde und professionellem Vertrauen.' },
+      { title: 'Pipeline-Qualitätsmapping', body: 'Wir strukturieren Pipeline-Stufen für bessere Fit-Qualität und klarere Entscheidungen.' },
+      { title: 'Kommunikations- und Vertrauenspraxis', body: 'Wir verbessern Dialoge mit Talenten und Partnern, um Ambiguität zu reduzieren.' },
+      { title: 'Positionierung für Senior-Scouting', body: 'Wir rahmen Ihre Laufbahn als messbaren Beitrag zu Discovery und Entwicklung.' },
+    ],
+    masterclass: {
+      name: 'Masterclass für Talentscouts in der Mode',
+      usp: 'Ein feldnahes Programm für schärferes Urteil, stärkere Ethik und nachhaltige Wirkung.',
+      benefits: [
+        'Robuste Methoden zur Potenzialbewertung jenseits reiner Sichtbarkeit entwickeln.',
+        'Ethische Entscheidungen in schnellen Recruiting-Kontexten verbessern.',
+        'Kommunikation mit Agenturen, Talenten und Markenpartnern stärken.',
+        'Gesündere Pipelines mit besserer Konversionsqualität aufbauen.',
+        'Erfahrung als strategische Scouting-Führung positionieren.',
+      ],
+      cta: 'Programm ansehen',
+    },
+  },
+};
+
+const applyLocaleOverrides = (basePack, overrides) =>
+  Object.fromEntries(
+    Object.entries(basePack).map(([locale, copy]) => {
+      const override = overrides[locale] || {};
+      return [
+        locale,
+        {
+          ...copy,
+          ...override,
+          labels: {
+            ...copy.labels,
+            ...(override.labels || {}),
+          },
+          profileSlides: override.profileSlides || copy.profileSlides,
+          challenges: override.challenges || copy.challenges,
+          services: override.services || copy.services,
+          masterclass: {
+            ...copy.masterclass,
+            ...(override.masterclass || {}),
+            benefits: override.masterclass?.benefits || copy.masterclass.benefits,
+          },
+        },
+      ];
+    }),
+  );
+
+const PROFILE_4_OVERRIDES = {
+  en: {
+    labels: {
+      profileEyebrow: 'The role through an atelier lens',
+      challengesTitle: 'Creative direction under cultural scrutiny',
+      servicesTitle: 'Tools for high-craft, high-pressure leadership',
+      masterclassTitle: 'Your change to discover the EOEX universe first hand',
+    },
+    profileSlides: [
+      { title: 'Authorial Consistency', text: 'You are not curating isolated visuals; you are composing a long-form signature that must remain legible over seasons.' },
+      { title: 'Aesthetic Governance', text: 'The role includes building guardrails so experimentation stays courageous without becoming stylistically fragmented.' },
+      { title: 'Cultural Editing', text: 'You decide what enters the brand language and what gets cut, balancing novelty with editorial restraint.' },
+      { title: 'Legacy in Motion', text: 'Your strongest work leaves continuity behind it: a team language, a visual doctrine, and a clearer future direction.' },
+    ],
+    masterclass: {
+      usp: 'Designed for directors shaping long-form brand authorship, not one-season noise.',
+    },
+  },
+  fr: {
+    labels: {
+      profileEyebrow: 'Le rôle vu par le prisme atelier',
+      challengesTitle: 'Direction créative sous regard culturel permanent',
+    },
+    profileSlides: [
+      { title: 'Signature d’auteur', text: 'Vous ne composez pas des images isolées: vous écrivez une continuité de marque lisible de saison en saison.' },
+      { title: 'Gouvernance esthétique', text: 'Votre rôle consiste aussi à poser des garde-fous pour que l’expérimentation reste ambitieuse sans devenir dispersée.' },
+      { title: 'Montage culturel', text: 'Vous choisissez ce qui entre dans le langage de marque et ce qui doit rester hors cadre.' },
+      { title: 'Héritage en mouvement', text: 'Les meilleures directions laissent une méthode, un vocabulaire d’équipe et une trajectoire claire.' },
+    ],
+    masterclass: {
+      usp: 'Pensé pour les directions artistiques qui construisent une signature durable, pas un effet de saison.',
+    },
+  },
+  es: {
+    labels: {
+      profileEyebrow: 'El rol desde una mirada de atelier',
+      challengesTitle: 'Dirección creativa bajo escrutinio cultural constante',
+    },
+    profileSlides: [
+      { title: 'Firma autoral', text: 'No construyes imágenes sueltas: construyes una continuidad de marca reconocible a lo largo del tiempo.' },
+      { title: 'Gobernanza estética', text: 'También defines límites para que la experimentación siga siendo valiente sin volverse caótica.' },
+      { title: 'Edición cultural', text: 'Decides qué señales entran al lenguaje de marca y cuáles deben quedar fuera.' },
+      { title: 'Legado en movimiento', text: 'La mejor dirección deja método, lenguaje de equipo y una ruta más clara.' },
+    ],
+    masterclass: {
+      usp: 'Pensado para dirección creativa que construye autoría de largo plazo, no ruido de temporada.',
+    },
+  },
+  it: {
+    labels: {
+      profileEyebrow: 'Il ruolo attraverso una prospettiva atelier',
+      challengesTitle: 'Direzione creativa sotto osservazione culturale continua',
+    },
+    profileSlides: [
+      { title: 'Firma autoriale', text: 'Non componi immagini isolate: costruisci una continuità di marca riconoscibile nel tempo.' },
+      { title: 'Governance estetica', text: 'Definisci confini perché la sperimentazione resti coraggiosa senza diventare frammentata.' },
+      { title: 'Editing culturale', text: 'Selezioni quali segnali entrano nel linguaggio del brand e quali restano fuori campo.' },
+      { title: 'Eredità in movimento', text: 'La direzione migliore lascia metodo, linguaggio di team e traiettoria più chiara.' },
+    ],
+    masterclass: {
+      usp: 'Pensato per chi costruisce una firma creativa duratura, non un effetto stagionale.',
+    },
+  },
+  pt: {
+    labels: {
+      profileEyebrow: 'O papel sob uma perspectiva de ateliê',
+      challengesTitle: 'Direção criativa sob escrutínio cultural contínuo',
+    },
+    profileSlides: [
+      { title: 'Assinatura autoral', text: 'Você não monta imagens isoladas: constrói uma continuidade de marca reconhecível ao longo das temporadas.' },
+      { title: 'Governança estética', text: 'Também define limites para que a experimentação continue ousada sem virar dispersão.' },
+      { title: 'Edição cultural', text: 'Decide quais sinais entram na linguagem da marca e quais ficam fora.' },
+      { title: 'Legado em movimento', text: 'A melhor direção deixa método, vocabulário de equipe e uma rota mais nítida.' },
+    ],
+    masterclass: {
+      usp: 'Criado para líderes que constroem assinatura de longo prazo, não ruído de estação.',
+    },
+  },
+  de: {
+    labels: {
+      profileEyebrow: 'Die Rolle aus Atelier-Perspektive',
+      challengesTitle: 'Kreativführung unter kontinuierlicher kultureller Beobachtung',
+    },
+    profileSlides: [
+      { title: 'Autorenschaft als Signatur', text: 'Sie bauen keine Einzelbilder, sondern eine langfristig lesbare Markenkontinuität.' },
+      { title: 'Ästhetische Governance', text: 'Sie setzen Leitplanken, damit Experimentierfreude mutig bleibt, ohne stilistisch zu zerfasern.' },
+      { title: 'Kulturelles Editing', text: 'Sie entscheiden, welche Signale in die Markensprache aufgenommen werden.' },
+      { title: 'Vermächtnis in Bewegung', text: 'Starke Führung hinterlässt Methode, Teamvokabular und eine klarere Richtung.' },
+    ],
+    masterclass: {
+      usp: 'Für Kreativdirektoren, die langfristige Handschrift entwickeln statt saisonalen Lärm produzieren.',
+    },
+  },
+};
+
+const PROFILE_5_OVERRIDES = {
+  en: {
+    labels: {
+      profileEyebrow: 'The role in cinematic and campaign environments',
+      challengesTitle: 'Pressure points from set to release',
+      servicesTitle: 'Sharper systems for narrative, tempo, and execution',
+    },
+    profileSlides: [
+      { title: 'Cinematic Precision', text: 'Your images carry emotion and structure at once; framing and rhythm become editorial decisions, not technical afterthoughts.' },
+      { title: 'Production Orchestration', text: 'You are balancing set energy, crew dynamics, and delivery constraints while protecting creative coherence.' },
+      { title: 'Narrative Compression', text: 'You condense story into short time windows without flattening nuance, texture, or intent.' },
+      { title: 'Format Adaptation', text: 'You adapt cuts for platform logic while preserving one authored visual language across outputs.' },
+    ],
+    masterclass: {
+      usp: 'A cinematic track for videographers shaping campaign-grade stories under real constraints.',
+    },
+  },
+  fr: {
+    profileSlides: [
+      { title: 'Cadence cinématographique', text: 'Vous tenez une tension visuelle de campagne tout en respectant des délais de production serrés.' },
+      { title: 'Direction de plateau', text: 'Vous régulez énergie d’équipe, tempo de tournage et cohérence esthétique en continu.' },
+      { title: 'Compression narrative', text: 'Vous racontez juste en peu de temps sans appauvrir texture ni intention.' },
+      { title: 'Adaptation multi-formats', text: 'Vous déclinez les sorties par canal en conservant une même signature visuelle.' },
+    ],
+    masterclass: { usp: 'Un parcours orienté cinéma pour des récits de campagne à haute exigence, sous contraintes réelles.' },
+  },
+  es: {
+    profileSlides: [
+      { title: 'Cadencia cinematográfica', text: 'Sostienes una tensión visual de campaña incluso con tiempos de producción ajustados.' },
+      { title: 'Dirección de set', text: 'Regulas energía de equipo, ritmo de rodaje y coherencia estética de forma constante.' },
+      { title: 'Compresión narrativa', text: 'Cuentas más en menos tiempo sin perder textura ni intención.' },
+      { title: 'Adaptación multi-formato', text: 'Ajustas salidas por canal conservando una firma visual única.' },
+    ],
+    masterclass: { usp: 'Un recorrido con enfoque cinematográfico para relatos de campaña exigentes bajo restricciones reales.' },
+  },
+  it: {
+    profileSlides: [
+      { title: 'Cadenza cinematografica', text: 'Mantieni intensità visiva di campagna anche con tempi produttivi molto stretti.' },
+      { title: 'Regia di set', text: 'Bilanci energia del team, ritmo di ripresa e coerenza estetica in tempo reale.' },
+      { title: 'Compressione narrativa', text: 'Racconti di più in meno tempo senza perdere materia visiva e intenzione.' },
+      { title: 'Adattamento multi-formato', text: 'Adatti gli output ai canali mantenendo una firma visiva coerente.' },
+    ],
+    masterclass: { usp: 'Un percorso a taglio cinematografico per storie di campagna ad alta precisione in contesti reali.' },
+  },
+  pt: {
+    profileSlides: [
+      { title: 'Cadência cinematográfica', text: 'Você sustenta tensão visual de campanha mesmo com prazos de produção comprimidos.' },
+      { title: 'Direção de set', text: 'Equilibra energia de equipe, ritmo de captação e coerência estética em tempo real.' },
+      { title: 'Compressão narrativa', text: 'Conta mais em menos tempo sem perder textura nem intenção.' },
+      { title: 'Adaptação multi-formato', text: 'Ajusta entregas por canal mantendo uma assinatura visual consistente.' },
+    ],
+    masterclass: { usp: 'Um percurso com foco cinematográfico para narrativas de campanha exigentes sob restrições reais.' },
+  },
+  de: {
+    profileSlides: [
+      { title: 'Cineastische Taktung', text: 'Sie halten kampagnenfähige Bildspannung trotz stark verdichteter Produktionszeiten.' },
+      { title: 'Set-Regie', text: 'Sie steuern Teamenergie, Drehtempo und ästhetische Kohärenz in Echtzeit.' },
+      { title: 'Narrative Verdichtung', text: 'Sie erzählen mehr in kürzerer Zeit, ohne Textur und Intention zu verlieren.' },
+      { title: 'Formatübergreifende Anpassung', text: 'Sie passen Ausspielungen je Kanal an und bewahren dennoch eine einheitliche Handschrift.' },
+    ],
+    masterclass: { usp: 'Ein cineastischer Schwerpunkt für kampagnentaugliches Storytelling unter realen Produktionsgrenzen.' },
+  },
+};
+
+const PROFILE_AI_MASTERCLASS_CORE = {
+  profile_1: {
+    en: 'Includes AI-assisted creative direction labs for trend decoding, concept stress-testing, and brand-consistency decisions.',
+    fr: 'Inclut des ateliers IA de direction artistique pour décoder les tendances, tester les concepts sous contrainte et sécuriser la cohérence de marque.',
+    es: 'Incluye laboratorios de IA aplicados a dirección creativa para decodificar tendencias, tensionar conceptos y proteger la coherencia de marca.',
+    it: 'Include laboratori di IA applicata alla direzione creativa per leggere i trend, stress-testare i concept e proteggere la coerenza del brand.',
+    pt: 'Inclui laboratórios de IA aplicados à direção criativa para decodificar tendências, testar conceitos sob pressão e proteger a coerência da marca.',
+    de: 'Enthält KI-gestützte Labs für Kreativführung zur Trendanalyse, Konzeptbelastung und konsistenten Markensteuerung.',
+  },
+  profile_2: {
+    en: 'Built around AI-supported video planning: script refinement, shot logic, and platform-specific edit decisioning.',
+    fr: 'Construit autour d’enseignements IA pour la vidéo: affinage script, logique de plans et décisions de montage par plateforme.',
+    es: 'Diseñado con enseñanza de IA para vídeo: refinamiento de guion, lógica de planos y decisiones de edición por plataforma.',
+    it: 'Costruito su didattica IA per il video: rifinitura script, logica di ripresa e decisioni di montaggio per piattaforma.',
+    pt: 'Estruturado com ensino de IA para vídeo: refinamento de roteiro, lógica de planos e decisões de edição por plataforma.',
+    de: 'Aufgebaut mit KI-Lehre für Video: Skriptverfeinerung, Shot-Logik und plattformspezifische Schnittentscheidungen.',
+  },
+  profile_3: {
+    en: 'Integrates AI methods for bias-aware talent screening, potential scoring, and long-horizon development mapping.',
+    fr: 'Intègre des méthodes IA pour un repérage des talents attentif aux biais, une lecture du potentiel et une cartographie de développement long terme.',
+    es: 'Integra métodos de IA para detectar talento con control de sesgos, valorar potencial y mapear desarrollo a largo plazo.',
+    it: 'Integra metodi IA per scouting con controllo dei bias, valutazione del potenziale e mappatura di sviluppo nel lungo periodo.',
+    pt: 'Integra métodos de IA para scouting com controlo de vieses, avaliação de potencial e mapeamento de desenvolvimento de longo prazo.',
+    de: 'Integriert KI-Methoden für bias-bewusstes Scouting, Potenzialbewertung und langfristige Entwicklungsplanung.',
+  },
+  profile_4: {
+    en: 'Adds AI governance modules for aesthetic consistency controls, visual language drift detection, and signature protection.',
+    fr: 'Ajoute des modules IA de gouvernance pour contrôler la cohérence esthétique, détecter les dérives de langage visuel et protéger la signature.',
+    es: 'Añade módulos de gobernanza con IA para controlar coherencia estética, detectar deriva visual y proteger la firma creativa.',
+    it: 'Aggiunge moduli di governance IA per controllo della coerenza estetica, rilevazione della deriva visiva e tutela della firma autoriale.',
+    pt: 'Adiciona módulos de governança com IA para controlo de coerência estética, deteção de deriva visual e proteção de assinatura criativa.',
+    de: 'Ergänzt KI-Governance-Module für ästhetische Konsistenz, Erkennung visueller Drift und Schutz der gestalterischen Handschrift.',
+  },
+  profile_5: {
+    en: 'Centers AI teaching on previsualization, adaptive shot-listing, and post-production quality control for campaign delivery.',
+    fr: 'Place l’IA au cœur de la prévisualisation, des shot-lists adaptatives et du contrôle qualité en postproduction campagne.',
+    es: 'Sitúa la IA en el núcleo de previsualización, shot-list adaptativa y control de calidad de postproducción para campaña.',
+    it: 'Mette l’IA al centro di previsualizzazione, shot list adattive e controllo qualità in post-produzione per campagne.',
+    pt: 'Coloca a IA no centro da pré-visualização, shot-list adaptativa e controlo de qualidade de pós-produção para campanha.',
+    de: 'Setzt KI in den Kern von Previsualisierung, adaptiver Shotlist und Postproduktions-Qualitätssicherung für Kampagnen.',
+  },
+  profile_6: {
+    en: 'Includes AI-supported stewardship methods for risk detection, trajectory planning, and ethical talent-development decisions.',
+    fr: 'Inclut des méthodes IA d’accompagnement pour détecter les risques, planifier les trajectoires et soutenir des décisions éthiques de développement.',
+    es: 'Incluye métodos con IA para acompañamiento: detección de riesgos, planificación de trayectorias y decisiones éticas de desarrollo.',
+    it: 'Include metodi IA per la stewardship: rilevazione rischi, pianificazione delle traiettorie e decisioni etiche di sviluppo.',
+    pt: 'Inclui métodos com IA para acompanhamento: deteção de riscos, planeamento de trajetórias e decisões éticas de desenvolvimento.',
+    de: 'Enthält KI-gestützte Stewardship-Methoden für Risikoerkennung, Trajektorienplanung und ethische Entwicklungsentscheidungen.',
+  },
+};
+
+const PROFILE_AI_MASTERCLASS_BENEFIT = {
+  profile_1: {
+    en: 'Run AI-assisted creative review sessions that flag inconsistency before launch.',
+    fr: 'Conduire des revues créatives assistées par IA qui signalent les incohérences avant diffusion.',
+    es: 'Conducir revisiones creativas asistidas por IA que detectan incoherencias antes del lanzamiento.',
+    it: 'Condurre revisioni creative assistite da IA che rilevano incoerenze prima del lancio.',
+    pt: 'Conduzir revisões criativas assistidas por IA que sinalizam incoerências antes do lançamento.',
+    de: 'KI-gestützte Creative Reviews durchführen, die Inkonsistenzen vor dem Launch erkennen.',
+  },
+  profile_2: {
+    en: 'Apply AI workflows to optimize shot continuity, pacing, and cross-platform cutdowns.',
+    fr: 'Appliquer des workflows IA pour optimiser continuité des plans, rythme et déclinaisons multi-formats.',
+    es: 'Aplicar flujos de IA para optimizar continuidad de planos, ritmo y versiones por plataforma.',
+    it: 'Applicare workflow IA per ottimizzare continuità dei piani, ritmo e versioni multi-piattaforma.',
+    pt: 'Aplicar fluxos de IA para otimizar continuidade de planos, ritmo e versões por plataforma.',
+    de: 'KI-Workflows nutzen, um Shot-Kontinuität, Rhythmus und Plattformversionen zu optimieren.',
+  },
+  profile_3: {
+    en: 'Use AI scoring grids to compare talent potential while reducing selection bias.',
+    fr: 'Utiliser des grilles IA de scoring pour comparer le potentiel tout en réduisant les biais de sélection.',
+    es: 'Usar matrices de IA para comparar potencial y reducir sesgos de selección.',
+    it: 'Usare griglie IA di scoring per confrontare il potenziale riducendo i bias di selezione.',
+    pt: 'Usar grelhas de IA para comparar potencial e reduzir vieses de seleção.',
+    de: 'KI-Scoringraster einsetzen, um Potenziale zu vergleichen und Auswahlbias zu senken.',
+  },
+  profile_4: {
+    en: 'Deploy AI style-governance checks that preserve signature while scaling production.',
+    fr: 'Déployer des contrôles IA de gouvernance stylistique qui préservent la signature à l’échelle.',
+    es: 'Desplegar controles de gobernanza estilística con IA para preservar la firma al escalar producción.',
+    it: 'Distribuire controlli IA di governance stilistica per preservare la firma durante la scalabilità produttiva.',
+    pt: 'Implementar controlos de governança de estilo com IA para preservar a assinatura ao escalar produção.',
+    de: 'KI-Style-Governance-Checks einsetzen, die die Handschrift beim Skalieren der Produktion sichern.',
+  },
+  profile_5: {
+    en: 'Use AI previsualization and quality gates to stabilize campaign output under tight deadlines.',
+    fr: 'Utiliser la prévisualisation IA et des gates qualité pour stabiliser la production campagne sous délai serré.',
+    es: 'Usar previsualización con IA y puertas de calidad para estabilizar entregas de campaña en plazos cortos.',
+    it: 'Usare previsualizzazione IA e quality gate per stabilizzare l’output campagna sotto scadenza.',
+    pt: 'Usar pré-visualização com IA e gates de qualidade para estabilizar entregas de campanha com prazos curtos.',
+    de: 'KI-Previsualisierung und Quality Gates nutzen, um Kampagnenoutput unter Zeitdruck zu stabilisieren.',
+  },
+  profile_6: {
+    en: 'Operationalize AI risk signals to support ethical, long-term talent pathway decisions.',
+    fr: 'Opérationnaliser des signaux IA de risque pour soutenir des décisions éthiques de trajectoire long terme.',
+    es: 'Operativizar señales de riesgo con IA para respaldar decisiones éticas de trayectoria a largo plazo.',
+    it: 'Operativizzare segnali di rischio IA per sostenere decisioni etiche sulle traiettorie di lungo periodo.',
+    pt: 'Operacionalizar sinais de risco com IA para sustentar decisões éticas de trajetória no longo prazo.',
+    de: 'KI-Risikosignale operationalisieren, um ethische Entscheidungen zu langfristigen Talentpfaden zu stützen.',
+  },
+};
+
+const withProfileAiTeachings = (profileKey, pack) =>
+  Object.fromEntries(
+    Object.entries(pack).map(([locale, copy]) => {
+      const coreByLocale = PROFILE_AI_MASTERCLASS_CORE[profileKey];
+      const benefitByLocale = PROFILE_AI_MASTERCLASS_BENEFIT[profileKey];
+      const coreText = coreByLocale?.[locale] || coreByLocale?.en;
+      const benefitText = benefitByLocale?.[locale] || benefitByLocale?.en;
+      return [
+        locale,
+        {
+          ...copy,
+          masterclass: {
+            ...copy.masterclass,
+            usp: coreText ? `${copy.masterclass.usp} ${coreText}` : copy.masterclass.usp,
+            benefits: benefitText ? [...copy.masterclass.benefits, benefitText] : copy.masterclass.benefits,
+          },
+        },
+      ];
+    }),
+  );
+
+const PROFILE_6_OVERRIDES = {
+  en: {
+    labels: {
+      profileEyebrow: 'You are building careers with care and consistency',
+      challengesTitle: 'Where scouting, ethics, and development intersect',
+      servicesTitle: 'Systems for responsible discovery and growth',
+    },
+    profileSlides: [
+      { title: 'Stewardship Mindset', text: 'You are not only identifying talent; you are influencing how that talent enters the industry ecosystem.' },
+      { title: 'Signal Integrity', text: 'You read early indicators critically, separating sustainable potential from temporary visibility spikes.' },
+      { title: 'Ethical Leverage', text: 'How you scout shapes trust in your network, your brand partners, and the careers you touch.' },
+      { title: 'Development Orientation', text: 'The strongest scouting practice includes pathways, support structures, and realistic progression design.' },
+    ],
+    masterclass: {
+      usp: 'Focused on long-term talent stewardship, ethical decision-making, and development quality.',
+    },
+  },
+  fr: {
+    profileSlides: [
+      { title: 'Logique d’accompagnement', text: 'Vous ne détectez pas seulement des profils: vous influencez les conditions de leur entrée dans l’écosystème.' },
+      { title: 'Intégrité du signal', text: 'Vous distinguez les signaux durables des pics de visibilité passagers.' },
+      { title: 'Levier éthique', text: 'Votre manière de sourcer impacte la confiance réseau et la qualité des trajectoires.' },
+      { title: 'Orientation développement', text: 'Le scouting le plus solide prévoit aussi des passerelles et des rythmes de progression réalistes.' },
+    ],
+    masterclass: { usp: 'Centré sur l’accompagnement long terme des talents, l’éthique des décisions et la qualité du développement.' },
+  },
+  es: {
+    profileSlides: [
+      { title: 'Lógica de acompañamiento', text: 'No solo detectas perfiles: también influyes en cómo entran al ecosistema profesional.' },
+      { title: 'Integridad de señal', text: 'Separas señales sostenibles de picos de visibilidad pasajera.' },
+      { title: 'Palanca ética', text: 'Tu forma de scouting afecta la confianza de red y la calidad de las trayectorias.' },
+      { title: 'Orientación al desarrollo', text: 'El scouting más sólido incluye rutas de crecimiento realistas y soporte continuo.' },
+    ],
+    masterclass: { usp: 'Enfocado en acompañamiento de largo plazo, ética de decisión y calidad de desarrollo del talento.' },
+  },
+  it: {
+    profileSlides: [
+      { title: 'Logica di accompagnamento', text: 'Non individui solo profili: influenzi come entrano nell’ecosistema professionale.' },
+      { title: 'Integrità del segnale', text: 'Distingui segnali sostenibili da picchi di visibilità temporanei.' },
+      { title: 'Leva etica', text: 'Il modo in cui fai scouting incide su fiducia di rete e qualità delle traiettorie.' },
+      { title: 'Orientamento allo sviluppo', text: 'La pratica più solida include percorsi realistici e strutture di supporto continue.' },
+    ],
+    masterclass: { usp: 'Focalizzato su accompagnamento nel lungo periodo, etica decisionale e qualità dello sviluppo talenti.' },
+  },
+  pt: {
+    profileSlides: [
+      { title: 'Lógica de acompanhamento', text: 'Você não apenas identifica perfis: influencia como eles entram no ecossistema profissional.' },
+      { title: 'Integridade de sinal', text: 'Separa sinais sustentáveis de picos temporários de visibilidade.' },
+      { title: 'Alavanca ética', text: 'Seu modo de scouting afeta confiança de rede e qualidade de trajetória.' },
+      { title: 'Orientação para desenvolvimento', text: 'A prática mais sólida inclui rotas realistas de evolução e suporte contínuo.' },
+    ],
+    masterclass: { usp: 'Focado em acompanhamento de longo prazo, ética nas decisões e qualidade no desenvolvimento de talentos.' },
+  },
+  de: {
+    profileSlides: [
+      { title: 'Begleitungslogik', text: 'Sie identifizieren nicht nur Profile, sondern prägen auch, wie Talente in das Ökosystem eintreten.' },
+      { title: 'Signalintegrität', text: 'Sie trennen tragfähige Signale von kurzfristigen Sichtbarkeitsspitzen.' },
+      { title: 'Ethischer Hebel', text: 'Ihre Scouting-Praxis beeinflusst Netzwerkvertrauen und Entwicklungsqualität.' },
+      { title: 'Entwicklungsorientierung', text: 'Starkes Scouting umfasst realistische Entwicklungswege und dauerhafte Unterstützung.' },
+    ],
+    masterclass: { usp: 'Fokussiert auf langfristige Talentbegleitung, ethische Entscheidungen und Entwicklungsqualität.' },
+  },
+};
+
+const trackTemplateByRole = (profileId) => {
+  const canonicalEn = getCanonicalRoleLabel(`profile_${profileId}`, 'en');
+  const track = detectRoleTrackFromLabel(canonicalEn);
+
+  if (track === 'education') return EDUCATION_DIRECTOR_PACK;
+  if (track === 'content') return FASHION_VIDEOGRAPHER_PACK;
+  if (track === 'talent') return TALENT_SCOUT_PACK;
+  return CREATIVE_DIRECTOR_PACK;
+};
+
+const withGeneratedTrackIdentity = (_profileId, pack) =>
+  Object.fromEntries(
+    Object.entries(pack).map(([locale, copy]) => [
+      locale,
+      {
+        ...copy,
+      },
+    ]),
+  );
+
+const BASE_PROFILE_LIBRARY = {
+  profile_1: withProfileAiTeachings('profile_1', CREATIVE_DIRECTOR_PACK),
+  profile_2: withProfileAiTeachings('profile_2', FASHION_VIDEOGRAPHER_PACK),
+  profile_3: withProfileAiTeachings('profile_3', TALENT_SCOUT_PACK),
+  profile_4: withProfileAiTeachings('profile_4', applyLocaleOverrides(CREATIVE_DIRECTOR_PACK, PROFILE_4_OVERRIDES)),
+  profile_5: withProfileAiTeachings('profile_5', applyLocaleOverrides(FASHION_VIDEOGRAPHER_PACK, PROFILE_5_OVERRIDES)),
+  profile_6: withProfileAiTeachings('profile_6', applyLocaleOverrides(TALENT_SCOUT_PACK, PROFILE_6_OVERRIDES)),
+};
+
+const GENERATED_PROFILE_LIBRARY = Object.fromEntries(
+  GENERATED_PROFILE_IDS.map((profileId) => {
+    const basePack = trackTemplateByRole(profileId);
+    return [`profile_${profileId}`, withGeneratedTrackIdentity(profileId, basePack)];
+  }),
+);
+
+const PROFILE_COPY_LIBRARY_DRAFT = {
+  ...BASE_PROFILE_LIBRARY,
+  ...GENERATED_PROFILE_LIBRARY,
+};
+
+const enforceCanonicalRoleLabels = (library) =>
+  Object.fromEntries(
+    Object.entries(library).map(([profileKey, localeMap]) => [
+      profileKey,
+      Object.fromEntries(
+        Object.entries(localeMap).map(([locale, copy]) => {
+          const canonical = getCanonicalRoleLabel(profileKey, locale);
+          return [
+            locale,
+            {
+              ...copy,
+              roleName: canonical,
+              navProfile: canonical,
+              labels: {
+                ...copy.labels,
+                challengesTitle: roleSpecificChallengesTitle(canonical, locale),
+              },
+            },
+          ];
+        }),
+      ),
+    ]),
+  );
+
+const PROFILE_COPY_LIBRARY_NORMALIZED = enforceCanonicalRoleLabels(PROFILE_COPY_LIBRARY_DRAFT);
+
+validateCanonicalRoleLexicon(PROFILE_COPY_LIBRARY_NORMALIZED);
+
+export const PROFILE_COPY_LIBRARY = PROFILE_COPY_LIBRARY_NORMALIZED;

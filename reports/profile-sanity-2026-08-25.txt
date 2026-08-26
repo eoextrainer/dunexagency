@@ -1,0 +1,71 @@
+ID | ROLE | TRACK
+---|---|---
+01 | CREATIVE DIRECTOR | creative
+02 | FASHION DESIGNER | creative
+03 | TEXTILE DESIGNER | creative
+04 | PATTERN MAKER | operations
+05 | SAMPLE MAKER | operations
+06 | SOURCING MANAGER | operations
+07 | PRODUCTION MANAGER | operations
+08 | QUALITY CONTROLLER | operations
+09 | LOGISTICS COORDINATOR | operations
+10 | FASHION PHOTOGRAPHER | content
+11 | FASHION VIDEOGRAPHER | content
+12 | FASHION STYLIST | creative
+13 | MAKEUP ARTIST | creative
+14 | HAIR STYLIST | creative
+15 | MODEL AGENT | talent
+16 | TALENT SCOUT | talent
+17 | CASTING DIRECTOR | talent
+18 | RUNWAY MODEL | talent
+19 | EDITORIAL MODEL | content
+20 | COMMERCIAL MODEL | talent
+21 | E-COMMERCE MODEL | talent
+22 | UGC CONTENT CREATOR | creative
+23 | PLUS-SIZE / CURVE MODEL | talent
+24 | FIT MODEL | talent
+25 | PARTS MODEL | talent
+26 | FITNESS MODEL | talent
+27 | SWIMSUIT / LINGERIE MODEL | talent
+28 | PROMOTIONAL MODEL | talent
+29 | ARTISTIC / LIFE MODEL | talent
+30 | MALE FIT MODEL | talent
+31 | SHOWROOM MODEL | talent
+32 | PARTS MODEL - MALE | talent
+33 | ATMOSPHERE MODEL | talent
+34 | DIGITAL / VIRTUAL MODEL | talent
+35 | PHOTOGRAPHY ASSISTANT | creative
+36 | BOOKER / BOOKING AGENT | talent
+37 | CASTING ASSISTANT | talent
+38 | TALENT AGENT | talent
+39 | TALENT MANAGER | talent
+40 | INFLUENCER MARKETING MANAGER | marketing
+41 | SOCIAL MEDIA MANAGER | marketing
+42 | BRAND MARKETING MANAGER | marketing
+43 | PR MANAGER | marketing
+44 | CELEBRITY BOOKER | talent
+45 | TALENT SCOUT - FASHION | talent
+46 | MODEL BOOKER | talent
+47 | CASTING DIRECTOR | talent
+48 | FASHION EDITOR | creative
+49 | FASHION STYLIST - EDITORIAL | content
+50 | FASHION PHOTOGRAPHER - EDITORIAL | content
+51 | FASHION PHOTOGRAPHER - COMMERCIAL | content
+52 | FASHION VIDEOGRAPHER - COMMERCIAL | content
+53 | FASHION STYLIST - COMMERCIAL | creative
+54 | MAKEUP ARTIST - COMMERCIAL | creative
+55 | HAIR STYLIST - COMMERCIAL | creative
+56 | PRODUCTION MANAGER - COMMERCIAL | operations
+57 | POST-PRODUCTION MANAGER | content
+58 | DIGITAL ASSET MANAGER | digital
+59 | E-COMMERCE MANAGER | digital
+60 | CHIEF DIGITAL OFFICER | digital
+61 | Fashion Modelling School Director | education
+62 | Fashion Design School Director | education
+
+FLAGGED
+none
+
+SUMMARY
+education=2, content=8, talent=26, operations=7, marketing=4, digital=3, creative=12
+total_flagged=0

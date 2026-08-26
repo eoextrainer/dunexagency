@@ -1,0 +1,274 @@
+SUMMARY
+total_checks=372
+total_pass=372
+total_fail=0
+
+FOCUSED_SPOTCHECK_59_62
+profile_59
+en: PASS | roleName="E-commerce Manager" | title="Where E-commerce Manager is most tested in real work"
+fr: PASS | roleName="Responsable E-commerce" | title="Où le rôle de Responsable E-commerce est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="E-Commerce Gerente" | title="Dónde el rol de E-Commerce Gerente se pone más a prueba en la práctica"
+it: PASS | roleName="E-Commerce Manager" | title="Dove il ruolo di E-Commerce Manager viene più messo alla prova nella pratica"
+pt: PASS | roleName="E-Commerce Gerente" | title="Onde o papel de E-Commerce Gerente é mais testado na prática"
+de: PASS | roleName="E-Commerce Manager" | title="Wo die Rolle E-Commerce Manager in der Praxis am stärksten gefordert ist"
+
+profile_60
+en: PASS | roleName="Chief Digital Officer" | title="Where Chief Digital Officer is most tested in real work"
+fr: PASS | roleName="CDO" | title="Où le rôle de CDO est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Director Digital Oficial" | title="Dónde el rol de Director Digital Oficial se pone más a prueba en la práctica"
+it: PASS | roleName="Chief Digitale Officer" | title="Dove il ruolo di Chief Digitale Officer viene più messo alla prova nella pratica"
+pt: PASS | roleName="Diretor Digital Oficial" | title="Onde o papel de Diretor Digital Oficial é mais testado na prática"
+de: PASS | roleName="Chief Digital Officer" | title="Wo die Rolle Chief Digital Officer in der Praxis am stärksten gefordert ist"
+
+profile_61
+en: PASS | roleName="Fashion Modelling School Director" | title="Where Fashion Modelling School Director is most tested in real work"
+fr: PASS | roleName="Directeur d'école de mannequinat" | title="Où le rôle de Directeur d'école de mannequinat est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Director de escuela de modelaje de moda" | title="Dónde el rol de Director de escuela de modelaje de moda se pone más a prueba en la práctica"
+it: PASS | roleName="Direttore di scuola di modellazione moda" | title="Dove il ruolo di Direttore di scuola di modellazione moda viene più messo alla prova nella pratica"
+pt: PASS | roleName="Diretor de escola de modelagem de moda" | title="Onde o papel de Diretor de escola de modelagem de moda é mais testado na prática"
+de: PASS | roleName="Leiter einer Fashion-Modelschule" | title="Wo die Rolle Leiter einer Fashion-Modelschule in der Praxis am stärksten gefordert ist"
+
+profile_62
+en: PASS | roleName="Fashion Design School Director" | title="Where Fashion Design School Director is most tested in real work"
+fr: PASS | roleName="Directeur d'école de design de mode" | title="Où le rôle de Directeur d'école de design de mode est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Director de escuela de diseño de moda" | title="Dónde el rol de Director de escuela de diseño de moda se pone más a prueba en la práctica"
+it: PASS | roleName="Direttore di scuola di design della moda" | title="Dove il ruolo di Direttore di scuola di design della moda viene più messo alla prova nella pratica"
+pt: PASS | roleName="Diretor de escola de design de moda" | title="Onde o papel de Diretor de escola de design de moda é mais testado na prática"
+de: PASS | roleName="Leiter einer Modeschule für Design" | title="Wo die Rolle Leiter einer Modeschule für Design in der Praxis am stärksten gefordert ist"
+
+FOCUSED_SCOUT_MODEL_EDGES
+edge_ids=15,16,17,18,19,20,21,23,24,25,26,27,28,29,30,31,32,33,34,36,37,38,39,44,45,46,47,61
+profile_15
+en: PASS | roleName="Model Agent" | title="Where Model Agent is most tested in real work"
+fr: PASS | roleName="Agent de Mannequins" | title="Où le rôle de Agent de Mannequins est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Modelo Agente" | title="Dónde el rol de Modelo Agente se pone más a prueba en la práctica"
+it: PASS | roleName="Modello Agente" | title="Dove il ruolo di Modello Agente viene più messo alla prova nella pratica"
+pt: PASS | roleName="Modelo Agente" | title="Onde o papel de Modelo Agente é mais testado na prática"
+de: PASS | roleName="Model Agent" | title="Wo die Rolle Model Agent in der Praxis am stärksten gefordert ist"
+
+profile_16
+en: PASS | roleName="Talent Scout" | title="Where Talent Scout is most tested in real work"
+fr: PASS | roleName="Chasseur de Têtes" | title="Où le rôle de Chasseur de Têtes est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Talento Cazatalentos" | title="Dónde el rol de Talento Cazatalentos se pone más a prueba en la práctica"
+it: PASS | roleName="Talenti Scout" | title="Dove il ruolo di Talenti Scout viene più messo alla prova nella pratica"
+pt: PASS | roleName="Talentos Olheiro" | title="Onde o papel de Talentos Olheiro é mais testado na prática"
+de: PASS | roleName="Talent Scout" | title="Wo die Rolle Talent Scout in der Praxis am stärksten gefordert ist"
+
+profile_17
+en: PASS | roleName="Casting Director" | title="Where Casting Director is most tested in real work"
+fr: PASS | roleName="Directeur de Casting" | title="Où le rôle de Directeur de Casting est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Casting Director" | title="Dónde el rol de Casting Director se pone más a prueba en la práctica"
+it: PASS | roleName="Casting Direttore" | title="Dove il ruolo di Casting Direttore viene più messo alla prova nella pratica"
+pt: PASS | roleName="Casting Diretor" | title="Onde o papel de Casting Diretor é mais testado na prática"
+de: PASS | roleName="Casting Direktor" | title="Wo die Rolle Casting Direktor in der Praxis am stärksten gefordert ist"
+
+profile_18
+en: PASS | roleName="Runway Model" | title="Where Runway Model is most tested in real work"
+fr: PASS | roleName="Mannequin de Défilé" | title="Où le rôle de Mannequin de Défilé est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Pasarela Modelo" | title="Dónde el rol de Pasarela Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Passerella Modello" | title="Dove il ruolo di Passerella Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Passarela Modelo" | title="Onde o papel de Passarela Modelo é mais testado na prática"
+de: PASS | roleName="Laufsteg Model" | title="Wo die Rolle Laufsteg Model in der Praxis am stärksten gefordert ist"
+
+profile_19
+en: PASS | roleName="Editorial Model" | title="Where Editorial Model is most tested in real work"
+fr: PASS | roleName="Mannequin Éditorial" | title="Où le rôle de Mannequin Éditorial est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Editorial Modelo" | title="Dónde el rol de Editorial Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Editoriale Modello" | title="Dove il ruolo di Editoriale Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Editorial Modelo" | title="Onde o papel de Editorial Modelo é mais testado na prática"
+de: PASS | roleName="Editorial Model" | title="Wo die Rolle Editorial Model in der Praxis am stärksten gefordert ist"
+
+profile_20
+en: PASS | roleName="Commercial Model" | title="Where Commercial Model is most tested in real work"
+fr: PASS | roleName="Mannequin Commercial" | title="Où le rôle de Mannequin Commercial est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Comercial Modelo" | title="Dónde el rol de Comercial Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Commerciale Modello" | title="Dove il ruolo di Commerciale Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Comercial Modelo" | title="Onde o papel de Comercial Modelo é mais testado na prática"
+de: PASS | roleName="Kommerziell Model" | title="Wo die Rolle Kommerziell Model in der Praxis am stärksten gefordert ist"
+
+profile_21
+en: PASS | roleName="E-commerce Model" | title="Where E-commerce Model is most tested in real work"
+fr: PASS | roleName="Mannequin E-commerce" | title="Où le rôle de Mannequin E-commerce est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="E-Commerce Modelo" | title="Dónde el rol de E-Commerce Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="E-Commerce Modello" | title="Dove il ruolo di E-Commerce Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="E-Commerce Modelo" | title="Onde o papel de E-Commerce Modelo é mais testado na prática"
+de: PASS | roleName="E-Commerce Model" | title="Wo die Rolle E-Commerce Model in der Praxis am stärksten gefordert ist"
+
+profile_23
+en: PASS | roleName="Plus-size / Curve Model" | title="Where Plus-size / Curve Model is most tested in real work"
+fr: PASS | roleName="Mannequin Curve" | title="Où le rôle de Mannequin Curve est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Plus-Size / Curve Modelo" | title="Dónde el rol de Plus-Size / Curve Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Plus-Size / Curve Modello" | title="Dove il ruolo di Plus-Size / Curve Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Plus-Size / Curve Modelo" | title="Onde o papel de Plus-Size / Curve Modelo é mais testado na prática"
+de: PASS | roleName="Plus-Size / Curve Model" | title="Wo die Rolle Plus-Size / Curve Model in der Praxis am stärksten gefordert ist"
+
+profile_24
+en: PASS | roleName="Fit Model" | title="Where Fit Model is most tested in real work"
+fr: PASS | roleName="Mannequin Cabine" | title="Où le rôle de Mannequin Cabine est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Ajuste Modelo" | title="Dónde el rol de Ajuste Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Fit Modello" | title="Dove il ruolo di Fit Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Ajuste Modelo" | title="Onde o papel de Ajuste Modelo é mais testado na prática"
+de: PASS | roleName="Passform Model" | title="Wo die Rolle Passform Model in der Praxis am stärksten gefordert ist"
+
+profile_25
+en: PASS | roleName="Parts Model" | title="Where Parts Model is most tested in real work"
+fr: PASS | roleName="Mannequin de Détails" | title="Où le rôle de Mannequin de Détails est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Partes Modelo" | title="Dónde el rol de Partes Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Parti Modello" | title="Dove il ruolo di Parti Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Partes Modelo" | title="Onde o papel de Partes Modelo é mais testado na prática"
+de: PASS | roleName="Teile Model" | title="Wo die Rolle Teile Model in der Praxis am stärksten gefordert ist"
+
+profile_26
+en: PASS | roleName="Fitness Model" | title="Where Fitness Model is most tested in real work"
+fr: PASS | roleName="Mannequin Fitness" | title="Où le rôle de Mannequin Fitness est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Fitness Modelo" | title="Dónde el rol de Fitness Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Fitness Modello" | title="Dove il ruolo di Fitness Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Fitness Modelo" | title="Onde o papel de Fitness Modelo é mais testado na prática"
+de: PASS | roleName="Fitness Model" | title="Wo die Rolle Fitness Model in der Praxis am stärksten gefordert ist"
+
+profile_27
+en: PASS | roleName="Swimsuit / Lingerie Model" | title="Where Swimsuit / Lingerie Model is most tested in real work"
+fr: PASS | roleName="Mannequin de Maillot de Bain" | title="Où le rôle de Mannequin de Maillot de Bain est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Baño / Lencería Modelo" | title="Dónde el rol de Baño / Lencería Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Costumi / Lingerie Modello" | title="Dove il ruolo di Costumi / Lingerie Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Banho / Lingerie Modelo" | title="Onde o papel de Banho / Lingerie Modelo é mais testado na prática"
+de: PASS | roleName="Bademode / Dessous Model" | title="Wo die Rolle Bademode / Dessous Model in der Praxis am stärksten gefordert ist"
+
+profile_28
+en: PASS | roleName="Promotional Model" | title="Where Promotional Model is most tested in real work"
+fr: PASS | roleName="Mannequin Promotional" | title="Où le rôle de Mannequin Promotional est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Promocional Modelo" | title="Dónde el rol de Promocional Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Promozionale Modello" | title="Dove il ruolo di Promozionale Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Promocional Modelo" | title="Onde o papel de Promocional Modelo é mais testado na prática"
+de: PASS | roleName="Promotion Model" | title="Wo die Rolle Promotion Model in der Praxis am stärksten gefordert ist"
+
+profile_29
+en: PASS | roleName="Artistic / Life Model" | title="Where Artistic / Life Model is most tested in real work"
+fr: PASS | roleName="Modèle Vivant" | title="Où le rôle de Modèle Vivant est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Artístico / Vida Modelo" | title="Dónde el rol de Artístico / Vida Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Artistico / Vita Modello" | title="Dove il ruolo di Artistico / Vita Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Artístico / Vida Modelo" | title="Onde o papel de Artístico / Vida Modelo é mais testado na prática"
+de: PASS | roleName="Kunst / Leben Model" | title="Wo die Rolle Kunst / Leben Model in der Praxis am stärksten gefordert ist"
+
+profile_30
+en: PASS | roleName="Male Fit Model" | title="Where Male Fit Model is most tested in real work"
+fr: PASS | roleName="Modèle d'Ajustage Masculin" | title="Où le rôle de Modèle d'Ajustage Masculin est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Masculino Ajuste Modelo" | title="Dónde el rol de Masculino Ajuste Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Maschile Fit Modello" | title="Dove il ruolo di Maschile Fit Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Masculino Ajuste Modelo" | title="Onde o papel de Masculino Ajuste Modelo é mais testado na prática"
+de: PASS | roleName="Männlich Passform Model" | title="Wo die Rolle Männlich Passform Model in der Praxis am stärksten gefordert ist"
+
+profile_31
+en: PASS | roleName="Showroom Model" | title="Where Showroom Model is most tested in real work"
+fr: PASS | roleName="Mannequin de Showroom" | title="Où le rôle de Mannequin de Showroom est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Showroom Modelo" | title="Dónde el rol de Showroom Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Showroom Modello" | title="Dove il ruolo di Showroom Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Showroom Modelo" | title="Onde o papel de Showroom Modelo é mais testado na prática"
+de: PASS | roleName="Showroom Model" | title="Wo die Rolle Showroom Model in der Praxis am stärksten gefordert ist"
+
+profile_32
+en: PASS | roleName="Parts Model - Male" | title="Where Parts Model - Male is most tested in real work"
+fr: PASS | roleName="Mannequin de Détails Masculin" | title="Où le rôle de Mannequin de Détails Masculin est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Partes Modelo - Masculino" | title="Dónde el rol de Partes Modelo - Masculino se pone más a prueba en la práctica"
+it: PASS | roleName="Parti Modello - Maschile" | title="Dove il ruolo di Parti Modello - Maschile viene più messo alla prova nella pratica"
+pt: PASS | roleName="Partes Modelo - Masculino" | title="Onde o papel de Partes Modelo - Masculino é mais testado na prática"
+de: PASS | roleName="Teile Model - Männlich" | title="Wo die Rolle Teile Model - Männlich in der Praxis am stärksten gefordert ist"
+
+profile_33
+en: PASS | roleName="Atmosphere Model" | title="Where Atmosphere Model is most tested in real work"
+fr: PASS | roleName="Modèle d'Ambiance" | title="Où le rôle de Modèle d'Ambiance est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Ambiente Modelo" | title="Dónde el rol de Ambiente Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Atmosfera Modello" | title="Dove il ruolo di Atmosfera Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Atmosfera Modelo" | title="Onde o papel de Atmosfera Modelo é mais testado na prática"
+de: PASS | roleName="Atmosphäre Model" | title="Wo die Rolle Atmosphäre Model in der Praxis am stärksten gefordert ist"
+
+profile_34
+en: PASS | roleName="Digital / Virtual Model" | title="Where Digital / Virtual Model is most tested in real work"
+fr: PASS | roleName="Modèle Numérique" | title="Où le rôle de Modèle Numérique est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Digital / Virtual Modelo" | title="Dónde el rol de Digital / Virtual Modelo se pone más a prueba en la práctica"
+it: PASS | roleName="Digitale / Virtuale Modello" | title="Dove il ruolo di Digitale / Virtuale Modello viene più messo alla prova nella pratica"
+pt: PASS | roleName="Digital / Virtual Modelo" | title="Onde o papel de Digital / Virtual Modelo é mais testado na prática"
+de: PASS | roleName="Digital / Virtuell Model" | title="Wo die Rolle Digital / Virtuell Model in der Praxis am stärksten gefordert ist"
+
+profile_36
+en: PASS | roleName="Booker / Booking Agent" | title="Where Booker / Booking Agent is most tested in real work"
+fr: PASS | roleName="Booker" | title="Où le rôle de Booker est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Booker / Reservas Agente" | title="Dónde el rol de Booker / Reservas Agente se pone más a prueba en la práctica"
+it: PASS | roleName="Booker / Booking Agente" | title="Dove il ruolo di Booker / Booking Agente viene più messo alla prova nella pratica"
+pt: PASS | roleName="Booker / Reservas Agente" | title="Onde o papel de Booker / Reservas Agente é mais testado na prática"
+de: PASS | roleName="Booker / Booking Agent" | title="Wo die Rolle Booker / Booking Agent in der Praxis am stärksten gefordert ist"
+
+profile_37
+en: PASS | roleName="Casting Assistant" | title="Where Casting Assistant is most tested in real work"
+fr: PASS | roleName="Assistant de Casting" | title="Où le rôle de Assistant de Casting est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Casting Asistente" | title="Dónde el rol de Casting Asistente se pone más a prueba en la práctica"
+it: PASS | roleName="Casting Assistente" | title="Dove il ruolo di Casting Assistente viene più messo alla prova nella pratica"
+pt: PASS | roleName="Casting Assistente" | title="Onde o papel de Casting Assistente é mais testado na prática"
+de: PASS | roleName="Casting Assistent" | title="Wo die Rolle Casting Assistent in der Praxis am stärksten gefordert ist"
+
+profile_38
+en: PASS | roleName="Talent Agent" | title="Where Talent Agent is most tested in real work"
+fr: PASS | roleName="Agent de Talents" | title="Où le rôle de Agent de Talents est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Talento Agente" | title="Dónde el rol de Talento Agente se pone más a prueba en la práctica"
+it: PASS | roleName="Talenti Agente" | title="Dove il ruolo di Talenti Agente viene più messo alla prova nella pratica"
+pt: PASS | roleName="Talentos Agente" | title="Onde o papel de Talentos Agente é mais testado na prática"
+de: PASS | roleName="Talent Agent" | title="Wo die Rolle Talent Agent in der Praxis am stärksten gefordert ist"
+
+profile_39
+en: PASS | roleName="Talent Manager" | title="Where Talent Manager is most tested in real work"
+fr: PASS | roleName="Responsable de Talents" | title="Où le rôle de Responsable de Talents est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Talento Gerente" | title="Dónde el rol de Talento Gerente se pone más a prueba en la práctica"
+it: PASS | roleName="Talenti Manager" | title="Dove il ruolo di Talenti Manager viene più messo alla prova nella pratica"
+pt: PASS | roleName="Talentos Gerente" | title="Onde o papel de Talentos Gerente é mais testado na prática"
+de: PASS | roleName="Talent Manager" | title="Wo die Rolle Talent Manager in der Praxis am stärksten gefordert ist"
+
+profile_44
+en: PASS | roleName="Celebrity Booker" | title="Where Celebrity Booker is most tested in real work"
+fr: PASS | roleName="Booker de Célébrités" | title="Où le rôle de Booker de Célébrités est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Celebridades Booker" | title="Dónde el rol de Celebridades Booker se pone más a prueba en la práctica"
+it: PASS | roleName="Celebrità Booker" | title="Dove il ruolo di Celebrità Booker viene più messo alla prova nella pratica"
+pt: PASS | roleName="Celebridades Booker" | title="Onde o papel de Celebridades Booker é mais testado na prática"
+de: PASS | roleName="Promi Booker" | title="Wo die Rolle Promi Booker in der Praxis am stärksten gefordert ist"
+
+profile_45
+en: PASS | roleName="Talent Scout - Fashion" | title="Where Talent Scout - Fashion is most tested in real work"
+fr: PASS | roleName="Chasseur de Talents" | title="Où le rôle de Chasseur de Talents est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Talento Cazatalentos - Moda" | title="Dónde el rol de Talento Cazatalentos - Moda se pone más a prueba en la práctica"
+it: PASS | roleName="Talenti Scout - Moda" | title="Dove il ruolo di Talenti Scout - Moda viene più messo alla prova nella pratica"
+pt: PASS | roleName="Talentos Olheiro - Moda" | title="Onde o papel de Talentos Olheiro - Moda é mais testado na prática"
+de: PASS | roleName="Talent Scout - Mode" | title="Wo die Rolle Talent Scout - Mode in der Praxis am stärksten gefordert ist"
+
+profile_46
+en: PASS | roleName="Model Booker" | title="Where Model Booker is most tested in real work"
+fr: PASS | roleName="Booker" | title="Où le rôle de Booker est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Modelo Booker" | title="Dónde el rol de Modelo Booker se pone más a prueba en la práctica"
+it: PASS | roleName="Modello Booker" | title="Dove il ruolo di Modello Booker viene più messo alla prova nella pratica"
+pt: PASS | roleName="Modelo Booker" | title="Onde o papel de Modelo Booker é mais testado na prática"
+de: PASS | roleName="Model Booker" | title="Wo die Rolle Model Booker in der Praxis am stärksten gefordert ist"
+
+profile_47
+en: PASS | roleName="Casting Director" | title="Where Casting Director is most tested in real work"
+fr: PASS | roleName="Directeur de Casting" | title="Où le rôle de Directeur de Casting est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Casting Director" | title="Dónde el rol de Casting Director se pone más a prueba en la práctica"
+it: PASS | roleName="Casting Direttore" | title="Dove il ruolo di Casting Direttore viene più messo alla prova nella pratica"
+pt: PASS | roleName="Casting Diretor" | title="Onde o papel de Casting Diretor é mais testado na prática"
+de: PASS | roleName="Casting Direktor" | title="Wo die Rolle Casting Direktor in der Praxis am stärksten gefordert ist"
+
+profile_61
+en: PASS | roleName="Fashion Modelling School Director" | title="Where Fashion Modelling School Director is most tested in real work"
+fr: PASS | roleName="Directeur d'école de mannequinat" | title="Où le rôle de Directeur d'école de mannequinat est le plus mis à l'épreuve sur le terrain"
+es: PASS | roleName="Director de escuela de modelaje de moda" | title="Dónde el rol de Director de escuela de modelaje de moda se pone más a prueba en la práctica"
+it: PASS | roleName="Direttore di scuola di modellazione moda" | title="Dove il ruolo di Direttore di scuola di modellazione moda viene più messo alla prova nella pratica"
+pt: PASS | roleName="Diretor de escola de modelagem de moda" | title="Onde o papel de Diretor de escola de modelagem de moda é mais testado na prática"
+de: PASS | roleName="Leiter einer Fashion-Modelschule" | title="Wo die Rolle Leiter einer Fashion-Modelschule in der Praxis am stärksten gefordert ist"
+
+ALL_PROFILES_LANGUAGE_SUMMARY
+en: pass=62, fail=0
+fr: pass=62, fail=0
+es: pass=62, fail=0
+it: pass=62, fail=0
+pt: pass=62, fail=0
+de: pass=62, fail=0
+
+FAILURES
+none

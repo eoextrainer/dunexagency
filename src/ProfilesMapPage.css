@@ -1,0 +1,296 @@
+.profiles-map-page {
+  min-height: 100vh;
+}
+
+.profiles-top-nav {
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.profiles-tag {
+  color: #f8f5f0;
+  border: 1px solid rgba(248, 245, 240, 0.42);
+  border-radius: 999px;
+  padding: 0.33rem 0.62rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, rgba(12, 12, 12, 0.48), rgba(27, 27, 27, 0.22));
+}
+
+.profiles-top-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.profiles-language-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.26rem 0.42rem;
+  border-radius: 999px;
+  border: 1px solid rgba(248, 245, 240, 0.32);
+  background: linear-gradient(120deg, rgba(17, 17, 17, 0.46), rgba(33, 33, 33, 0.22));
+}
+
+.profiles-language-label {
+  color: rgba(248, 245, 240, 0.9);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.profiles-language-switch select {
+  border: 1px solid rgba(248, 245, 240, 0.26);
+  border-radius: 999px;
+  background: rgba(248, 245, 240, 0.1);
+  color: #fff;
+  padding: 0.24rem 0.5rem;
+  font-size: 0.71rem;
+  letter-spacing: 0.03em;
+}
+
+.profiles-language-switch option {
+  color: #101010;
+}
+
+.profiles-main {
+  padding-top: 6.9rem;
+}
+
+.profiles-intro {
+  margin: 0.6rem auto 0;
+  max-width: 720px;
+  color: rgba(248, 245, 240, 0.86);
+  line-height: 1.75;
+  font-size: 0.96rem;
+  letter-spacing: 0.01em;
+}
+
+.profiles-main .section-heading h2 {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.profiles-routes,
+.profiles-plan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.85rem;
+}
+
+.profiles-qa-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.85rem;
+  margin-bottom: 0.9rem;
+}
+
+.profiles-qa-grid {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.3rem;
+}
+
+.profiles-qa-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  border: 1px solid rgba(26, 26, 26, 0.09);
+  border-radius: 0.66rem;
+  padding: 0.42rem 0.5rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.profiles-qa-profile {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.73rem;
+  letter-spacing: 0.02em;
+}
+
+.profiles-qa-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.19rem 0.5rem;
+  font-size: 0.67rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.profiles-qa-chip.is-pass {
+  background: rgba(50, 130, 74, 0.14);
+  color: #1f5b33;
+  border-color: rgba(35, 112, 59, 0.36);
+}
+
+.profiles-qa-chip.is-fail {
+  background: rgba(164, 52, 46, 0.15);
+  color: #7b211c;
+  border-color: rgba(164, 52, 46, 0.35);
+}
+
+.profiles-route-card,
+.profiles-plan-card {
+  border-radius: 1.1rem;
+  border: 1px solid rgba(201, 169, 110, 0.42);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(190, 152, 84, 0.19), transparent 37%),
+    radial-gradient(circle at 100% 100%, rgba(42, 42, 42, 0.08), transparent 55%),
+    linear-gradient(160deg, rgba(255, 252, 247, 0.97), rgba(238, 226, 206, 0.96));
+  padding: 1.08rem;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.11);
+}
+
+.profiles-route-card h3,
+.profiles-plan-card h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+}
+
+.profiles-route-card p,
+.profiles-plan-card p {
+  margin: 0.42rem 0 0;
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.86);
+  font-size: 0.85rem;
+}
+
+.profiles-route-card a,
+.profiles-plan-card a {
+  display: inline-flex;
+  margin-top: 0.8rem;
+  text-decoration: none;
+  color: #1a1a1a;
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  border-radius: 999px;
+  padding: 0.37rem 0.64rem;
+  font-size: 0.73rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, #d6b462, #c09a57);
+}
+
+.profiles-route-card a:hover,
+.profiles-plan-card a:hover {
+  filter: brightness(1.03);
+}
+
+.profile-kicker {
+  margin: 0;
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(91, 68, 25, 0.88);
+}
+
+.profile-description {
+  min-height: 2.8rem;
+}
+
+.profile-route {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.77rem;
+  color: rgba(26, 26, 26, 0.66);
+}
+
+.profile-source {
+  font-size: 0.78rem;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.profiles-section-title-wrap {
+  grid-column: 1 / -1;
+  margin-top: 0.15rem;
+}
+
+.profiles-section-title-wrap h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: rgba(248, 245, 240, 0.94);
+  letter-spacing: 0.02em;
+}
+
+.profiles-url-table-shell {
+  margin-top: 1.1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(201, 169, 110, 0.36);
+  background:
+    radial-gradient(circle at 8% 12%, rgba(190, 152, 84, 0.15), transparent 38%),
+    linear-gradient(160deg, rgba(255, 252, 247, 0.97), rgba(238, 226, 206, 0.96));
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.11);
+  overflow: hidden;
+}
+
+.profiles-table-header {
+  padding: 0.9rem 1rem 0.75rem;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3);
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.profiles-table-header h3 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.25rem, 2.3vw, 1.65rem);
+  color: rgba(26, 26, 26, 0.92);
+}
+
+.profiles-table-header p {
+  margin: 0.22rem 0 0;
+  color: rgba(26, 26, 26, 0.72);
+  font-size: 0.78rem;
+}
+
+.profiles-url-table-wrap {
+  overflow-x: auto;
+}
+
+.profiles-url-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 780px;
+}
+
+.profiles-url-table th,
+.profiles-url-table td {
+  text-align: left;
+  padding: 0.6rem 0.72rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+  vertical-align: top;
+}
+
+.profiles-url-table th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(26, 26, 26, 0.76);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.profiles-url-table td {
+  font-size: 0.84rem;
+  color: rgba(26, 26, 26, 0.86);
+}
+
+.profiles-url-table td:first-child {
+  font-family: 'Source Code Pro', monospace;
+  white-space: nowrap;
+}
+
+.profiles-url-table td:last-child a {
+  color: #174f7a;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.profiles-url-table td:last-child a:hover {
+  text-decoration: underline;
+}

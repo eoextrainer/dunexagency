@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Model placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#6b2e3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#g)"/>
+  <text x="50%" y="48%" text-anchor="middle" fill="#f8f5f0" font-family="Georgia, serif" font-size="56" letter-spacing="8">EOEX</text>
+  <text x="50%" y="54%" text-anchor="middle" fill="#d4af37" font-family="Arial, sans-serif" font-size="22" letter-spacing="4">MODEL PLACEHOLDER</text>
+</svg>
